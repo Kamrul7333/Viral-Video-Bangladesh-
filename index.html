@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta name="description" content="Shadow Hub - প্রিমিয়াম কনটেন্ট হাব">
+<meta name="description" content="Viral Video Bangladesh - প্রিমিয়াম কনটেন্ট হাব">
 <meta name="theme-color" content="#121212">
 <title>Viral Video Bangladesh</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232DD4BF'/%3E%3Cstop offset='50%25' stop-color='%23818CF8'/%3E%3Cstop offset='100%25' stop-color='%23FB923C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='46' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-size='52' text-anchor='middle' fill='%23030712' font-family='Arial' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232DD4BF'/%3E%3Cstop offset='50%25' stop-color='%23818CF8'/%3E%3Cstop offset='100%25' stop-color='%23FB923C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='46' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-size='52' text-anchor='middle' fill='%23030712' font-family='Arial' font-weight='bold'%3EV%3C/text%3E%3C/svg%3E">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -218,7 +218,7 @@ body {
 }
 .title {
     position: relative;
-    font-size: 27px; font-weight: 800; letter-spacing: -1.2px;
+    font-size: 24px; font-weight: 800; letter-spacing: -0.5px;
     background: var(--grad);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     display: inline-flex; align-items: center; gap: 8px;
@@ -797,26 +797,6 @@ body {
 #splashScreen.splash-hidden {
     opacity: 0; visibility: hidden; pointer-events: none;
 }
-.splash-orb { display:none !important;
-    position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none;
-    animation: orbFloat 7s ease-in-out infinite;
-}
-.splash-orb.o1 { display:none !important;
-    width: 260px; height: 260px; top: 0%; left: -80px;
-    background: rgba(59,130,246, 0.4); animation-delay: 0s;
-}
-.splash-orb.o2 {
-    width: 200px; height: 200px; bottom: 5%; right: -60px;
-    background: rgba(156,163,175, 0.32); animation-delay: -2.2s;
-}
-.splash-orb.o3 {
-    width: 140px; height: 140px; top: 45%; left: 55%;
-    background: rgba(96,165,250, 0.3); animation-delay: -4s;
-}
-@keyframes orbFloat {
-    0%, 100% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(18px, -26px) scale(1.1); }
-}
 .splash-center {
     position: relative; z-index: 2;
     display: flex; flex-direction: column; align-items: center; gap: 22px;
@@ -850,17 +830,12 @@ body {
     font-family: var(--font); font-weight: 800; font-size: 56px; line-height: 1;
     color: #fff; text-shadow: 0 4px 18px rgba(0,0,0,0.35);
 }
-.splash-logo-core .splash-model {
-    width: 100%; height: 100%; border-radius: 50%;
-    object-fit: cover; display: block;
-    background: #0E0E0E;
-}
 @keyframes splashPulse {
     0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(59,130,246,0.48), 0 0 70px rgba(156,163,175,0.18), 0 16px 36px rgba(0,0,0,0.5); }
     50% { transform: scale(1.06); box-shadow: 0 0 70px rgba(59,130,246,0.65), 0 0 90px rgba(96,165,250,0.28), 0 16px 36px rgba(0,0,0,0.5); }
 }
 .splash-title {
-    font-weight: 800; font-size: 28px; letter-spacing: -0.9px;
+    font-weight: 800; font-size: 24px; letter-spacing: -0.5px;
     background: linear-gradient(135deg, #3B82F6 0%, #93C5FD 35%, #C4B5FD 65%, #9CA3AF 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     text-align: center;
@@ -868,7 +843,7 @@ body {
 }
 .splash-tagline {
     font-family: var(--font); font-size: 11.5px; font-weight: 600;
-    letter-spacing: 3.2px; text-transform: uppercase;
+    letter-spacing: 2.2px; text-transform: uppercase;
     text-align: center; margin-top: -8px;
     background: linear-gradient(90deg, #9CA3AF 0%, #E5E7EB 40%, #93C5FD 70%, #D1D5DB 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -927,14 +902,6 @@ body {
     0% { transform: translate(-50%, -50%) scale(0); opacity: 0.4; }
     70% { opacity: 0.15; }
     100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-    .touch-ripple { display: none; }
 }
 
 .ptr-indicator {
@@ -1202,7 +1169,7 @@ body {
     font-size: 34px;
 }
 .welcome-modal h3 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
     margin-bottom: 8px;
     font-family: var(--font-bn);
@@ -1302,20 +1269,17 @@ body {
 </div>
 
 <div id="splashScreen">
-    <div class="splash-orb o1"></div>
-    <div class="splash-orb o2"></div>
-    <div class="splash-orb o3"></div>
     <div class="splash-center">
         <div class="splash-logo-wrap">
             <div class="splash-ring-outer"></div>
             <div class="splash-ring-inner"></div>
             <div class="splash-logo-core">
-                <span class="splash-letter">S</span>
+                <span class="splash-letter">V</span>
             </div>
         </div>
         <div>
-<div class="splash-title">Viral Video Bangladesh</div>
-            <div class="splash-tagline">✦ Connecting to Shadow World ✦</div>
+            <div class="splash-title">Viral Video Bangladesh</div>
+            <div class="splash-tagline">✦ Connecting to Viral World ✦</div>
         </div>
         <div class="splash-progress-wrap">
             <div class="splash-bar-track"><div class="splash-bar-fill" id="splashBarFill"></div></div>
@@ -1324,6 +1288,17 @@ body {
         <div class="splash-dots"><span></span><span></span><span></span></div>
     </div>
 </div>
+
+<!-- জরুরী সেফটি কোড: কোনো কারণে আটকে গেলে ৩.৫ সেকেন্ডে স্প্ল্যাশ স্ক্রিন জোরপূর্বক বন্ধ হবে -->
+<script>
+setTimeout(function() {
+    var sp = document.getElementById('splashScreen');
+    if (sp && !sp.classList.contains('splash-hidden')) {
+        sp.style.opacity = '0';
+        setTimeout(function() { sp.style.display = 'none'; }, 400);
+    }
+}, 3500);
+</script>
 
 <div id="adWarningModal" class="modal-backdrop" role="dialog" aria-modal="true">
     <div class="warning-modal">
@@ -1350,7 +1325,7 @@ body {
                 <i class="fas fa-star"></i>
             </div>
         </div>
-        <div class="welcome-sub">✦ Viral Video Bangladesh  ✦</div>
+        <div class="welcome-sub">✦ Viral Video Bangladesh ✦</div>
         <h3 id="welcomeTitle">স্বাগতম! ✨</h3>
         <p class="welcome-body" id="welcomeBodyText">
             আজকের নতুন ভাইরাল কনটেন্ট আপনার জন্য অপেক্ষা করছে। <strong>প্রতিদিন নতুন ভিডিও</strong> আনলক করুন, বন্ধুদের ইনভাইট করে <strong>ফ্রি ক্রেডিট</strong> পান — আর মজার দুনিয়ায় ডুব দিন!
@@ -1395,7 +1370,7 @@ body {
 
     <div id="mainContent">
         <div class="header fadeIn">
-<h1 class="title">Viral Video Bangladesh</h1>
+            <h1 class="title">Viral Video Bangladesh</h1>
             <div class="subtitle">Premium Viral Content</div>
         </div>
 
@@ -1550,6 +1525,7 @@ const user = tg.initDataUnsafe?.user;
 const currentUserId = user?.id || 12345678;
 const startParam = tg.initDataUnsafe?.start_param;
 const fallbackImg = "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="340"><rect width="600" height="340" fill="#121212"/><rect x="1" y="1" width="598" height="338" fill="none" stroke="#60A5FA" stroke-width="2"/><circle cx="300" cy="150" r="34" fill="#3B82F6"/><path d="M290 134 L318 150 L290 166 Z" fill="#121212"/><text x="300" y="220" font-family="Arial" font-size="22" fill="#3B82F6" text-anchor="middle" font-weight="bold">Unlock to Watch</text></svg>`);
+
 const CREDIT_LOGO = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAGYktHRAD/AP8A/6C9p5MAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfqCRIMAS5A3KrLAAAArHpUWHRSYXcgcHJvZmlsZSB0eXBlIGlwdGMAAAiZHU5JDgMhDLvzij4hCcSG58xQkHrrof9XzWAJxcEL5fP9zfI6x92LT/O8zKz6HdkoHilqkw2Ois4BYmKzCsl6FOwyNHQ4TRhhhYZ5nsNYMXghNRkGlrYWppDBwNS0sXR3pOzB9jieqOMpiKf3BiXfTCy004ll5r0RySaosw28pT2bGhsjq/68j1dRvcgsWv4A8jU5pBerewAAA8R6VFh0UmF3IHByb2ZpbGUgdHlwZSB4bXAAAEiJpVZbtuMoDPxnFb0EjIQwy3Fs8zfnzGcvv6tEHHMdp2/PdHziEBB6lEqC8POff8MPfCZNNcgqrcwl2mRiD8tFU7Rk2YpV22VLaW+Px6OlhPlqyplcJOsmUbcSVSA7Ww06l6VgY5ay6J7V8AuFItiUkjJZ4yJrmWUps2GjbTRmU4r8b6vtRbgWaAHeqDX6IUtfeInDE6qKFcoSpEyWnFTVLopS8EUqm4viibJgcyv+SXuBVNqtQUlJTSapfDCKkvBOeG/dQMBACtCg/TKnjRa43v0YPYEbAAehJ6slQr4iih2edUUIY0JQrSAUekZQvzgdAWXDtgYlHMV3/ykZ4PgLIYwFow2hvW1nYGmXmNrVlLp/AfnRng8kkljkG4s9lAEtwKHIatPnimj4quS0e9rsPvD54kdhXvFUrZidgnECTmkFlnqTPzcEX14bzTf2fScYwRls4PNHDIyuvxuISE+y9Qg3AAFG30D0FV8QkVRgQK54eleMRKxQclEejvSBfGRJPsROYKEAPHkF+cXz00Rw55/Ya0b53uD0X7LmKpz0EQ8Y7kWw4X+9Cc73ZDAcCNMkwgx3LP1A0hlFNIRWBkXImlt7L4NFWVMZ6moP9uRNijoSAIGjBYHZjQ3tVEXFV7JduLboBIyYGMWMm5EpiBAHvCeZJePRA5ELCkuGOku0jhD1pEpPTuj4UHDsQwiIG67evvByzhX4uvq4mgTXCjeTh+C4nLa8udiWm88QL6zJ1kkA+Z0qkmG0BQD7OMSLeF9KsIseANGGp9B6Fx5lIeMzeDP8HT37oNuzdnoWexGwKxKPSTeeKf4tHxvbt6Vh1u2jS6Ptb1rTlpEIbToja0lrVs1BNW2a86woECwr0pZ1gphALOvuSd8x4ltdkqNCz/tR5d1hCdaJNzkd0fKHY4d+TuMM8yN+TMDDuVTHj3UHWFi0q9N9EB1nTnW94UDmzTTngzeum2Nm9ETBF5Dh4ttRyP4PrfaZBz/TyFckGmzBRp5t5oWKp565xEhgcgEpOMczEakKuBqg2XriYz/wsJmOJ14nvIihipssPS8apC34Bhf0BCHc4XKG8sLlQ/h+wXBPvUOqV8uzWP4od8dB7R2c3rPWMtoFnQdSBbWQx0KBxH7YvDOZMxi3Esv/Wf3D3E31F1T2dNOftj/pAuFoA3/bBcLRBq5dwLP4LTbfpH8si8/KzqsYd4bf3caO2+Ngwu+PnT88oM4rauiXzr50c1Hu/GUJleOOG34BXdyt9IYxjTEAABDQSURBVGje7Vp7cJzVdT/n3u/bt7Sr10rWw7Il62H5bUtgG2yDeTqU8EiZQinQKYVC2+A+IBQ6k4aEhE47NCUzkE4yCe1kaEMmPFxqjB0MBhts8AM/ZMuWLUu2bMuSVrsraVe72u+75/SP79vV2tqV7YSAM5PrGUne/Xbv+Z1zfud1LzIz/C4v8WUL8HsAX7YAv+nSvpRds4iHAPbfiHjZA2Bg4CxZOS09AtuoEAAuBQl+UVHI3gfx3B3ZEjktTda7F2mQL4YDzGyrlZnBhgIAaO+feY8oI/pFavbXsQADAPNF2pqZEZCRgQEsHIjMzMkUxxNomCAEuJ3gcwshABiIARDQtsYF7XAJACaMm+Fd9hfl2onZlgaYgIGFoPAId3TzibMYjXEyBUSAiLrGBV6sKcOmGaI6aBECEC8Gw0UBSNML2fqXJb9tB8soWTAyjGREIAIhKGWo7e245wiMJUBKkAKEAESwnEoRmwo1DWZV4TWLZEkAFIFABGSYCsMFANhy2BJC+tf5X2IR8TyCZkuvRuK8biuc6AOXE6SwNp7YJW1EYIZkij0OvHm5bK5FG0OaMJcKIC092sxDtPZgRCt4WFyb0CLanmt7ufVxIdTIGP3iXRwIg8cFxPYDWfvYCrBeFwiGYtOEW1doc+vQ8jGceOq8pU0hvaVCJgJAEIKIoD/MfUMwNMLxMQZAjxNL/DCtFIPFQgpgBiK28IDlw6gUqfXbcCDMHpdQZIvOgJAOTIBZKQBQEWsCUYMN2ylQIKvLgAhQcB4EuS1gUcdWvEA2iTp6aG8n9od53JiIP9ZnHTqXl+C8OmyZKZ06EBFzJDIcGhwqDJZMO9gLW3aDx0UIZBMJpmAlWzIJAeMpCBaL+9cIy+XyEDoHgLTuAYhBCDUUpXd2YM9ZkAJ0DcSk1MEEhskmcbBIrFwgm2aYKWPr1u3B0pLus2erekLlwjFc7i+KjVecDispkGFqXtoYpOB4Am9aKltnoyKQAjPZJGtNloYRkREt6c2+EL2yEU/0g8cFTt3SAzIjERJbfwMg6jp6XCIyCq++hzsO7fhs/1v/96uikqIbV10dqp+2u8rnXblo1CHQVMRkWWDK4MGACMSoa7yvE0wTBEKaWhcAwGkYIARFR/m1LZhIgccJRMj2xmyz0PorHVSJCEGvKP3Z1q1/fM8j0cjwocOd7Qc7kvGx/Tv3/cszz4dCYSwtkppm8WQKDAhoeQHoGgwOc08fpHk1eZ1D4mzXZ0S1eReOxMDjAkX26zgR6SdCvlXQIGqKR4s9/7V+W21F+beeeeJ7z/3gww93OHVdCBEdjTlMCl19pR/hmpiWUgowZz7MgLBULlCR6u7DWTWY59lctZCl/uOn4WgvuJ1AhFbcRMxFP/uLCVgAjJAZGhxauWrZunXv7N69v6S4SEjp9XkrK4IHD3dt7zzaNR4HTUIm6uSDkInOmoC+EBCByB1vRLYgmI4rDEAHupAIAJHTBs29ESIiE2kM7HUXFfoDhQXhcPTt9ZsbGmY89fRjDQ0zx8fHh4dHBkND0VP9a1wlHE8yop3P83wvZnxGShiJc2I8X92V5UKcNpwQPJaEUwOg62C5TZ59rNhMzA7E3mDBq73dNf3cWFuzc9c+QHB5nIP9gz986Z+PHz/ZcehIUUXZYs3nOB2KBbye0TESOGU4SgccRBg3IJYArxsYUJwfTDU4F4H9YzAK8QRoU7U7NmEQOGXCtOBPutoXts2PRqLD0REi8vsL2loXen1el8vV1rawrW1hJBL5dOfeA2P9Ijq6tmg6jMRYygyDcolvUwtNE5KpLC/JZ4FsQ4zEwSTQYaIGzmVmK80JBsOlHT52/GhnV4G/oKenFxFqZ9Y8/dRaKxl3dHTGxxIOh2Pze9vqZ0x/p/3QHSurZqJIAQurVpskFmZ+2A5N+fQ4CYDFgWQKiacME+mimoERdEP5fb4tWz72ej1Op0N36O0HDr+/5ePrVl/NwOve2mQqVVM1bdPGD6qmBUPJhLvQy9EECJktZw7vZGAEQARN5hMjT0dmmhnN58dgkQZIIMbH2+rrpVN3OR3MnBhLGinjySefPXLkWGrc+IuH7nv4wXs3btqSSqX6Q+H7b7slmFQpKzAw5+wvOJMLmFmT6HZaNp9cTUyygPWurjFesN20yyGhaRSJfq2p6Y3mWUZ4OJZILF48b/3fPHSw/XDn0ePlwdKBgcGPPtr59FNrk4nEE//4vWp/QChARSwJbCqf76QTLkQEXhf43AC5G6k8NHU6IV0zXwACowAwNFl0ov+lRx967s11xw52PvvskxXlwXlzmsfiYw6nw1fgCwbLiooCiUTilpuuHVTJPVXB2lJfcVefQYQCciQpZrayjiLw+8DpuJhMjBM0L3CDlMC5Q8S5H2BgEFIkE4naU9G64tLmW2dUlAdTKUNK4fa4mZmIAoHCSDgynjIe/7tHD7R3/NkjT8xorPvxmtsKjp9RQhOTfCPtWAiKsLIMEEERWBX7BSxgGa+kENxOSBkgxAUwWIYiFk4n9IVubmgcnzsDALQ07ZhZ07TR0dHQUHgwFE4ZxreeeZ7Gxtt3H3hnwcK7C4qMeFxImW5x2OogMyGCNSGmV+RvyLIB2JxnYIYCD5T64WQ/O4XVBE9Vw7NNL9C1SDJZXeTPvJNKGU6nY/3b77744sumqcorykpLi/sHQl6vJz48HE+Og1NAZsgCDIwWfQGREcBUUFSINUFLVTn7gQkAmfaZiQQKqquC7r48zMmNAAQabi1QWAgAQoj29sNut/PosZ7HH/+2x+PSNO3UqTPzF7T4vO6TPacqZk2/vroWzkSEJm29ZXxYoM1rwxSNNcKhW401Tl0LZbsFAGBDDXtcQFb5nrd1tgcnAEA07tCh2O/SdQAYHY31nx0IhSLf/Kd/9Rf6XC4XIvp83sJCX2gwvHzFlT+9/4Ha8FgCGJSSJunEOoPO4CAWhiJmIGa3E+bW256aR5HncSD9GJEo8XNDNew/Bm4XE2E+6RERgJgdUuv26L2hoetdLgA41NF5pOt4R3tnajzl9XqUUsw8Y+b00ECYNLn2uuvrukOmUm6PW+lyWEBUQswlwKE7UqoiBYWxpBEdwdYWURqwZkdp8aYEkKk/LJfHthY6cgLTn8/hgojITAA682Cx7z+7O+684yuAGBkZjZ4NtTY0vvgfP/NoulLK7XYXFfljsfjZ0wOr/2B1y7RpHEr0u+URlRzSyRksLi0PBgKFLpczFotvPNg5y+Fa7HQYrU1W/50ehlxMU8/pKQEzC6E+2ANb94HPnelpsvoYK1kim8pRVPBSfPCqG65eMKcZAN7Y8KvaUHIxurZVur/zbz8cDkVQCKUUImqaFh0ZXdq64NrlVxheV1NjXVP9zECBT0qZmeKkDOOVV9etmtNSt6iFiKyCKh//coTR9DQTkFksn6+6+7BvCFwO25QTc1qbLQ4pu+Kx8lnTF8xpVoqSY2Nn+gZX6wEgtffQkfhwjAGYWNf1WCxOnFyyaN51N65asXJpdUVFZgaqlEIhgFkp5dD1Za0L9h45VreohZkRxRQDxhyZOKNpJhK6BrdcpV7ZiIbBUqbfALaTp9VnygFhNjTVAYCUord/oAyEn+QGI/LcCz8qLywMBPyGYYbD0aVLF993/11XL2/TNM3qrZlYCAEAlgVQCMMwd+7cVVtbPRIdGR9POZ2OqcejuUsJTHc2QCTKAnTrVfza+4KIhcgyUMbrCIoKqiqnWe53oLOrFZws+JWPd/zDYw9/5ZbrSNGPf/LKsqWtt992MyISkWkqKQUiWlrPzCRN0/zla2+9u3nrXz76p4UFvmh0uLy8LBMwcsLIW7DZM3REUKTVV+OtK0hROh6DNU6xfNYQIEr8Ll0HhMPdJwIjyTpD2zRwpvXKhV//+oN1M6YfPdr15w/ee8fta4jIYoKU6X3T0lvyvfnmhgXzW37wwnc3v7c1ZRjhSAQyc5A8Ky+ACbgCQZE2ewbeeQ0LASmDpWAAUKQROwzTEMJZVuR1OMIjoyfaO1eEU6BUr5FctGAOAESiw21tixob6kzTFEJIKc/5cvtYg4UQ69/ePHPm9LlzZxf4vKtWXrV12yfR6CgA8JSJdKqSOTOMsDE01Ii7b+BAAcUSGqPyOE8W6ENB/5mAq6AkAACf7d675MyoNhwDp5YAs6y4CAACAX9paQkRaZoGuWZBRCSleHfzhw5dW7JkgVJKKbVs6WLDMNsPHp7CeS4MADKjaUQUCIpkZam49ybnoqYhB24qc47d0GrevmLsitkV5cFPdn3W2NlfOpo0pAAGh+YwDHNiGyEyUTIdfhEAlFJSyj179vf2nqmursw2zl133dp9/CQATJEELgwA0oRmAJSCldJ87jMLZm4ucRTVVDgJ2FDzZzd2Dwx4DvTUjBrjAlAgpMxSj/dE7+mM/jKKZ2YAzoROTdPWr3/3pZdejgyPHOvqsR6w4tLSKxZLKeLxMcvrclrvogBMaIUZhQAATdcWts43k8kt27bv27bzl79Y1/PJ3pYkpJgEoBAS4mOLA8X7DnYA8Xk+YFlAKWU51etvrH9n43vf+MZfL1k4NxQayjyslCoo8DU21p0+02e9mI8IF3tOPJEcmMuCpcHysqaG+msRE4OR2J7DhUdPc3QUPU7ruaQyZ5paAPWfv/7W3X/4VdNUkJ7/WAqWUo6Pp77/wo+Y4d+//x0pZU1N1YdbPxkeHvH7C63sCwCzmxs6O7sbG+qnmKxdwjFrdilBRFZ0c5UGym5cKm5fqebVMzGMJYFYuhzmmf6HZ7XsOnDov//ndU0KqWlCCEt0gbh9+67Hn/5uVWXFE3//KAAahuF2u65ZteynL/88e8eGhvpIOKJMJYTIF4wu+Zj1/APrNCZGpLNDtOcIHDkBY0lw6BJFsmXmiwf39A1HF85pDpaWEtFAKNRxrNshtT9Ztqz5qjbTKWS6HxJCvP7m2ydPnn70kQecDodpmpqm/e9bm5YsnldVNS3fOf6vdU6cfZKXOcgBa46KPDRM+4/xoR6IjiCB3lR7VJqfnjoViceYubiwsG1aZaPupabp1FAl7eMSBGAiklJ+8OGOPXv23/NHt1dMCwLAZ3vbk8nksqWtSpGUOYqi3+iqwaRKNgtGPEkd3XTwOPecdWoalgbY5QBATIzzSCx1Q5u2qFHYB3iWZ1onbCSlDIXCGzZsvm71isqqinA4snvP/huuX0VEViy+0FzoUlb2nQDMHDwyIBN6nKJ1Ni9sVCfOptqPUddp7A8BA3td2tdW6fXV9hFqVmxARCuAEtHBjs6VK5YCgN/vB4BYLO7zeXPq+nO4rTIJhl0AAxFKIesqtfoqio7S0VPc2y+unCOryuBc6TP2tCyw9aNP33v/oyef+CsAkFI4HM5wJOrzeTOPZRvhc7vsYR1/ZIgNAFbSQGYgEoECrbVZv/MaWVlqnVZMPnXMNC6ti+cZKWPt335zYCAEAAh8+vRZgMzR1OdtgSwQEycJEyWkEGgfpqXHZMK+HXSuNHbzqJSqra257as3bdy05b4HHlu+bEkkMkxMzc2zigL+yUz4bV14yiRvzqqB0tjg3Bes/9qQrNfvueeOqupygdoz336+wOcFgWtuXr3m5tVWS3LOB7+YC0/nRd6pH7Yy8eDgUCDg7+rqGR4emT69qrKyIvvqw0RtclndGz3ndoZ92jgRpiZLD5fbrcXJfkXplVN6uNwsYK3zRJr6It3lCAAm+RLkZ85lCuDi1+XFgd8D+B1c/w+01Z5J5iMiDQAAAEp0RVh0ZXhpZjpJbWFnZURlc2NyaXB0aW9uAGhhcHB5IHBsdXMgc2l6ZSBwaW51cCBnaXJsIG9uIGhlYXJ0IHNoYXBlIGJhY2tncm91bmTKr0KwAAAAAElFTkSuQmCC";
 
 function creditIconHtml(size) {
@@ -1574,6 +1550,18 @@ function openExternal(url) {
 }
 window.openExternal = openExternal;
 
+// অটোমেটিক Monetag SDK লোডার
+function ensureMonetagSdk(zoneId) {
+    const cleanZone = String(zoneId || '').replace(/[^0-9]/g, '');
+    if (!cleanZone || document.getElementById('monetag-sdk')) return;
+    const s = document.createElement('script');
+    s.id = 'monetag-sdk';
+    s.src = '//libtl.com/sdk.js';
+    s.setAttribute('data-zone', cleanZone);
+    s.setAttribute('data-sdk', 'show_' + cleanZone);
+    document.head.appendChild(s);
+}
+
 let adController = null;
 let adControllerBlockId = null;
 let adsgramReady = false;
@@ -1596,9 +1584,10 @@ function waitForAdsgramSdk(timeoutMs = 4000) {
 
 function getAdController() {
     if (typeof window.Adsgram === 'undefined') return null;
-    if (!adController || adControllerBlockId !== adsgramBlockId) {
-        adController = window.Adsgram.init({ blockId: adsgramBlockId });
-        adControllerBlockId = adsgramBlockId;
+    const bId = settings.adsgram_block_id || adsgramBlockId;
+    if (!adController || adControllerBlockId !== bId) {
+        adController = window.Adsgram.init({ blockId: bId });
+        adControllerBlockId = bId;
     }
     return adController;
 }
@@ -1705,7 +1694,6 @@ window.closeWelcomeModal = () => {
     } catch (e) {}
 };
 
-/* ========== FIXED CONNECTION BANNER (12 sec delay) ========== */
 let connBannerShownAt = 0;
 let connBannerTimer = null;
 
@@ -1756,7 +1744,6 @@ function watchConnection() {
         setConnBanner(false);
     });
 }
-/* ========== END CONNECTION BANNER ========== */
 
 window.showAdWarning = () => {};
 window.closeAdWarning = () => {
@@ -1774,41 +1761,39 @@ async function init() {
 
     showSkeletons();
     watchConnection();
-    setSplashProgress(12, 'কানেক্ট হচ্ছে...');
+    setSplashProgress(15, 'কানেক্ট হচ্ছে...');
 
-    const minSplashDelay = new Promise(res => setTimeout(res, 1400));
+    const minSplashDelay = new Promise(res => setTimeout(res, 1200));
     let resolveVideosReady;
     const videosReady = new Promise(res => { resolveVideosReady = res; });
-    const splashTimeout = new Promise(res => setTimeout(res, 6000));
+    const splashTimeout = new Promise(res => setTimeout(res, 4000));
 
-    // ========== উন্নত Anonymous Auth হ্যান্ডলিং ==========
-    setSplashProgress(28, 'অ্যাকাউন্ট চেক...');
+    setSplashProgress(30, 'অ্যাকাউন্ট চেক...');
     try {
         const auth = getAuth(app);
         await withTimeout(signInAnonymously(auth), FIREBASE_TIMEOUT_MS, 'timeout');
-        console.log('Anonymous auth successful');
     } catch (e) {
-        console.warn('anonymous auth failed', e);
-        const errStr = String(e?.code || e?.message || e || '');
-        if (errStr.includes('admin-restricted-operation')) {
-            console.error('⚠️ CRITICAL: Anonymous Authentication is DISABLED in Firebase Console!');
-            console.error('Fix → Firebase Console → Authentication → Sign-in method → Anonymous → Enable');
-            setTimeout(() => {
-                showToast('Auth সেটআপ সমস্যা। অ্যাডমিন চেক করুন।');
-            }, 2500);
-        }
+        console.warn('anonymous auth note', e);
     }
-    // ========== Auth হ্যান্ডলিং শেষ ==========
 
-    await handleReferral();
-    setSplashProgress(48, 'বিজ্ঞাপন সিস্টেম...');
-    adsgramReady = await waitForAdsgramSdk();
-    setSplashProgress(62, 'কনটেন্ট লোড...');
+    try {
+        await handleReferral();
+    } catch (e) {
+        console.warn('referral note', e);
+    }
+
+    setSplashProgress(50, 'বিজ্ঞাপন সিস্টেম...');
+    try {
+        adsgramReady = await waitForAdsgramSdk(2000);
+    } catch (e) {}
+
+    setSplashProgress(70, 'কনটেন্ট লোড...');
 
     onValue(ref(db, 'settings'), s => {
         if (s.val()) {
             settings = s.val();
             if (settings.adsgram_block_id) adsgramBlockId = settings.adsgram_block_id;
+            if (settings.monetag_zone_id) ensureMonetagSdk(settings.monetag_zone_id);
             if (settings.tutorial_id && !startParam) {
                 document.getElementById('tutEmbed').innerHTML = `<iframe src="${settings.tutorial_id}" style="width:100%;height:100%;border:0" allowfullscreen></iframe>`;
             }
@@ -1825,7 +1810,7 @@ async function init() {
             if (!document.getElementById('profileSec').classList.contains('hidden')) {
                 requestAnimationFrame(() => { try { renderProfile(); } catch (e) {} });
             }
-        } catch (e) { console.error('user listener', e); }
+        } catch (e) {}
     });
 
     onValue(ref(db, 'ads_config'), s => {
@@ -1860,24 +1845,25 @@ async function init() {
                     if (!document.getElementById('profileSec').classList.contains('hidden')) {
                         renderProfile();
                     }
-                } catch (e) { console.error('post-videos render', e); }
+                } catch (e) {}
             });
             if (startParam && isNaN(startParam)) {
                 const v = allVideos.find(x => x.id === startParam);
                 if (v) setTimeout(() => { try { openVideoPage(v.id); } catch (e) {} }, 100);
             }
-            setSplashProgress(88, 'প্রায় হয়ে গেছে...');
+            setSplashProgress(100, 'প্রস্তুত!');
             if (resolveVideosReady) { resolveVideosReady(); resolveVideosReady = null; }
         } catch (e) {
-            console.error('videos listener error', e);
             if (resolveVideosReady) { resolveVideosReady(); resolveVideosReady = null; }
         }
     });
 
-    await Promise.race([
-        Promise.all([videosReady, minSplashDelay]),
-        splashTimeout
-    ]);
+    try {
+        await Promise.race([
+            Promise.all([videosReady, minSplashDelay]),
+            splashTimeout
+        ]);
+    } catch(e) {}
     hideSplash();
 }
 
@@ -1899,10 +1885,10 @@ async function handleReferral() {
             total_unlocked: 0
         };
 
-        await set(userRef, newUserData);
-        if (startParam && !isNaN(startParam) && startParam !== currentUserId.toString()) {
-            const referrerRef = ref(db, `users/${startParam}`);
-            try {
+        try {
+            await set(userRef, newUserData);
+            if (startParam && !isNaN(startParam) && startParam !== currentUserId.toString()) {
+                const referrerRef = ref(db, `users/${startParam}`);
                 await runTransaction(referrerRef, (u) => {
                     if (u) {
                         u.unlock_credits = (Number(u.unlock_credits) || 0) + 1;
@@ -1914,15 +1900,14 @@ async function handleReferral() {
                     return u;
                 });
                 await set(ref(db, `users/${currentUserId}/referredBy`), String(startParam));
-            } catch (e) {
-                console.error("Referral update failed", e);
             }
-        }
+        } catch (e) {}
     }
 }
 
 function showSkeletons() {
     const div = document.getElementById('cards');
+    if (!div) return;
     div.innerHTML = '';
     for (let i = 0; i < 3; i++) {
         const sk = document.createElement('div');
@@ -2097,7 +2082,7 @@ function renderCards() {
         const frag = document.createDocumentFragment();
         const maxShow = Math.min(list.length, 80);
         for (let i = 0; i < maxShow; i++) {
-            try { frag.appendChild(createCard(list[i])); } catch (e) { console.warn('card render skip', e); }
+            try { frag.appendChild(createCard(list[i])); } catch (e) {}
         }
         div.innerHTML = '';
         div.appendChild(frag);
@@ -2108,7 +2093,6 @@ function renderCards() {
             div.appendChild(more);
         }
     } catch (e) {
-        console.error('renderCards error', e);
     } finally {
         _renderCardsBusy = false;
         if (_renderCardsQueued) {
@@ -2329,7 +2313,6 @@ const processingVideos = new Set();
 
 window.addEventListener('unhandledrejection', (ev) => {
     try {
-        console.error('Unhandled rejection:', ev.reason);
         hideOverlay();
         document.querySelectorAll('.unlock-btn.counting').forEach(b => {
             b.classList.remove('counting');
@@ -2339,19 +2322,50 @@ window.addEventListener('unhandledrejection', (ev) => {
 });
 window.addEventListener('error', (ev) => {
     try {
-        console.error('Global error:', ev.error || ev.message);
         hideOverlay();
     } catch (e) {}
 });
 
+// অল-ইন-ওয়ান অ্যাড কন্ট্রোলার (ভুল সংশোধিত ও সম্পূর্ণ অটোমেটিক)
 async function showSingleAd() {
-    const controller = getAdController();
-    if (!controller) throw { description: "বিজ্ঞাপন কন্ট্রোলার তৈরি করা যায়নি!" };
-    await withTimeout(
-        controller.show(),
-        AD_TIMEOUT_MS,
-        { description: "বিজ্ঞাপন লোড হতে অনেক সময় লাগছে। ইন্টারনেট চেক করে আবার চেষ্টা করুন।" }
-    );
+    const provider = settings.ad_provider || 'monetag';
+
+    // ১. Monetag চালু থাকলে
+    if (provider === 'monetag') {
+        const zone = String(settings.monetag_zone_id || '12126313').replace(/[^0-9]/g, '');
+        ensureMonetagSdk(zone);
+        const fnName = 'show_' + zone;
+
+        let retries = 0;
+        while (typeof window[fnName] !== 'function' && retries < 15) {
+            await delay(300);
+            retries++;
+        }
+
+        if (typeof window[fnName] !== 'function') {
+            throw { description: "Monetag বিজ্ঞাপন লোড হচ্ছে, ৫ সেকেন্ড পর আবার চাপুন।" };
+        }
+
+        await withTimeout(window[fnName](), AD_TIMEOUT_MS, { description: "বিজ্ঞাপন লোড হতে দেরি হচ্ছে।" });
+    }
+    // ২. Direct Link চালু থাকলে
+    else if (provider === 'direct_link') {
+        const url = settings.direct_link_url;
+        if (!url) throw { description: "অ্যাডমিন প্যানেলে ডিরেক্ট লিংক বসানো নেই!" };
+        openExternal(url);
+        for (let s = 7; s > 0; s--) {
+            showOverlay(`বিজ্ঞাপন দেখা হচ্ছে... অপেক্ষা করুন (${s}s)`);
+            await delay(1000);
+        }
+    }
+    // ৩. Adsgram চালু থাকলে
+    else {
+        const bId = settings.adsgram_block_id;
+        if (!bId || bId.includes('show_')) throw { description: "অ্যাডমিন প্যানেলে সঠিক Adsgram Block ID দিন!" };
+        const controller = getAdController();
+        if (!controller) throw { description: "বিজ্ঞাপন কন্ট্রোলার তৈরি করা যায়নি!" };
+        await withTimeout(controller.show(), AD_TIMEOUT_MS, { description: "বিজ্ঞাপন লোড হতে অনেক সময় লাগছে।" });
+    }
 }
 
 async function stepLoadCountdown() {
@@ -2407,21 +2421,6 @@ window.handleUnlock = async (id, link, req) => {
     if (getProgress(id) >= req) { openExternal(link); return; }
     if (processingVideos.has(id)) { showToast("অনুগ্রহ করে অপেক্ষা করুন, প্রসেস চলছে..."); return; }
     if (getDaily() + ADS_PER_STEP > (settings.ads_limit || 20)) { showToast("আজকের লিমিট শেষ!"); return; }
-
-    if (typeof window.Adsgram === 'undefined') {
-        adsgramReady = await waitForAdsgramSdk(3000);
-    }
-
-    if (!adsgramReady || typeof window.Adsgram === 'undefined') {
-        showToast("বিজ্ঞাপন সিস্টেম লোড হয়নি! ইন্টারনেট কানেকশন চেক করুন বা পেজ রিফ্রেশ করুন।");
-        return;
-    }
-
-    if (!adsgramBlockId || adsgramBlockId === "YOUR_ADSGRAM_BLOCK_ID") {
-        showToast("বিজ্ঞাপন কনফিগার করা হয়নি! অ্যাডমিন প্যানেল থেকে Adsgram Block ID সেট করুন।");
-        console.error("Adsgram blockId is not configured.");
-        return;
-    }
 
     processingVideos.add(id);
     const btns = document.querySelectorAll(`.unlock-btn[data-vid="${id}"]`);
@@ -2486,7 +2485,7 @@ function saveToHistory(id, name) {
 window.inviteFriend = () => {
     const botLink = settings.bot_app_link || "";
     const inviteLink = botLink.includes('?') ? `${botLink}&startapp=${currentUserId}` : `${botLink}?startapp=${currentUserId}`;
-    const text = "🔥 Shadow Hub — সব ভাইরাল ভিডিও ফ্রিতে দেখুন! প্রতিটি রেফারেলে ১টি ভিডিও ফ্রি আনলক!";
+    const text = "🔥 Viral Video Bangladesh — সব ভাইরাল ভিডিও ফ্রিতে দেখুন! প্রতিটি রেফারেলে ১টি ভিডিও ফ্রি আনলক!";
     const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(text)}`;
     tg.openTelegramLink(fullUrl);
 };
@@ -2597,9 +2596,7 @@ window.nav = (id, btn) => {
         if (id === 'profileSec') { try { renderProfile(); } catch (e) {} }
         if (id === 'likedSec') { try { renderLiked(); } catch (e) {} }
         if (id === 'homeSec') { try { renderCards(); } catch (e) {} }
-    } catch (e) {
-        console.error('nav error', e);
-    }
+    } catch (e) {}
 };
 
 window.copyLink = async (id) => {
@@ -2660,6 +2657,7 @@ function hideOverlay() {
 let toastTimer = null;
 function showToast(m) {
     const t = document.getElementById('toast');
+    if (!t) return;
     t.innerText = m;
     t.classList.add('show');
     clearTimeout(toastTimer);
@@ -2685,10 +2683,13 @@ function renderLiked() {
 }
 
 let searchDebounceTimer = null;
-document.getElementById('searchInput').oninput = () => {
-    clearTimeout(searchDebounceTimer);
-    searchDebounceTimer = setTimeout(renderCards, 200);
-};
+const searchInp = document.getElementById('searchInput');
+if (searchInp) {
+    searchInp.oninput = () => {
+        clearTimeout(searchDebounceTimer);
+        searchDebounceTimer = setTimeout(renderCards, 200);
+    };
+}
 
 function emptyStateHTML(icon, title, desc, actionLabel, actionOnclick) {
     const btn = actionLabel
