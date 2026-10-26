@@ -1,0 +1,2794 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="description" content="Shadow Hub - প্রিমিয়াম কনটেন্ট হাব">
+<meta name="theme-color" content="#121212">
+<title>Viral Video Bangladesh</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232DD4BF'/%3E%3Cstop offset='50%25' stop-color='%23818CF8'/%3E%3Cstop offset='100%25' stop-color='%23FB923C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='46' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-size='52' text-anchor='middle' fill='%23030712' font-family='Arial' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+
+<style>
+:root {
+    --bg: #121212;
+    --bg-elevated: rgba(26,26,26, 0.92);
+    --bg-soft: rgba(38,38,38, 0.72);
+    --surface: rgba(26,26,26, 0.82);
+    --border: 1px solid rgba(59,130,246, 0.22);
+    --border-strong: 1px solid rgba(156,163,175, 0.42);
+    --pink: #3B82F6;
+    --pink-bright: #93C5FD;
+    --pink-deep: #1D4ED8;
+    --pink-soft: rgba(59,130,246, 0.16);
+    --accent: #9CA3AF;
+    --accent-soft: rgba(156,163,175, 0.14);
+    --violet: #60A5FA;
+    --light: #F8FAFC;
+    --grad: #3B82F6;
+    --grad-accent: #3B82F6;
+    --grad-soft: rgba(59,130,246,0.12);
+    --glow: none;
+    --glow-strong: none;
+    --text: #F8FAFC;
+    --text-dim: #E5E7EB;
+    --text-mute: #9CA3AF;
+    --success: #34D399;
+    --danger: #FB7185;
+    --shadow: 0 6px 18px rgba(0,0,0,0.35);
+    --radius-xl: 20px;
+    --radius-lg: 14px;
+    --radius-md: 10px;
+    --font: 'Poppins', sans-serif;
+    --font-bn: 'Hind Siliguri', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: none !important;
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    user-select: none;
+}
+input {
+    -webkit-user-select: text !important;
+    user-select: text !important;
+}
+
+body {
+    background: var(--bg);
+    background-image:
+        radial-gradient(ellipse 100% 70% at 8% -12%, rgba(59,130,246,0.22) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 50% at 96% 4%, rgba(156,163,175,0.16) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 45% at 50% 110%, rgba(96,165,250,0.14) 0%, transparent 55%),
+        radial-gradient(circle at 72% 38%, rgba(59,130,246,0.08) 0%, transparent 42%);
+    color: var(--text);
+    font-family: var(--font);
+    padding-bottom: 120px;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.app {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 14px 14px 0;
+    position: relative;
+}
+
+.top-pills {
+    position: sticky;
+    top: 10px;
+    z-index: 80;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: -42px;
+    pointer-events: none;
+}
+.top-pills > * { pointer-events: auto; }
+.floating-credit {
+    background: rgba(26,26,26, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: var(--border-strong);
+    padding: 7px 12px 7px 8px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: var(--shadow), var(--glow);
+}
+.floating-credit .star-wrap {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: #0a0a0d;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(59,130,246,0.45);
+    border: 1.5px solid rgba(59,130,246,0.55);
+    padding: 0;
+}
+.floating-credit .star-wrap img,
+.floating-credit .star-wrap .credit-logo-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    border-radius: 50%;
+}
+.floating-credit span {
+    font-weight: 800; font-size: 13px; letter-spacing: 0.2px;
+}
+.credit-logo-img {
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+    pointer-events: none; flex-shrink: 0;
+}
+.credit-inline {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-weight: 800; color: var(--pink); font-size: 13px;
+}
+.credit-inline img {
+    width: 18px; height: 18px; border-radius: 50%;
+    object-fit: cover; object-position: center center;
+}
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+    margin: 0 0 14px;
+    padding: 9px 18px 9px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(59,130,246, 0.4);
+    background: linear-gradient(135deg, rgba(38,38,38, 0.95), rgba(26,26,26, 0.98));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: var(--text);
+    font-weight: 800;
+    font-size: 13px;
+    font-family: var(--font-bn);
+    cursor: pointer;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.4), 0 0 20px rgba(59,130,246, 0.18);
+    transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+}
+.back-btn:active {
+    transform: scale(0.96);
+    border-color: rgba(59,130,246, 0.65);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.35), 0 0 24px rgba(156,163,175, 0.3);
+}
+.back-btn .back-icon-wrap {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--grad);
+    display: flex; align-items: center; justify-content: center;
+    color: #0E0E0E;
+    font-size: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 12px rgba(156,163,175, 0.45);
+}
+.back-btn .back-icon-wrap i { color: #0E0E0E; }
+.back-btn > span { letter-spacing: 0.2px; }
+
+#connBanner {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+    background: linear-gradient(135deg, #7f1d1d, #450a0a);
+    color: #F3F4F6; font-family: var(--font-bn); font-weight: 700; font-size: 13px;
+    text-align: center; padding: 11px 16px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    transform: translateY(-110%); transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+#connBanner.show { transform: translateY(0); }
+#connBanner button {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28);
+    color: #F3F4F6; padding: 5px 14px; border-radius: 999px;
+    font-weight: 800; font-size: 12px; cursor: pointer;
+}
+
+.header {
+    background: linear-gradient(160deg, rgba(38,38,38, 0.7), rgba(2, 6, 23, 0.95));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 26px 20px 22px;
+    border-radius: var(--radius-xl);
+    text-align: center;
+    border: 1px solid rgba(156,163,175, 0.3);
+    margin: 8px 0 18px;
+    box-shadow: var(--shadow), var(--glow);
+    position: relative;
+    overflow: hidden;
+}
+.header::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: var(--grad-soft);
+    pointer-events: none;
+}
+.title {
+    position: relative;
+    font-size: 27px; font-weight: 800; letter-spacing: -1.2px;
+    background: var(--grad);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    display: inline-flex; align-items: center; gap: 8px;
+}
+.subtitle {
+    position: relative;
+    font-size: 11px; color: var(--text-dim); margin-top: 6px;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 2.4px; opacity: 0.85;
+}
+
+.invite-card {
+    background: var(--grad);
+    padding: 18px 18px 18px 20px;
+    border-radius: var(--radius-lg);
+    color: #FFFFFF;
+    margin-bottom: 18px;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 12px 40px rgba(59,130,246, 0.4), 0 0 32px rgba(156,163,175, 0.25);
+    border: 1px solid rgba(247,246,247,0.2);
+    gap: 12px;
+}
+.invite-text h4 { font-size: 15px; margin-bottom: 3px; font-weight: 800; font-family: var(--font-bn); }
+.invite-text p { font-size: 12px; font-weight: 600; opacity: 0.88; font-family: var(--font-bn); }
+.invite-btn {
+    background: #121212; color: #F9A8D4;
+    border: none; padding: 11px 16px; border-radius: 14px;
+    font-weight: 800; font-size: 13px; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+    white-space: nowrap; flex-shrink: 0;
+}
+
+.search-wrapper { position: relative; margin-bottom: 14px; }
+.search-input {
+    width: 100%; padding: 15px 22px; padding-right: 56px;
+    border-radius: 999px;
+    background: var(--bg-elevated);
+    backdrop-filter: blur(14px);
+    border: var(--border);
+    color: var(--text); font-size: 14px; font-family: var(--font-bn);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.35);
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+.search-input:focus {
+    border-color: rgba(59,130,246,0.55);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.35), 0 0 0 3px rgba(59,130,246,0.12);
+}
+.search-input::placeholder { color: var(--text-mute); }
+.search-icon {
+    position: absolute; right: 6px; top: 6px;
+    background: var(--grad); width: 42px; height: 42px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: #0E0E0E; font-size: 15px; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(29,78,216, 0.45);
+}
+
+.filter-scroll {
+    display: flex; gap: 8px; overflow-x: auto;
+    padding: 2px 2px 12px; margin-bottom: 6px;
+    scrollbar-width: none;
+}
+.filter-scroll::-webkit-scrollbar { display: none; }
+.filter-btn {
+    padding: 9px 14px 9px 16px;
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+    border: var(--border);
+    color: var(--text-dim);
+    border-radius: 999px; font-size: 13px; font-weight: 600;
+    white-space: nowrap; cursor: pointer;
+    font-family: var(--font-bn);
+    transition: all 0.25s ease;
+    display: inline-flex; align-items: center; gap: 7px;
+}
+.filter-btn.active {
+    background: var(--grad); color: #FFFFFF;
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 6px 20px rgba(29,78,216, 0.4);
+    font-weight: 800;
+}
+.filter-count {
+    font-size: 10px; font-weight: 800;
+    min-width: 20px; height: 20px; padding: 0 6px;
+    border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.1);
+    color: var(--text-mute);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+}
+.filter-btn.active .filter-count {
+    background: rgba(255,255,255,0.28);
+    color: #FFFFFF;
+}
+
+.cards { display: flex; flex-direction: column; gap: 18px; }
+.card {
+    background: linear-gradient(165deg, rgba(26,26,26, 0.75), rgba(2, 6, 23, 0.92));
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid rgba(59,130,246, 0.2);
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(247,246,247,0.06);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.card:active { transform: scale(0.985); }
+
+.media {
+    position: relative;
+    padding-bottom: 56.25%;
+    background: #121212;
+    overflow: hidden;
+}
+.media img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    cursor: pointer; pointer-events: none;
+}
+
+.heart-btn {
+    position: absolute; top: 12px; right: 12px;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(8, 6, 12, 0.72);
+    backdrop-filter: blur(12px);
+    border: var(--border);
+    color: var(--pink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; cursor: pointer; z-index: 2;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.badge-row {
+    position: absolute; top: 12px; left: 12px; z-index: 2;
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.trending-badge, .new-badge {
+    font-size: 10px; font-weight: 800; padding: 5px 11px;
+    border-radius: 999px; display: flex; align-items: center; gap: 4px;
+    text-transform: uppercase; letter-spacing: 0.4px;
+}
+.trending-badge {
+    background: linear-gradient(135deg, #f472b6, #ef4444);
+    color: #111; box-shadow: 0 4px 14px rgba(59,130,246,0.4);
+}
+.new-badge {
+    background: linear-gradient(135deg, #34d399, #059669);
+    color: #052e1c; box-shadow: 0 4px 14px rgba(16,185,129,0.4);
+}
+.view-count-badge {
+    position: absolute; bottom: 12px; left: 12px;
+    font-size: 11px; font-weight: 700; color: #fff8e8;
+    background: rgba(6, 5, 10, 0.78);
+    backdrop-filter: blur(10px);
+    padding: 5px 12px; border-radius: 999px;
+    display: flex; align-items: center; gap: 5px;
+    border: var(--border);
+}
+.duration-badge {
+    position: absolute; bottom: 12px; right: 12px; z-index: 2;
+    font-size: 11px; font-weight: 800; color: #fff;
+    background: rgba(6, 5, 10, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 5px 11px; border-radius: 999px;
+    display: flex; align-items: center; gap: 5px;
+    border: 1px solid rgba(59,130,246, 0.28);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.2px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+.duration-badge i { font-size: 10px; color: var(--pink-bright); opacity: 0.95; }
+.meta-row {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px;
+    margin: 0 0 14px;
+}
+.meta-row .post-time { margin: 0; }
+.meta-duration {
+    font-size: 11px; font-weight: 700; color: var(--text-mute);
+    font-family: var(--font-bn); display: inline-flex; align-items: center; gap: 5px;
+}
+.meta-duration i { color: var(--pink); font-size: 11px; }
+.meta-duration strong { color: var(--text-dim); font-weight: 800; font-variant-numeric: tabular-nums; }
+
+.meta { padding: 16px 16px 18px; }
+.meta h3 {
+    margin: 0 0 4px; font-size: 16px; line-height: 1.45;
+    font-weight: 700; color: var(--text); font-family: var(--font-bn);
+    cursor: pointer;
+}
+.post-time {
+    font-size: 11px; font-weight: 600; color: var(--text-mute);
+    font-family: var(--font-bn); margin: 0 0 14px;
+    display: flex; align-items: center; gap: 5px;
+}
+
+.actions { display: flex; gap: 10px; align-items: center; }
+.unlock-btn {
+    flex: 1; padding: 13px 14px; border-radius: 15px;
+    border: 1px solid rgba(247,246,247,0.25);
+    background: var(--grad);
+    background-size: 200% 100%; background-position: 0% 0%;
+    color: #FFFFFF;
+    font-weight: 800; font-size: 13px; text-transform: uppercase;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px;
+    box-shadow: 0 6px 20px rgba(29,78,216, 0.38);
+    transition: background-position 0.45s, transform 0.15s, box-shadow 0.2s;
+    font-family: var(--font);
+}
+.unlock-btn:hover:not(:disabled) { background-position: 100% 0%; }
+.unlock-btn:active:not(:disabled) { transform: scale(0.97); }
+.unlock-btn.done {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff; border: none;
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.32);
+}
+.unlock-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.unlock-btn.counting {
+    opacity: 1 !important;
+    cursor: wait;
+    background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 0 28px rgba(59,130,246, 0.55), 0 6px 20px rgba(29,78,216, 0.4);
+    position: relative;
+    overflow: hidden;
+    pointer-events: none;
+}
+.unlock-btn.counting .cd-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.22);
+    border: 2px solid rgba(255,255,255,0.7);
+    font-size: 15px; font-weight: 800;
+    line-height: 1;
+    animation: cdPop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 0 12px rgba(255,255,255,0.35);
+}
+@keyframes cdPop {
+    0% { transform: scale(0.4); opacity: 0; }
+    60% { transform: scale(1.18); }
+    100% { transform: scale(1); opacity: 1; }
+}
+.unlock-btn.counting .cd-label { font-weight: 800; letter-spacing: 0.3px; }
+.unlock-btn.counting::after {
+    content: "";
+    position: absolute; left: 0; bottom: 0; height: 3px;
+    width: var(--cd-pct, 100%);
+    background: linear-gradient(90deg, #3B82F6, #93C5FD, #3B82F6);
+    transition: width 1s linear;
+    border-radius: 0 2px 2px 0;
+    box-shadow: 0 0 10px rgba(59,130,246, 0.6);
+}
+
+.action-btn {
+    background: var(--bg-elevated);
+    border: var(--border);
+    width: 46px; height: 46px; border-radius: 14px;
+    color: var(--text-dim); font-size: 16px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: 0.2s;
+}
+.credit-action-group {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+}
+.credit-action-btn {
+    color: var(--pink); background: rgba(59,130,246,0.18); border: var(--border);
+    overflow: hidden; padding: 0;
+}
+.credit-action-btn img,
+.credit-action-btn .credit-logo-img {
+    width: 28px; height: 28px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+}
+.credit-action-label {
+    font-size: 9px; font-weight: 700; color: var(--pink); line-height: 1;
+}
+
+.section-title {
+    margin-bottom: 14px; font-size: 19px; font-weight: 700;
+    color: var(--text); font-family: var(--font-bn);
+}
+.info-box {
+    background: linear-gradient(165deg, rgba(26,26,26, 0.8), rgba(2, 6, 23, 0.94));
+    backdrop-filter: blur(18px);
+    border-radius: var(--radius-xl);
+    padding: 22px;
+    border: 1px solid rgba(59,130,246, 0.2);
+    margin-bottom: 18px; box-shadow: var(--shadow);
+}
+.profile-card { text-align: center; }
+.profile-avatar-container {
+    width: 92px; height: 92px; border-radius: 50%; margin: 0 auto 14px;
+    padding: 3px; background: var(--grad);
+    box-shadow: var(--shadow), var(--glow);
+}
+.profile-avatar {
+    width: 100%; height: 100%; border-radius: 50%;
+    border: 3px solid #1A1A1A;
+    object-fit: cover; display: flex; align-items: center; justify-content: center;
+    background: #1A1A1A; font-size: 40px; color: var(--pink);
+}
+
+.refer-link-box {
+    width: 100%; margin-top: 14px; padding: 12px 14px; border-radius: 14px;
+    border: var(--border); background: var(--bg-elevated);
+    color: var(--text); font-size: 12px; font-family: var(--font-bn);
+    display: flex; align-items: center; gap: 8px;
+}
+.refer-link-box i { color: var(--pink); flex-shrink: 0; }
+.refer-link-box span {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    color: var(--text-dim);
+}
+.stat-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; margin-bottom: 4px; }
+.stat-box {
+    background: var(--bg-elevated); border: var(--border);
+    padding: 12px 8px; border-radius: 16px;
+}
+.stat-value { font-weight: 800; font-size: 18px; color: var(--pink); }
+.stat-label { font-size: 10px; font-weight: 600; color: var(--text-mute); margin-top: 2px; font-family: var(--font-bn); }
+
+.link-card-modern {
+    background: var(--surface);
+    backdrop-filter: blur(14px);
+    border-radius: var(--radius-md);
+    padding: 14px 16px; margin-bottom: 10px;
+    display: flex; justify-content: space-between; align-items: center;
+    border: var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.link-info-text {
+    font-family: var(--font-bn); font-weight: 700; color: var(--text);
+    font-size: 14px; display: flex; align-items: center; gap: 10px;
+}
+.modern-open-btn {
+    background: var(--grad); color: #FFFFFF; text-decoration: none;
+    padding: 9px 16px; border-radius: 12px; font-weight: 800; font-size: 13px;
+    display: flex; align-items: center; gap: 6px;
+    box-shadow: 0 4px 14px rgba(59,130,246,0.35);
+    border: 1px solid rgba(255,255,255,0.28); cursor: pointer; font-family: inherit;
+}
+
+.bottom-nav-wrapper {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    padding: 8px 14px 22px; z-index: 100;
+}
+.bottom-nav {
+    background: linear-gradient(180deg, rgba(26,26,26, 0.94), rgba(3, 7, 18, 0.98));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 26px;
+    border: 1px solid rgba(59,130,246, 0.25);
+    display: flex; justify-content: space-around;
+    padding: 12px 6px; max-width: 452px; margin: 0 auto;
+    box-shadow: 0 20px 44px rgba(0,0,0,0.6), 0 0 28px rgba(59,130,246,0.15);
+}
+.nav-item {
+    background: none; border: none; color: var(--text-mute);
+    cursor: pointer; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 4px;
+    padding: 6px 8px; min-width: 52px; font-size: 18px;
+    transition: color 0.25s, transform 0.2s;
+}
+.nav-item:active { transform: scale(0.9); }
+.nav-item.active {
+    color: var(--pink);
+    filter: drop-shadow(0 0 10px rgba(59,130,246,0.55));
+}
+.nav-text { font-size: 10px; font-weight: 700; font-family: var(--font-bn); }
+
+.loading-overlay {
+    position: fixed; inset: 0;
+    background: rgba(5, 4, 8, 0.92);
+    backdrop-filter: blur(14px);
+    z-index: 999; display: none;
+    flex-direction: column; align-items: center; justify-content: center;
+}
+.loader {
+    border: 4px solid rgba(59,130,246,0.15);
+    border-top: 4px solid var(--pink);
+    border-radius: 50%; width: 46px; height: 46px;
+    animation: spin 0.9s infinite linear; margin-bottom: 16px;
+    box-shadow: 0 0 20px rgba(59,130,246,0.4);
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+.loading-text-style {
+    color: var(--text); font-size: 15px; font-weight: 700; font-family: var(--font-bn);
+}
+
+.toast {
+    position: fixed; bottom: 110px; left: 50%;
+    transform: translateX(-50%) translateY(16px);
+    background: var(--grad); color: #FFFFFF;
+    padding: 11px 22px; border-radius: 999px;
+    font-size: 13px; font-weight: 800; z-index: 200;
+    box-shadow: 0 6px 22px rgba(59,130,246,0.45);
+    border: 1px solid rgba(255,255,255,0.35);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+    max-width: 90%; text-align: center;
+}
+.toast.show {
+    opacity: 1; visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.modal-backdrop {
+    position: fixed; inset: 0; z-index: 1200;
+    background: rgba(4, 3, 8, 0.78);
+    backdrop-filter: blur(10px);
+    display: none; align-items: center; justify-content: center;
+    padding: 20px;
+    opacity: 0; transition: opacity 0.28s ease;
+}
+.modal-backdrop.show { display: flex; opacity: 1; }
+.warning-modal {
+    width: 100%; max-width: 340px;
+    background: linear-gradient(165deg, rgba(30, 10, 55, 0.98), rgba(3, 7, 18, 0.99));
+    border: 1px solid rgba(248, 113, 113, 0.35);
+    border-radius: 26px;
+    padding: 28px 22px 22px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.7), 0 0 40px rgba(248,113,113,0.15);
+    text-align: center;
+    transform: scale(0.92) translateY(12px);
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.modal-backdrop.show .warning-modal { transform: scale(1) translateY(0); }
+.warning-icon-ring {
+    width: 72px; height: 72px; margin: 0 auto 16px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(248,113,113,0.2), rgba(239,68,68,0.08));
+    border: 1px solid rgba(248,113,113,0.35);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 28px rgba(248,113,113,0.25);
+}
+.warning-icon-ring i { font-size: 30px; color: #f87171; }
+.warning-modal h3 {
+    font-size: 18px; font-weight: 800; color: var(--text);
+    margin-bottom: 8px; font-family: var(--font-bn);
+}
+.warning-modal p {
+    font-size: 13.5px; line-height: 1.55; color: var(--text-dim);
+    font-family: var(--font-bn); margin-bottom: 22px;
+}
+.warning-modal .modal-actions { display: flex; flex-direction: column; gap: 10px; }
+.modal-btn {
+    width: 100%; padding: 13px; border-radius: 14px;
+    font-weight: 800; font-size: 14px; cursor: pointer;
+    border: none; font-family: var(--font-bn);
+}
+.modal-btn-primary {
+    background: var(--grad); color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(59,130,246,0.4);
+}
+.modal-btn-ghost {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--text-dim);
+}
+
+.tut-embed-box {
+    width: 100%; aspect-ratio: 16/9;
+    background: #121212; border-radius: 18px;
+    margin-bottom: 16px; overflow: hidden; border: var(--border);
+}
+
+.suggest-section { margin-top: 24px; padding-top: 4px; }
+.suggest-block { margin-bottom: 22px; }
+.suggest-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px;
+}
+.suggest-header h4 {
+    font-size: 15px; font-weight: 700; font-family: var(--font-bn);
+    color: var(--text); display: flex; align-items: center; gap: 8px;
+}
+.suggest-header h4 .sh-icon {
+    width: 28px; height: 28px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: #0E0E0E;
+}
+.suggest-header h4 .sh-icon.new { background: linear-gradient(135deg, #34d399, #059669); }
+.suggest-header h4 .sh-icon.pop { background: var(--grad); }
+.suggest-header h4 .sh-icon.trend { background: linear-gradient(135deg, #fb7185, #f43f5e); }
+.suggest-header h4 .sh-icon.mix { background: var(--grad-accent); }
+.suggest-scroll {
+    display: flex; gap: 12px; overflow-x: auto;
+    padding-bottom: 6px; scrollbar-width: none;
+    margin: 0 -4px; padding-left: 4px; padding-right: 4px;
+}
+.suggest-scroll::-webkit-scrollbar { display: none; }
+.suggest-card {
+    flex: 0 0 142px;
+    background: var(--bg-elevated);
+    border: var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.suggest-card:active { transform: scale(0.97); }
+.suggest-thumb {
+    position: relative; width: 100%; padding-bottom: 62%;
+    background: #121212;
+}
+.suggest-thumb img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover;
+}
+.suggest-badge {
+    position: absolute; top: 6px; left: 6px;
+    font-size: 8px; font-weight: 800; padding: 2px 7px;
+    border-radius: 999px; text-transform: uppercase; letter-spacing: 0.3px;
+    color: #0E0E0E;
+}
+.suggest-badge.new-b { background: linear-gradient(135deg, #34d399, #10b981); }
+.suggest-badge.pop-b { background: var(--grad); }
+.suggest-badge.trend-b { background: linear-gradient(135deg, #fb7185, #f43f5e); }
+.suggest-views {
+    position: absolute; bottom: 6px; left: 6px;
+    font-size: 9px; font-weight: 700; color: #fff;
+    background: rgba(0,0,0,0.72); padding: 3px 7px;
+    border-radius: 999px; display: flex; align-items: center; gap: 3px;
+}
+.suggest-duration {
+    position: absolute; bottom: 6px; right: 6px;
+    font-size: 9px; font-weight: 800; color: #fff;
+    background: rgba(0,0,0,0.78); padding: 3px 7px;
+    border-radius: 999px; display: flex; align-items: center; gap: 3px;
+    font-variant-numeric: tabular-nums;
+}
+.suggest-info { padding: 9px 10px 11px; }
+.suggest-info h5 {
+    font-size: 12px; font-weight: 700; color: var(--text);
+    font-family: var(--font-bn); line-height: 1.35;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.skeleton-card {
+    background: rgba(59,130,246,0.35); border-radius: var(--radius-xl);
+    height: 300px; width: 100%; position: relative; overflow: hidden;
+    margin-bottom: 18px; border: var(--border);
+}
+.skeleton-card::after, .skeleton-stat::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(59,130,246,0.1), transparent);
+    animation: skeleton-load 1.4s infinite;
+}
+@keyframes skeleton-load {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+.skeleton-stat {
+    height: 52px; border-radius: 14px; background: rgba(59,130,246,0.35);
+    border: var(--border); position: relative; overflow: hidden;
+}
+
+#splashScreen {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #121212;
+    background-image:
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(59,130,246,0.32) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 50% at 0% 90%, rgba(156,163,175,0.2) 0%, transparent 45%),
+        radial-gradient(ellipse 55% 45% at 100% 80%, rgba(96,165,250,0.22) 0%, transparent 45%),
+        radial-gradient(circle at 30% 50%, rgba(59,130,246,0.1) 0%, transparent 35%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0; transition: opacity 0.55s ease, visibility 0.55s ease;
+    overflow: hidden;
+}
+#splashScreen.splash-hidden {
+    opacity: 0; visibility: hidden; pointer-events: none;
+}
+.splash-orb { display:none !important;
+    position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none;
+    animation: orbFloat 7s ease-in-out infinite;
+}
+.splash-orb.o1 { display:none !important;
+    width: 260px; height: 260px; top: 0%; left: -80px;
+    background: rgba(59,130,246, 0.4); animation-delay: 0s;
+}
+.splash-orb.o2 {
+    width: 200px; height: 200px; bottom: 5%; right: -60px;
+    background: rgba(156,163,175, 0.32); animation-delay: -2.2s;
+}
+.splash-orb.o3 {
+    width: 140px; height: 140px; top: 45%; left: 55%;
+    background: rgba(96,165,250, 0.3); animation-delay: -4s;
+}
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(18px, -26px) scale(1.1); }
+}
+.splash-center {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 22px;
+}
+.splash-logo-wrap { position: relative; width: 128px; height: 128px; }
+.splash-ring-outer {
+    position: absolute; inset: 0; border-radius: 50%;
+    border: 2.5px solid transparent;
+    border-top-color: #3B82F6;
+    border-right-color: #60A5FA;
+    animation: splashSpin 1.25s linear infinite;
+}
+.splash-ring-inner {
+    position: absolute; inset: 12px; border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: #9CA3AF;
+    border-left-color: #3B82F6;
+    animation: splashSpin 1.85s linear infinite reverse;
+}
+@keyframes splashSpin { 100% { transform: rotate(360deg); } }
+.splash-logo-core {
+    position: absolute; inset: 14px; border-radius: 50%;
+    background: linear-gradient(145deg, #3B82F6 0%, #60A5FA 45%, #9CA3AF 100%);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 50px rgba(59,130,246,0.5), 0 0 80px rgba(156,163,175,0.22), 0 16px 36px rgba(0,0,0,0.5);
+    animation: splashPulse 2s ease-in-out infinite;
+    overflow: hidden;
+    padding: 3px;
+}
+.splash-logo-core .splash-letter {
+    font-family: var(--font); font-weight: 800; font-size: 56px; line-height: 1;
+    color: #fff; text-shadow: 0 4px 18px rgba(0,0,0,0.35);
+}
+.splash-logo-core .splash-model {
+    width: 100%; height: 100%; border-radius: 50%;
+    object-fit: cover; display: block;
+    background: #0E0E0E;
+}
+@keyframes splashPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(59,130,246,0.48), 0 0 70px rgba(156,163,175,0.18), 0 16px 36px rgba(0,0,0,0.5); }
+    50% { transform: scale(1.06); box-shadow: 0 0 70px rgba(59,130,246,0.65), 0 0 90px rgba(96,165,250,0.28), 0 16px 36px rgba(0,0,0,0.5); }
+}
+.splash-title {
+    font-weight: 800; font-size: 28px; letter-spacing: -0.9px;
+    background: linear-gradient(135deg, #3B82F6 0%, #93C5FD 35%, #C4B5FD 65%, #9CA3AF 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-align: center;
+    filter: drop-shadow(0 0 20px rgba(59,130,246,0.35));
+}
+.splash-tagline {
+    font-family: var(--font); font-size: 11.5px; font-weight: 600;
+    letter-spacing: 3.2px; text-transform: uppercase;
+    text-align: center; margin-top: -8px;
+    background: linear-gradient(90deg, #9CA3AF 0%, #E5E7EB 40%, #93C5FD 70%, #D1D5DB 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    opacity: 0.95;
+}
+.splash-progress-wrap { width: 200px; margin-top: 8px; }
+.splash-bar-track {
+    width: 100%; height: 6px; border-radius: 10px;
+    background: rgba(248,250,252,0.08); overflow: hidden;
+    border: 1px solid rgba(59,130,246,0.28);
+    position: relative;
+}
+.splash-bar-fill {
+    height: 100%; width: 0%; border-radius: 10px;
+    background: linear-gradient(90deg, #3B82F6, #3B82F6, #60A5FA, #9CA3AF, #3B82F6);
+    background-size: 250% 100%;
+    box-shadow: 0 0 18px rgba(59,130,246,0.55);
+    transition: width 0.4s ease;
+    animation: barShimmer 1.8s linear infinite;
+}
+@keyframes barShimmer {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+.splash-status {
+    margin-top: 12px; font-size: 12px; font-family: var(--font-bn);
+    color: #9CA3AF; text-align: center; min-height: 18px;
+    font-weight: 600;
+}
+.splash-dots span {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    background: #3B82F6; margin: 0 4px; opacity: 0.35;
+    animation: dotPulse 1.2s ease-in-out infinite;
+}
+.splash-dots span:nth-child(2) { animation-delay: 0.2s; background: #60A5FA; }
+.splash-dots span:nth-child(3) { animation-delay: 0.4s; background: #9CA3AF; }
+@keyframes dotPulse {
+    0%, 100% { opacity: 0.3; transform: scale(0.85); }
+    50% { opacity: 1; transform: scale(1.25); }
+}
+
+.hidden { display: none !important; }
+.fadeIn { animation: fadeIn 0.4s ease-out; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.touch-ripple {
+    position: fixed; border-radius: 50%; pointer-events: none; z-index: 9990;
+    background: radial-gradient(circle, rgba(251,207,232,0.2) 0%, rgba(156,163,175,0.1) 45%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    animation: rippleExpand 0.45s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+@keyframes rippleExpand {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0.4; }
+    70% { opacity: 0.15; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .touch-ripple { display: none; }
+}
+
+.ptr-indicator {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 0; overflow: hidden; opacity: 0;
+    transition: height 0.15s ease, opacity 0.15s ease;
+    color: var(--text-mute); font-family: var(--font-bn); font-size: 12px; font-weight: 600;
+    gap: 6px;
+}
+.ptr-indicator.show { height: 56px; opacity: 1; margin-bottom: 8px; }
+.ptr-spinner {
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 2.5px solid rgba(59,130,246,0.25);
+    border-top-color: var(--pink);
+    animation: spin 0.7s linear infinite;
+}
+.ptr-arrow { font-size: 16px; color: var(--pink); transition: transform 0.2s; }
+.ptr-arrow.ready { transform: rotate(180deg); }
+
+.empty-state {
+    text-align: center; padding: 48px 24px 36px;
+    background: linear-gradient(165deg, rgba(59,130,246,0.35), rgba(14,14,52,0.6));
+    border: 1px dashed rgba(59,130,246,0.3);
+    border-radius: var(--radius-xl);
+    margin: 8px 0 16px;
+}
+.empty-state .empty-icon {
+    width: 72px; height: 72px; margin: 0 auto 16px;
+    border-radius: 24px;
+    background: var(--grad-soft);
+    border: 1px solid rgba(59,130,246,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; color: var(--pink);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+.empty-state h4 {
+    font-size: 16px; font-weight: 800; color: var(--text);
+    font-family: var(--font-bn); margin-bottom: 6px;
+}
+.empty-state p {
+    font-size: 13px; color: var(--text-mute); font-family: var(--font-bn);
+    line-height: 1.5; max-width: 260px; margin: 0 auto 16px;
+}
+.empty-state .empty-action {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 18px; border-radius: 14px;
+    background: var(--grad); color: #FFFFFF;
+    font-weight: 800; font-size: 13px; border: none; cursor: pointer;
+    font-family: var(--font-bn);
+    box-shadow: 0 6px 20px rgba(59,130,246,0.4);
+}
+
+.copy-ref-btn {
+    width: 100%; margin-top: 10px; padding: 13px 16px; border-radius: 14px;
+    border: none;
+    background: var(--grad);
+    color: #FFFFFF; font-weight: 800; font-size: 13px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--font-bn);
+    box-shadow: 0 6px 20px rgba(59,130,246,0.35);
+    transition: transform 0.15s, box-shadow 0.2s;
+}
+.copy-ref-btn:active { transform: scale(0.97); }
+.copy-ref-btn.copied {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff; box-shadow: 0 6px 18px rgba(16,185,129,0.35);
+}
+.profile-actions {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;
+}
+.profile-action-btn {
+    padding: 12px 10px; border-radius: 14px;
+    border: 1px solid rgba(59,130,246,0.35);
+    background: rgba(59,130,246,0.15);
+    color: var(--pink); font-weight: 700; font-size: 12px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-family: var(--font-bn); transition: 0.2s;
+}
+.profile-action-btn:active { transform: scale(0.97); }
+
+.unlock-guide {
+    margin-top: 16px;
+    padding: 14px 14px 12px;
+    border-radius: 18px;
+    background: linear-gradient(165deg, rgba(40,16,72,0.5), rgba(8,2,20,0.55));
+    border: 1px solid rgba(59,130,246, 0.25);
+}
+.unlock-guide-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px;
+}
+.unlock-guide-head h5 {
+    font-size: 12px; font-weight: 800; font-family: var(--font-bn);
+    color: var(--text-dim); letter-spacing: 0.3px;
+    display: flex; align-items: center; gap: 6px;
+}
+.unlock-guide-head h5 i { color: var(--violet); }
+.unlock-guide-pct {
+    font-size: 11px; font-weight: 800; color: var(--pink);
+    font-variant-numeric: tabular-nums;
+}
+.unlock-h-steps {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 4px; position: relative;
+}
+.unlock-h-steps::before {
+    content: "";
+    position: absolute; left: 18px; right: 18px; top: 14px;
+    height: 2px; background: rgba(255,255,255,0.08);
+    z-index: 0;
+}
+.unlock-h-step {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    text-align: center; position: relative; z-index: 1; min-width: 0;
+}
+.unlock-h-dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800;
+    background: rgba(20,8,40,0.95);
+    border: 2px solid rgba(59,130,246,0.3);
+    color: var(--text-mute);
+    margin-bottom: 6px;
+}
+.unlock-h-step.done .unlock-h-dot {
+    background: linear-gradient(135deg, #34d399, #059669);
+    border-color: transparent; color: #fff;
+}
+.unlock-h-step.active .unlock-h-dot {
+    background: var(--grad); border-color: transparent; color: #fff;
+    box-shadow: 0 0 14px rgba(59,130,246,0.5);
+}
+.unlock-h-label {
+    font-size: 10px; font-weight: 700; font-family: var(--font-bn);
+    color: var(--text-mute); line-height: 1.3;
+    max-width: 72px;
+}
+.unlock-h-step.done .unlock-h-label { color: #6ee7b7; }
+.unlock-h-step.active .unlock-h-label { color: var(--pink-bright); }
+.unlock-guide-tip {
+    margin-top: 12px; padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 11px; color: var(--text-mute);
+    font-family: var(--font-bn); line-height: 1.45;
+    display: flex; gap: 7px; align-items: flex-start;
+}
+.unlock-guide-tip i { color: var(--accent); margin-top: 1px; flex-shrink: 0; font-size: 12px; }
+
+.unlock-guide.complete {
+    border-color: rgba(52, 211, 153, 0.45);
+    background: linear-gradient(165deg, rgba(16, 185, 129, 0.18), rgba(2, 6, 23, 0.65));
+    box-shadow: 0 0 28px rgba(16, 185, 129, 0.18), inset 0 1px 0 rgba(52, 211, 153, 0.12);
+}
+.unlock-guide.complete .unlock-guide-head h5 { color: #6ee7b7; }
+.unlock-guide.complete .unlock-guide-head h5 i { color: #34d399; }
+.unlock-guide.complete .unlock-guide-pct {
+    background: linear-gradient(135deg, #34d399, #059669);
+    color: #052e1c;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+}
+.unlock-guide.complete .unlock-h-steps::before {
+    background: linear-gradient(90deg, #34d399, #10b981);
+    opacity: 0.55;
+}
+.unlock-complete-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(16, 185, 129, 0.08));
+    border: 1px solid rgba(52, 211, 153, 0.35);
+}
+.unlock-complete-banner .ucb-icon {
+    width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, #34d399, #059669);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 18px;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.45);
+    animation: unlockPop 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes unlockPop {
+    0% { transform: scale(0.4); opacity: 0; }
+    70% { transform: scale(1.12); }
+    100% { transform: scale(1); opacity: 1; }
+}
+.unlock-complete-banner .ucb-text { text-align: left; flex: 1; }
+.unlock-complete-banner .ucb-text strong {
+    display: block; font-size: 14px; font-weight: 800;
+    color: #6ee7b7; font-family: var(--font-bn);
+}
+.unlock-complete-banner .ucb-text span {
+    font-size: 11px; color: var(--text-dim); font-family: var(--font-bn);
+    line-height: 1.35;
+}
+.unlock-guide.complete .unlock-guide-tip {
+    border-top-color: rgba(52, 211, 153, 0.2);
+    color: #a7f3d0;
+}
+.unlock-guide.complete .unlock-guide-tip i { color: #34d399; }
+
+#welcomeModal.modal-backdrop {
+    z-index: 1300;
+    background: rgba(2, 6, 23, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+.welcome-modal {
+    width: 100%;
+    max-width: 360px;
+    background: linear-gradient(165deg, rgba(26,26,26, 0.98), rgba(2, 6, 23, 0.99));
+    border: 1px solid rgba(59,130,246, 0.4);
+    border-radius: 28px;
+    padding: 32px 24px 24px;
+    box-shadow: 0 28px 70px rgba(0,0,0,0.75), 0 0 56px rgba(59,130,246, 0.28), 0 0 80px rgba(156,163,175, 0.12);
+    text-align: center;
+    transform: scale(0.88) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+    position: relative;
+    overflow: hidden;
+}
+#welcomeModal.show .welcome-modal { transform: scale(1) translateY(0); }
+.welcome-modal::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: -20%;
+    width: 140%;
+    height: 70%;
+    background: radial-gradient(ellipse at center, rgba(59,130,246,0.22) 0%, transparent 65%);
+    pointer-events: none;
+}
+.welcome-glow-ring {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    padding: 3px;
+    background: var(--grad);
+    box-shadow: 0 0 36px rgba(59,130,246, 0.55), 0 8px 28px rgba(156,163,175, 0.3);
+    position: relative;
+    animation: welcomePulse 2.4s ease-in-out infinite;
+}
+@keyframes welcomePulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 36px rgba(59,130,246, 0.5), 0 8px 28px rgba(156,163,175, 0.25); }
+    50% { transform: scale(1.05); box-shadow: 0 0 48px rgba(59,130,246, 0.7), 0 8px 32px rgba(34, 211, 238, 0.25); }
+}
+.welcome-glow-ring-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #0E0E0E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.welcome-glow-ring-inner i {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 34px;
+}
+.welcome-modal h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    font-family: var(--font-bn);
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.3px;
+    position: relative;
+}
+.welcome-modal .welcome-sub {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--pink-bright);
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0.95;
+}
+.welcome-modal p.welcome-body {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-dim);
+    font-family: var(--font-bn);
+    margin-bottom: 18px;
+    position: relative;
+}
+.welcome-modal p.welcome-body strong {
+    color: var(--pink-bright);
+    font-weight: 800;
+}
+.welcome-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 22px;
+    text-align: left;
+}
+.welcome-chip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background: rgba(59,130,246, 0.12);
+    border: 1px solid rgba(59,130,246, 0.22);
+    font-family: var(--font-bn);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-dim);
+}
+.welcome-chip i {
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--grad);
+    color: #0E0E0E;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+.welcome-modal .modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.welcome-modal .modal-btn-primary {
+    background: var(--grad);
+    color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(59,130,246, 0.45);
+    font-size: 15px;
+    padding: 14px;
+    letter-spacing: 0.2px;
+}
+.welcome-modal .modal-btn-primary:active { transform: scale(0.97); }
+.welcome-modal .channel-btn {
+    background: linear-gradient(135deg, #2AABEE, #229ED9);
+    color: #FFFFFF;
+    font-size: 12.5px;
+    padding: 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 6px 18px rgba(42, 171, 238, 0.35);
+}
+.welcome-modal .channel-btn:active { transform: scale(0.97); }
+</style>
+</head>
+<body>
+
+<div id="connBanner">
+    <i class="fas fa-wifi"></i>
+    <span id="connBannerText">ইন্টারনেট কানেকশন সমস্যা হচ্ছে...</span>
+    <button onclick="location.reload()">রিফ্রেশ</button>
+</div>
+
+<div id="splashScreen">
+    <div class="splash-orb o1"></div>
+    <div class="splash-orb o2"></div>
+    <div class="splash-orb o3"></div>
+    <div class="splash-center">
+        <div class="splash-logo-wrap">
+            <div class="splash-ring-outer"></div>
+            <div class="splash-ring-inner"></div>
+            <div class="splash-logo-core">
+                <span class="splash-letter">S</span>
+            </div>
+        </div>
+        <div>
+<div class="splash-title">Viral Video Bangladesh</div>
+            <div class="splash-tagline">✦ Connecting to Shadow World ✦</div>
+        </div>
+        <div class="splash-progress-wrap">
+            <div class="splash-bar-track"><div class="splash-bar-fill" id="splashBarFill"></div></div>
+            <div class="splash-status" id="splashStatus">শুরু হচ্ছে...</div>
+        </div>
+        <div class="splash-dots"><span></span><span></span><span></span></div>
+    </div>
+</div>
+
+<div id="adWarningModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="warning-modal">
+        <div class="warning-icon-ring">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h3>বিজ্ঞাপন অসম্পূর্ণ!</h3>
+        <p id="adWarningText">
+            পুরোপুরি বিজ্ঞাপন না দেখলে আনলক হবে না। অনুগ্রহ করে বিজ্ঞাপন শেষ পর্যন্ত দেখুন, তারপর আবার চেষ্টা করুন।
+        </p>
+        <div class="modal-actions">
+            <button class="modal-btn modal-btn-primary" onclick="closeAdWarning()">
+                <i class="fas fa-redo-alt"></i> ঠিক আছে, আবার চেষ্টা করব
+            </button>
+            <button class="modal-btn modal-btn-ghost" onclick="closeAdWarning()">বন্ধ করুন</button>
+        </div>
+    </div>
+</div>
+
+<div id="welcomeModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <div class="welcome-modal">
+        <div class="welcome-glow-ring">
+            <div class="welcome-glow-ring-inner">
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+        <div class="welcome-sub">✦ Viral Video Bangladesh  ✦</div>
+        <h3 id="welcomeTitle">স্বাগতম! ✨</h3>
+        <p class="welcome-body" id="welcomeBodyText">
+            আজকের নতুন ভাইরাল কনটেন্ট আপনার জন্য অপেক্ষা করছে। <strong>প্রতিদিন নতুন ভিডিও</strong> আনলক করুন, বন্ধুদের ইনভাইট করে <strong>ফ্রি ক্রেডিট</strong> পান — আর মজার দুনিয়ায় ডুব দিন!
+        </p>
+        <div class="welcome-highlights">
+            <div class="welcome-chip">
+                <i class="fas fa-fire"></i>
+                <span>ট্রেন্ডিং ও নতুন ভিডিও এক জায়গায়</span>
+            </div>
+            <div class="welcome-chip">
+                <i class="fas fa-gift"></i>
+                <span>প্রতি রেফারেলে ১টি ফ্রি আনলক ক্রেডিট</span>
+            </div>
+            <div class="welcome-chip">
+                <i class="fas fa-bolt"></i>
+                <span>দ্রুত আনলক · সহজ শেয়ার · প্রিমিয়াম এক্সপেরিয়েন্স</span>
+            </div>
+        </div>
+        <div class="modal-actions">
+            <button type="button" class="modal-btn modal-btn-primary" onclick="closeWelcomeModal()">
+                <i class="fas fa-heart"></i> শুরু করি, চলো!
+            </button>
+            <button type="button" class="modal-btn channel-btn" onclick="openExternal('https://t.me/new_update_12')">
+                <i class="fab fa-telegram-plane"></i> আমাদের চ্যানেলে জয়েন করুন
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="app">
+    <div class="top-pills fadeIn">
+        <div class="floating-credit">
+            <div class="star-wrap" id="topCreditLogo"></div>
+            <span id="topCreditBalance">0</span>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loader"></div>
+        <div id="loadingText" class="loading-text-style">লোড হচ্ছে...</div>
+    </div>
+
+    <div id="mainContent">
+        <div class="header fadeIn">
+<h1 class="title">Viral Video Bangladesh</h1>
+            <div class="subtitle">Premium Viral Content</div>
+        </div>
+
+        <div id="homeSec" class="fadeIn">
+            <div class="ptr-indicator" id="ptrIndicator">
+                <i class="fas fa-arrow-down ptr-arrow" id="ptrArrow"></i>
+                <div class="ptr-spinner" id="ptrSpinner" style="display:none;"></div>
+                <span id="ptrText">রিফ্রেশ করতে টেনে নামান</span>
+            </div>
+            <div class="invite-card">
+                <div class="invite-text">
+                    <h4>বন্ধুদের ইনভাইট করুন 🎁</h4>
+                    <p>প্রতিটি সফল রেফারেলে ১টি ভিডিও আনলক ফ্রি!</p>
+                </div>
+                <button class="invite-btn" onclick="inviteFriend()">Invite</button>
+            </div>
+
+            <div class="search-wrapper">
+                <input id="searchInput" type="text" class="search-input" placeholder="পছন্দের ভিডিও খুঁজুন...">
+                <div class="search-icon"><i class="fas fa-search"></i></div>
+            </div>
+            <div id="filterContainer" class="filter-scroll"></div>
+            <div id="cards" class="cards"></div>
+        </div>
+
+        <div id="likedSec" class="hidden fadeIn">
+            <h3 class="section-title">❤️ আপনার পছন্দ</h3>
+            <div id="likedCards" class="cards"></div>
+        </div>
+
+        <div id="profileSec" class="hidden fadeIn">
+            <h3 class="section-title">👤 প্রোফাইল</h3>
+            <div class="info-box profile-card">
+                <div class="profile-avatar-container">
+                    <div id="profilePicHolder" class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+                <h2 id="uName" style="font-size:20px;font-weight:800;color:var(--text);">User</h2>
+                <div id="uBadgeBox"></div>
+                <p id="uId" style="color:var(--text-mute);font-size:12px;margin-top:4px;">ID: 00000000</p>
+
+                <div class="stat-group" id="profileStatGroup" style="grid-template-columns: 1fr 1fr;">
+                    <div class="stat-box">
+                        <div class="stat-value" id="statReferCount">0</div>
+                        <div class="stat-label">মোট রেফার</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="statRefer">0</div>
+                        <div class="stat-label">ফ্রি আনলক</div>
+                    </div>
+                </div>
+
+                <div class="refer-link-box">
+                    <i class="fas fa-link"></i>
+                    <span id="referLinkText">লিংক তৈরি হচ্ছে...</span>
+                </div>
+                <button class="copy-ref-btn" id="copyRefBtn" onclick="copyReferLink()">
+                    <i class="fas fa-copy"></i> <span id="copyRefLabel">কপি করুন</span>
+                </button>
+                <div class="profile-actions" style="grid-template-columns: 1fr;">
+                    <button type="button" class="profile-action-btn" onclick="inviteFriend()">
+                        <i class="fas fa-share-alt"></i> শেয়ার করুন
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="tutSec" class="hidden fadeIn">
+            <button type="button" class="back-btn" id="tutBackBtn" onclick="nav('homeSec', document.querySelector('.nav-item'))">
+                <span class="back-icon-wrap"><i class="fas fa-arrow-left"></i></span>
+                <span>ফিরে যান</span>
+            </button>
+            <h3 class="section-title" id="tutTitle">🎬 ভিডিও গাইড</h3>
+            <div class="info-box">
+                <div id="tutEmbed" class="tut-embed-box"></div>
+                <div style="margin-top:16px;" id="tutActions"></div>
+                <div id="tutUnlockGuide"></div>
+            </div>
+
+            <div class="suggest-section" id="suggestSection">
+                <div class="suggest-block" id="suggestNewBlock">
+                    <div class="suggest-header">
+                        <h4><span class="sh-icon new"><i class="fas fa-bolt"></i></span> নতুন ভিডিও</h4>
+                    </div>
+                    <div class="suggest-scroll" id="suggestNew"></div>
+                </div>
+                <div class="suggest-block" id="suggestPopBlock">
+                    <div class="suggest-header">
+                        <h4><span class="sh-icon pop"><i class="fas fa-eye"></i></span> মোস্ট ভিউড</h4>
+                    </div>
+                    <div class="suggest-scroll" id="suggestPop"></div>
+                </div>
+                <div class="suggest-block" id="suggestTrendBlock">
+                    <div class="suggest-header">
+                        <h4><span class="sh-icon trend"><i class="fas fa-fire"></i></span> ট্রেন্ডিং</h4>
+                    </div>
+                    <div class="suggest-scroll" id="suggestTrend"></div>
+                </div>
+                <div class="suggest-block" id="suggestMoreBlock">
+                    <div class="suggest-header">
+                        <h4><span class="sh-icon mix"><i class="fas fa-layer-group"></i></span> আরও ভিডিও</h4>
+                    </div>
+                    <div class="suggest-scroll" id="suggestMore"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="linkSec" class="hidden fadeIn">
+            <h3 class="section-title">🔗 Task Link</h3>
+            <div id="linkList"></div>
+        </div>
+    </div>
+
+    <div class="bottom-nav-wrapper">
+        <div class="bottom-nav">
+            <button class="nav-item active" onclick="nav('homeSec', this)"><i class="fas fa-home"></i><span class="nav-text">হোম</span></button>
+            <button class="nav-item" onclick="nav('likedSec', this)"><i class="fas fa-heart"></i><span class="nav-text">পছন্দ</span></button>
+            <button class="nav-item" onclick="nav('profileSec', this); renderProfile();"><i class="fas fa-user-alt"></i><span class="nav-text">প্রোফাইল</span></button>
+            <button class="nav-item" onclick="nav('linkSec', this)"><i class="fas fa-link"></i><span class="nav-text">লিংক</span></button>
+        </div>
+    </div>
+    <div id="toast" class="toast">লিংক কপি হয়েছে!</div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { getDatabase, ref, onValue, runTransaction, get, set } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBYaPJb6ajp-YvVj_bLZnGMtThUGj63jR0",
+  authDomain: "viral-video-bangladesh.firebaseapp.com",
+  databaseURL: "https://viral-video-bangladesh-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "viral-video-bangladesh",
+  storageBucket: "viral-video-bangladesh.firebasestorage.app",
+  messagingSenderId: "687655610340",
+  appId: "1:687655610340:web:19001d41a92595b27e89f1"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const tg = (window.Telegram && window.Telegram.WebApp) ? window.Telegram.WebApp : {
+    expand(){}, setHeaderColor(){}, initDataUnsafe:{},
+    openLink(u){ window.open(u,'_blank','noopener'); },
+    openTelegramLink(u){ window.open(u,'_blank','noopener'); },
+    HapticFeedback: null
+};
+try { tg.expand(); tg.setHeaderColor('#121212'); } catch (e) {}
+
+const user = tg.initDataUnsafe?.user;
+const currentUserId = user?.id || 12345678;
+const startParam = tg.initDataUnsafe?.start_param;
+const fallbackImg = "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="340"><rect width="600" height="340" fill="#121212"/><rect x="1" y="1" width="598" height="338" fill="none" stroke="#60A5FA" stroke-width="2"/><circle cx="300" cy="150" r="34" fill="#3B82F6"/><path d="M290 134 L318 150 L290 166 Z" fill="#121212"/><text x="300" y="220" font-family="Arial" font-size="22" fill="#3B82F6" text-anchor="middle" font-weight="bold">Unlock to Watch</text></svg>`);
+const CREDIT_LOGO = "data:image/png;base64,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";
+
+function creditIconHtml(size) {
+    const s = size || 18;
+    return '<img class="credit-logo-img" src="' + CREDIT_LOGO + '" width="' + s + '" height="' + s + '" alt="credit" draggable="false" style="width:' + s + 'px;height:' + s + 'px;object-fit:cover;object-position:center center;border-radius:50%;">';
+}
+
+let allVideos = [], filters = [], menuLinks = [], adsgramBlockId = "";
+let settings = { ads_limit: 20, bot_app_link: "" };
+let currentFilter = 'all';
+
+function openExternal(url) {
+    if (!url) return;
+    try {
+        if (tg && typeof tg.openLink === 'function') {
+            tg.openLink(url, { try_instant_view: false });
+            return;
+        }
+    } catch (e) {}
+    const w = window.open(url, '_blank', 'noopener,noreferrer');
+    if (!w) window.location.href = url;
+}
+window.openExternal = openExternal;
+
+let adController = null;
+let adControllerBlockId = null;
+let adsgramReady = false;
+
+function waitForAdsgramSdk(timeoutMs = 4000) {
+    return new Promise((resolve) => {
+        if (typeof window.Adsgram !== 'undefined') { resolve(true); return; }
+        const start = Date.now();
+        const iv = setInterval(() => {
+            if (typeof window.Adsgram !== 'undefined') {
+                clearInterval(iv);
+                resolve(true);
+            } else if (Date.now() - start > timeoutMs) {
+                clearInterval(iv);
+                resolve(false);
+            }
+        }, 100);
+    });
+}
+
+function getAdController() {
+    if (typeof window.Adsgram === 'undefined') return null;
+    if (!adController || adControllerBlockId !== adsgramBlockId) {
+        adController = window.Adsgram.init({ blockId: adsgramBlockId });
+        adControllerBlockId = adsgramBlockId;
+    }
+    return adController;
+}
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
+
+function spawnRipple(x, y, sourceEl) {
+    const ripple = document.createElement('div');
+    ripple.className = 'touch-ripple';
+    const rect = sourceEl && sourceEl.getBoundingClientRect ? sourceEl.getBoundingClientRect() : null;
+    const size = rect ? Math.max(rect.width, rect.height, 50) * 1.25 : 90;
+    ripple.style.width = size + 'px';
+    ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    document.body.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+    setTimeout(() => ripple.remove(), 600);
+}
+document.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    spawnRipple(e.clientX, e.clientY, e.target.closest('button, a, .card, .filter-btn, .nav-item, .suggest-card') || e.target);
+}, { passive: true });
+
+function setSplashProgress(pct, status) {
+    const bar = document.getElementById('splashBarFill');
+    const st = document.getElementById('splashStatus');
+    if (bar) bar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    if (st && status) st.innerText = status;
+}
+
+function hideSplash() {
+    setSplashProgress(100, 'প্রস্তুত!');
+    const el = document.getElementById('splashScreen');
+    if (!el || el.classList.contains('splash-hidden')) return;
+    setTimeout(() => {
+        el.classList.add('splash-hidden');
+        setTimeout(() => {
+            el.style.display = 'none';
+            try { maybeShowDailyWelcome(); } catch (e) {}
+        }, 550);
+    }, 280);
+}
+
+const WELCOME_STORAGE_KEY = 'vz_welcome_day_v1';
+
+function getTodayKey() {
+    const d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function hasSeenWelcomeToday() {
+    try {
+        return localStorage.getItem(WELCOME_STORAGE_KEY) === getTodayKey();
+    } catch (e) {
+        return false;
+    }
+}
+
+function markWelcomeSeenToday() {
+    try {
+        localStorage.setItem(WELCOME_STORAGE_KEY, getTodayKey());
+    } catch (e) {}
+}
+
+function getWelcomeGreeting() {
+    const h = new Date().getHours();
+    if (h >= 5 && h < 12) return 'শুভ সকাল! 🌅';
+    if (h >= 12 && h < 17) return 'শুভ দুপুর! ☀️';
+    if (h >= 17 && h < 21) return 'শুভ সন্ধ্যা! 🌇';
+    return 'শুভ রাত্রি! 🌙';
+}
+
+function maybeShowDailyWelcome() {
+    if (hasSeenWelcomeToday()) return;
+    const modal = document.getElementById('welcomeModal');
+    if (!modal) return;
+
+    const titleEl = document.getElementById('welcomeTitle');
+    if (titleEl) {
+        const name = (typeof user !== 'undefined' && user && user.first_name) ? String(user.first_name).trim() : '';
+        titleEl.textContent = name
+            ? getWelcomeGreeting() + ' ' + name + ' ✨'
+            : getWelcomeGreeting() + ' স্বাগতম! ✨';
+    }
+
+    modal.classList.add('show');
+    try {
+        if (typeof tg !== 'undefined' && tg.HapticFeedback) {
+            tg.HapticFeedback.notificationOccurred('success');
+        }
+    } catch (e) {}
+}
+
+window.closeWelcomeModal = () => {
+    const modal = document.getElementById('welcomeModal');
+    if (modal) modal.classList.remove('show');
+    markWelcomeSeenToday();
+    try {
+        if (typeof tg !== 'undefined' && tg.HapticFeedback) {
+            tg.HapticFeedback.impactOccurred('light');
+        }
+    } catch (e) {}
+};
+
+/* ========== FIXED CONNECTION BANNER (12 sec delay) ========== */
+let connBannerShownAt = 0;
+let connBannerTimer = null;
+
+function setConnBanner(show, text) {
+    const el = document.getElementById('connBanner');
+    if (!el) return;
+    if (show) {
+        document.getElementById('connBannerText').innerText = text || "ইন্টারনেট কানেকশন সমস্যা হচ্ছে...";
+        connBannerShownAt = Date.now();
+        el.classList.add('show');
+    } else {
+        const elapsed = Date.now() - connBannerShownAt;
+        const hide = () => el.classList.remove('show');
+        if (elapsed < 400) setTimeout(hide, 400 - elapsed); else hide();
+    }
+}
+
+function watchConnection() {
+    onValue(ref(db, '.info/connected'), (snap) => {
+        if (snap.val() === false) {
+            if (connBannerTimer) return;
+            connBannerTimer = setTimeout(() => {
+                connBannerTimer = null;
+                if (!navigator.onLine) {
+                    setConnBanner(true, "ইন্টারনেট কানেকশন নেই!");
+                } else {
+                    setConnBanner(true, "সার্ভারের সাথে সংযোগ বিচ্ছিন্ন হয়েছে...");
+                }
+            }, 12000);
+        } else {
+            if (connBannerTimer) {
+                clearTimeout(connBannerTimer);
+                connBannerTimer = null;
+            }
+            setConnBanner(false);
+        }
+    });
+
+    window.addEventListener('offline', () => {
+        setConnBanner(true, "ইন্টারনেট কানেকশন নেই!");
+    });
+
+    window.addEventListener('online', () => {
+        if (connBannerTimer) {
+            clearTimeout(connBannerTimer);
+            connBannerTimer = null;
+        }
+        setConnBanner(false);
+    });
+}
+/* ========== END CONNECTION BANNER ========== */
+
+window.showAdWarning = () => {};
+window.closeAdWarning = () => {
+    const modal = document.getElementById('adWarningModal');
+    if (modal) modal.classList.remove('show');
+};
+
+async function init() {
+    try {
+        const logoWrap = document.getElementById('topCreditLogo');
+        if (logoWrap && typeof CREDIT_LOGO !== 'undefined') {
+            logoWrap.innerHTML = '<img src="' + CREDIT_LOGO + '" alt="credit" draggable="false">';
+        }
+    } catch (e) {}
+
+    showSkeletons();
+    watchConnection();
+    setSplashProgress(12, 'কানেক্ট হচ্ছে...');
+
+    const minSplashDelay = new Promise(res => setTimeout(res, 1400));
+    let resolveVideosReady;
+    const videosReady = new Promise(res => { resolveVideosReady = res; });
+    const splashTimeout = new Promise(res => setTimeout(res, 6000));
+
+    // ========== উন্নত Anonymous Auth হ্যান্ডলিং ==========
+    setSplashProgress(28, 'অ্যাকাউন্ট চেক...');
+    try {
+        const auth = getAuth(app);
+        await withTimeout(signInAnonymously(auth), FIREBASE_TIMEOUT_MS, 'timeout');
+        console.log('Anonymous auth successful');
+    } catch (e) {
+        console.warn('anonymous auth failed', e);
+        const errStr = String(e?.code || e?.message || e || '');
+        if (errStr.includes('admin-restricted-operation')) {
+            console.error('⚠️ CRITICAL: Anonymous Authentication is DISABLED in Firebase Console!');
+            console.error('Fix → Firebase Console → Authentication → Sign-in method → Anonymous → Enable');
+            setTimeout(() => {
+                showToast('Auth সেটআপ সমস্যা। অ্যাডমিন চেক করুন।');
+            }, 2500);
+        }
+    }
+    // ========== Auth হ্যান্ডলিং শেষ ==========
+
+    await handleReferral();
+    setSplashProgress(48, 'বিজ্ঞাপন সিস্টেম...');
+    adsgramReady = await waitForAdsgramSdk();
+    setSplashProgress(62, 'কনটেন্ট লোড...');
+
+    onValue(ref(db, 'settings'), s => {
+        if (s.val()) {
+            settings = s.val();
+            if (settings.adsgram_block_id) adsgramBlockId = settings.adsgram_block_id;
+            if (settings.tutorial_id && !startParam) {
+                document.getElementById('tutEmbed').innerHTML = `<iframe src="${settings.tutorial_id}" style="width:100%;height:100%;border:0" allowfullscreen></iframe>`;
+            }
+            updateReferLinkText();
+        }
+    });
+
+    onValue(ref(db, `users/${currentUserId}`), (snapshot) => {
+        try {
+            const data = snapshot.val() || {};
+            const credits = Number(data.unlock_credits) || 0;
+            const bal = document.getElementById('topCreditBalance');
+            if (bal) bal.innerText = credits;
+            if (!document.getElementById('profileSec').classList.contains('hidden')) {
+                requestAnimationFrame(() => { try { renderProfile(); } catch (e) {} });
+            }
+        } catch (e) { console.error('user listener', e); }
+    });
+
+    onValue(ref(db, 'ads_config'), s => {
+        if (s.val() && s.val().adsgram_block_id) adsgramBlockId = s.val().adsgram_block_id;
+    });
+
+    onValue(ref(db, 'links'), s => {
+        menuLinks = [];
+        if (s.val()) Object.values(s.val()).forEach(v => menuLinks.push(v));
+        renderLinks();
+    });
+    onValue(ref(db, 'filters'), s => {
+        filters = [];
+        if (s.val()) Object.values(s.val()).forEach(v => filters.push(v));
+        renderFilters();
+    });
+    onValue(ref(db, 'videos'), s => {
+        try {
+            allVideos = [];
+            const raw = s.val();
+            if (raw) {
+                Object.entries(raw).forEach(([k, v]) => {
+                    if (v && typeof v === 'object') allVideos.push({ id: k, ...v });
+                });
+            }
+            allVideos.reverse();
+            requestAnimationFrame(() => {
+                try {
+                    renderFilters();
+                    renderCards();
+                    renderLiked();
+                    if (!document.getElementById('profileSec').classList.contains('hidden')) {
+                        renderProfile();
+                    }
+                } catch (e) { console.error('post-videos render', e); }
+            });
+            if (startParam && isNaN(startParam)) {
+                const v = allVideos.find(x => x.id === startParam);
+                if (v) setTimeout(() => { try { openVideoPage(v.id); } catch (e) {} }, 100);
+            }
+            setSplashProgress(88, 'প্রায় হয়ে গেছে...');
+            if (resolveVideosReady) { resolveVideosReady(); resolveVideosReady = null; }
+        } catch (e) {
+            console.error('videos listener error', e);
+            if (resolveVideosReady) { resolveVideosReady(); resolveVideosReady = null; }
+        }
+    });
+
+    await Promise.race([
+        Promise.all([videosReady, minSplashDelay]),
+        splashTimeout
+    ]);
+    hideSplash();
+}
+
+async function handleReferral() {
+    const userRef = ref(db, `users/${currentUserId}`);
+    let snapshot;
+    try {
+        snapshot = await withTimeout(get(userRef), FIREBASE_TIMEOUT_MS, 'timeout');
+    } catch (e) {
+        return;
+    }
+
+    if (!snapshot.exists()) {
+        const newUserData = {
+            joined: true,
+            first_name: user?.first_name || "User",
+            unlock_credits: 0,
+            total_refers: 0,
+            total_unlocked: 0
+        };
+
+        await set(userRef, newUserData);
+        if (startParam && !isNaN(startParam) && startParam !== currentUserId.toString()) {
+            const referrerRef = ref(db, `users/${startParam}`);
+            try {
+                await runTransaction(referrerRef, (u) => {
+                    if (u) {
+                        u.unlock_credits = (Number(u.unlock_credits) || 0) + 1;
+                        u.total_refers = (Number(u.total_refers) || 0) + 1;
+                        u.joined = true;
+                    } else {
+                        return { unlock_credits: 1, total_refers: 1, joined: true };
+                    }
+                    return u;
+                });
+                await set(ref(db, `users/${currentUserId}/referredBy`), String(startParam));
+            } catch (e) {
+                console.error("Referral update failed", e);
+            }
+        }
+    }
+}
+
+function showSkeletons() {
+    const div = document.getElementById('cards');
+    div.innerHTML = '';
+    for (let i = 0; i < 3; i++) {
+        const sk = document.createElement('div');
+        sk.className = 'skeleton-card';
+        div.appendChild(sk);
+    }
+}
+
+function renderFilters() {
+    const div = document.getElementById('filterContainer');
+    if (!div) return;
+    const total = allVideos.length;
+    let html = `<button class="filter-btn ${currentFilter === 'all' ? 'active' : ''}" onclick="setFilter('all', this)">সবগুলো<span class="filter-count">${total}</span></button>`;
+    filters.forEach(f => {
+        const count = allVideos.filter(v => v.category === f.id).length;
+        html += `<button class="filter-btn ${currentFilter === f.id ? 'active' : ''}" onclick="setFilter('${jsStr(f.id)}', this)">${escHtml(f.name || '')}<span class="filter-count">${count}</span></button>`;
+    });
+    div.innerHTML = html;
+}
+
+function formatNum(n) {
+    n = Number(n) || 0;
+    if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+    return String(n);
+}
+function escHtml(s) {
+    return String(s ?? '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+}
+function jsStr(s) {
+    return String(s ?? '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\r?\n/g, ' ');
+}
+
+function parseDurationSeconds(v) {
+    if (v == null || v === '') return 0;
+    if (typeof v === 'number' && isFinite(v) && v > 0) return Math.floor(v);
+    const s = String(v).trim();
+    if (/^\d+$/.test(s)) return parseInt(s, 10) || 0;
+    const parts = s.split(':').map(p => parseInt(p, 10));
+    if (parts.some(p => isNaN(p))) return 0;
+    if (parts.length === 2) return parts[0] * 60 + parts[1];
+    if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    return 0;
+}
+function formatDuration(raw) {
+    const sec = parseDurationSeconds(raw);
+    if (!sec) return '';
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    const s = sec % 60;
+    if (h > 0) return h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    return m + ':' + String(s).padStart(2, '0');
+}
+function formatDurationBn(raw) {
+    const sec = parseDurationSeconds(raw);
+    if (!sec) return '';
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    const s = sec % 60;
+    if (h > 0) return `${h} ঘণ্টা ${m} মিনিট`;
+    if (m > 0 && s > 0) return `${m} মিনিট ${s} সেকেন্ড`;
+    if (m > 0) return `${m} মিনিট`;
+    return `${s} সেকেন্ড`;
+}
+
+function getPostedAt(v) {
+    return Number(v.created_at || v.timestamp || v.createdAt) || 0;
+}
+
+function isVideoNew(v) {
+    const createdAt = getPostedAt(v);
+    if (!createdAt) return false;
+    return (Date.now() - createdAt) <= (24 * 60 * 60 * 1000);
+}
+
+function timeAgo(ts) {
+    ts = Number(ts) || 0;
+    if (!ts) return '';
+    const diffSec = Math.floor((Date.now() - ts) / 1000);
+    if (diffSec < 45) return 'এইমাত্র';
+    const min = Math.floor(diffSec / 60);
+    if (min < 60) return `${min} মিনিট আগে`;
+    const hr = Math.floor(min / 60);
+    if (hr < 24) return `${hr} ঘণ্টা আগে`;
+    const day = Math.floor(hr / 24);
+    if (day < 30) return `${day} দিন আগে`;
+    const month = Math.floor(day / 30);
+    if (month < 12) return `${month} মাস আগে`;
+    const year = Math.floor(month / 12);
+    return `${year} বছর আগে`;
+}
+
+function refreshTimeLabels() {
+    document.querySelectorAll('.post-time[data-ts]').forEach(el => {
+        const ts = el.getAttribute('data-ts');
+        if (!ts) return;
+        el.innerHTML = `<i class="far fa-clock"></i> ${timeAgo(ts)}`;
+    });
+}
+setInterval(refreshTimeLabels, 60000);
+
+function createCard(v) {
+    const liked = getLiked().includes(v.id);
+    const count = getProgress(v.id);
+    const req = v.ad_watches_required || 1;
+    const isUnlocked = count >= req;
+    const viewCount = Number(v.view_count) || 0;
+    const isTrending = viewCount >= 500;
+    const isNew = isVideoNew(v);
+    const postedAt = getPostedAt(v);
+    const durLabel = formatDuration(v.duration ?? v.duration_sec ?? v.length);
+
+    const el = document.createElement('div');
+    el.className = 'card fadeIn';
+    const metaBits = [];
+    if (postedAt) metaBits.push(`<div class="post-time" data-ts="${postedAt}"><i class="far fa-clock"></i> ${timeAgo(postedAt)}</div>`);
+    if (durLabel) metaBits.push(`<div class="meta-duration"><i class="fas fa-play-circle"></i> <strong>${durLabel}</strong></div>`);
+    const safeId = jsStr(v.id);
+    const safeLink = jsStr(v.download_link || '');
+    const safeName = escHtml(v.name || '');
+    const safeImg = escHtml(v.image_url || '');
+    el.innerHTML = `
+        <div class="media" onclick="openVideoPage('${safeId}')">
+            <img src="${safeImg}" alt="${safeName}" loading="lazy" onerror="this.onerror=null; this.src='${fallbackImg}';" draggable="false">
+            <div class="badge-row">
+                ${isTrending ? '<div class="trending-badge"><i class="fas fa-fire"></i> Trending</div>' : ''}
+                ${isNew ? '<div class="new-badge"><i class="fas fa-bolt"></i> New</div>' : ''}
+            </div>
+            <button class="heart-btn" onclick="event.stopPropagation(); toggleLike('${safeId}')"><i class="${liked ? 'fas' : 'far'} fa-heart"></i></button>
+            <div class="view-count-badge"><i class="fas fa-eye"></i> ${formatNum(viewCount)}</div>
+            ${durLabel ? `<div class="duration-badge"><i class="far fa-clock"></i> ${durLabel}</div>` : ''}
+        </div>
+        <div class="meta">
+            <h3 onclick="openVideoPage('${safeId}')">${safeName}</h3>
+            ${metaBits.length ? `<div class="meta-row">${metaBits.join('')}</div>` : ''}
+            <div class="actions">
+                <button class="unlock-btn ${isUnlocked ? 'done' : ''}" data-vid="${safeId}" onclick="handleUnlock('${safeId}', '${safeLink}', ${req})">
+                    ${isUnlocked ? '<i class="fas fa-check-circle"></i> Download' : `<i class="fas fa-lock"></i> Unlock (${count}/${req})`}
+                </button>
+                ${!isUnlocked ? `<div class="credit-action-group"><button class="action-btn credit-action-btn" onclick="useCredit('${safeId}', '${safeLink}', ${req})" title="Use Credit">${typeof creditIconHtml==='function'?creditIconHtml(28):'<i class="fas fa-star"></i>'}</button><span class="credit-action-label">Use Credit</span></div>` : ''}
+                <button class="action-btn" onclick="copyLink('${safeId}')" title="Share"><i class="fas fa-share-alt"></i></button>
+            </div>
+        </div>`;
+    return el;
+}
+
+let _renderCardsBusy = false;
+let _renderCardsQueued = false;
+function renderCards() {
+    if (_renderCardsBusy) { _renderCardsQueued = true; return; }
+    _renderCardsBusy = true;
+    _renderCardsQueued = false;
+    try {
+        const div = document.getElementById('cards');
+        if (!div) return;
+        const searchEl = document.getElementById('searchInput');
+        const q = (searchEl && searchEl.value ? searchEl.value : '').toLowerCase();
+        const list = allVideos.filter(v => {
+            const name = (v && v.name) ? String(v.name).toLowerCase() : '';
+            return name.includes(q) && (currentFilter === 'all' || v.category === currentFilter);
+        });
+        if (allVideos.length === 0 && list.length === 0) {
+            div.innerHTML = emptyStateHTML('fas fa-video-slash', 'কোনো ভিডিও নেই', 'এখনো কোনো ভিডিও যোগ করা হয়নি। পরে আবার দেখুন।', '', '');
+            return;
+        }
+        if (!list.length) {
+            div.innerHTML = '<p style="text-align:center;padding:50px;color:var(--text-mute);font-family:var(--font-bn);">কোনো ভিডিও পাওয়া যায়নি।</p>';
+            return;
+        }
+        const frag = document.createDocumentFragment();
+        const maxShow = Math.min(list.length, 80);
+        for (let i = 0; i < maxShow; i++) {
+            try { frag.appendChild(createCard(list[i])); } catch (e) { console.warn('card render skip', e); }
+        }
+        div.innerHTML = '';
+        div.appendChild(frag);
+        if (list.length > maxShow) {
+            const more = document.createElement('p');
+            more.style.cssText = 'text-align:center;padding:16px;color:var(--text-mute);font-family:var(--font-bn);font-size:13px;';
+            more.textContent = `আরো ${list.length - maxShow}টি ভিডিও — সার্চ/ফিল্টার ব্যবহার করুন`;
+            div.appendChild(more);
+        }
+    } catch (e) {
+        console.error('renderCards error', e);
+    } finally {
+        _renderCardsBusy = false;
+        if (_renderCardsQueued) {
+            requestAnimationFrame(() => renderCards());
+        }
+    }
+}
+
+function buildSuggestCard(v, badgeClass, badgeLabel) {
+    const views = formatNum(Number(v.view_count) || 0);
+    const durLabel = formatDuration(v.duration ?? v.duration_sec ?? v.length);
+    const card = document.createElement('div');
+    card.className = 'suggest-card';
+    card.onclick = () => openVideoPage(v.id);
+    card.innerHTML = `
+        <div class="suggest-thumb">
+            <img src="${escHtml(v.image_url || '')}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImg}';" draggable="false">
+            ${badgeLabel ? `<div class="suggest-badge ${badgeClass}">${badgeLabel}</div>` : ''}
+            <div class="suggest-views"><i class="fas fa-eye"></i> ${views}</div>
+            ${durLabel ? `<div class="suggest-duration">${durLabel}</div>` : ''}
+        </div>
+        <div class="suggest-info">
+            <h5>${escHtml(v.name || '')}</h5>
+        </div>`;
+    return card;
+}
+
+function fillSuggestRow(containerId, blockId, list, badgeClass, badgeLabel) {
+    const container = document.getElementById(containerId);
+    const block = document.getElementById(blockId);
+    if (!container || !block) return;
+    if (!list.length) {
+        block.style.display = 'none';
+        return;
+    }
+    block.style.display = 'block';
+    container.innerHTML = '';
+    list.forEach(v => container.appendChild(buildSuggestCard(v, badgeClass, badgeLabel)));
+}
+
+function renderPopularSuggestions(excludeId) {
+    const section = document.getElementById('suggestSection');
+    if (!section) return;
+
+    const others = allVideos.filter(v => v.id !== excludeId);
+    if (others.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+    section.style.display = 'block';
+
+    const newOnes = others
+        .filter(v => isVideoNew(v))
+        .sort((a, b) => getPostedAt(b) - getPostedAt(a))
+        .slice(0, 8);
+    const newList = newOnes.length ? newOnes : others.slice(0, 6);
+
+    const mostViewed = [...others]
+        .sort((a, b) => (Number(b.view_count) || 0) - (Number(a.view_count) || 0))
+        .slice(0, 8);
+
+    const trending = others
+        .filter(v => (Number(v.view_count) || 0) >= 500)
+        .sort((a, b) => (Number(b.view_count) || 0) - (Number(a.view_count) || 0))
+        .slice(0, 8);
+
+    const shown = new Set([
+        ...newList.slice(0, 4).map(v => v.id),
+        ...mostViewed.slice(0, 4).map(v => v.id)
+    ]);
+    const more = others.filter(v => !shown.has(v.id)).slice(0, 8);
+
+    fillSuggestRow('suggestNew', 'suggestNewBlock', newList, 'new-b', 'New');
+    fillSuggestRow('suggestPop', 'suggestPopBlock', mostViewed, 'pop-b', 'Top');
+    fillSuggestRow('suggestTrend', 'suggestTrendBlock', trending, 'trend-b', 'Hot');
+    fillSuggestRow('suggestMore', 'suggestMoreBlock', more, '', '');
+}
+
+function buildUnlockStepsHTML(count, req, isUnlocked) {
+    const adsPer = (typeof ADS_PER_STEP !== 'undefined') ? ADS_PER_STEP : 2;
+
+    let nodes = '';
+    for (let s = 1; s <= req; s++) {
+        let state = '';
+        if (count >= s || isUnlocked) state = 'done';
+        else if (count === s - 1 && !isUnlocked) state = 'active';
+        const dot = state === 'done' ? '<i class="fas fa-check"></i>' : String(s);
+        nodes += `<div class="unlock-h-step ${state}">
+            <div class="unlock-h-dot">${dot}</div>
+            <div class="unlock-h-label">ধাপ ${s}<br>${adsPer}টি অ্যাড</div>
+        </div>`;
+    }
+    const dlState = isUnlocked ? 'done' : '';
+    nodes += `<div class="unlock-h-step ${dlState}">
+        <div class="unlock-h-dot">${isUnlocked ? '<i class="fas fa-check"></i>' : '<i class="fas fa-download" style="font-size:10px"></i>'}</div>
+        <div class="unlock-h-label">ডাউনলোড</div>
+    </div>`;
+
+    const tip = isUnlocked
+        ? 'সব ধাপ সম্পন্ন! উপরে সবুজ Download বাটনে চাপুন — ভিডিও পেতে।'
+        : `প্রতি ধাপে ${adsPer}টি বিজ্ঞাপন শেষ পর্যন্ত দেখুন। স্কিপ করলে আনলক হবে না। ⭐ ক্রেডিট দিয়েও আনলক করা যায়।`;
+
+    const completeBanner = isUnlocked
+        ? `<div class="unlock-complete-banner">
+            <div class="ucb-icon"><i class="fas fa-unlock-alt"></i></div>
+            <div class="ucb-text">
+                <strong>🎉 আনলক সম্পন্ন!</strong>
+                <span>ভিডিও ডাউনলোড করতে উপরে Download চাপুন</span>
+            </div>
+        </div>`
+        : '';
+
+    return `<div class="unlock-guide${isUnlocked ? ' complete' : ''}">
+        ${completeBanner}
+        <div class="unlock-guide-head">
+            <h5><i class="fas ${isUnlocked ? 'fa-check-circle' : 'fa-list-ol'}"></i> ${isUnlocked ? 'আনলক স্ট্যাটাস' : 'আনলক গাইড'}</h5>
+            <span class="unlock-guide-pct">${isUnlocked ? '✓ সম্পন্ন' : count + '/' + req}</span>
+        </div>
+        <div class="unlock-h-steps">${nodes}</div>
+        <div class="unlock-guide-tip"><i class="fas ${isUnlocked ? 'fa-check' : 'fa-lightbulb'}"></i><span>${tip}</span></div>
+    </div>`;
+}
+
+window.openVideoPage = (id) => {
+    const v = allVideos.find(x => x.id === id);
+    if (!v) return;
+    const count = getProgress(v.id);
+    const req = v.ad_watches_required || 1;
+    const isUnlocked = count >= req;
+    const durLabel = formatDuration(v.duration ?? v.duration_sec ?? v.length);
+    const durBn = formatDurationBn(v.duration ?? v.duration_sec ?? v.length);
+    const viewCount = Number(v.view_count) || 0;
+
+    const safeId = jsStr(v.id);
+    const safeLink = jsStr(v.download_link || '');
+    document.getElementById('tutTitle').innerText = v.name;
+    document.getElementById('tutEmbed').innerHTML = `
+        <div style="position:relative;width:100%;height:100%;">
+            <img src="${escHtml(v.image_url || '')}" alt="${escHtml(v.name || '')}" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='${fallbackImg}'" draggable="false">
+            ${durLabel ? `<div class="duration-badge" style="bottom:10px;right:10px;"><i class="far fa-clock"></i> ${durLabel}</div>` : ''}
+            <div class="view-count-badge" style="bottom:10px;left:10px;"><i class="fas fa-eye"></i> ${formatNum(viewCount)}</div>
+        </div>`;
+    const guideEl = document.getElementById('tutUnlockGuide');
+    if (guideEl) guideEl.innerHTML = buildUnlockStepsHTML(count, req, isUnlocked);
+    document.getElementById('tutActions').innerHTML = `
+        ${durBn ? `<div class="meta-duration" style="margin-bottom:12px;"><i class="fas fa-play-circle"></i> দৈর্ঘ্য: <strong>${durBn}</strong> <span style="opacity:0.7;">(${durLabel})</span></div>` : ''}
+        <div style="display:flex; gap:10px; align-items:center;">
+            <button class="unlock-btn ${isUnlocked ? 'done' : ''}" data-vid="${safeId}" style="flex:1;" onclick="handleUnlock('${safeId}', '${safeLink}', ${req})">
+                ${isUnlocked ? '<i class="fas fa-check-circle"></i> Download' : `<i class="fas fa-lock"></i> Unlock (${count}/${req})`}
+            </button>
+            ${!isUnlocked ? `<div class="credit-action-group"><button class="action-btn credit-action-btn" style="min-width:46px;" onclick="useCredit('${safeId}', '${safeLink}', ${req})" title="Use Credit">${typeof creditIconHtml==='function'?creditIconHtml(28):'<i class="fas fa-star"></i>'}</button><span class="credit-action-label">Use Credit</span></div>` : ''}
+        </div>
+    `;
+    renderPopularSuggestions(id);
+    nav('tutSec', null);
+};
+
+window.useCredit = async (id, link, req) => {
+    if (getProgress(id) >= req) { openExternal(link); return; }
+    if (processingVideos.has(id)) { showToast("অনুগ্রহ করে অপেক্ষা করুন, প্রসেস চলছে..."); return; }
+    processingVideos.add(id);
+    try {
+        const userRef = ref(db, `users/${currentUserId}`);
+        const snapshot = await withTimeout(get(userRef), FIREBASE_TIMEOUT_MS, 'timeout');
+        const userData = snapshot.val() || {};
+        const currentCredits = Number(userData.unlock_credits) || 0;
+        if (currentCredits > 0) {
+            if (confirm(`আপনার ${currentCredits}টি ক্রেডিট আছে। সরাসরি আনলক করবেন?`)) {
+                await withTimeout(
+                    runTransaction(ref(db, `users/${currentUserId}/unlock_credits`), (c) => (Number(c) || 0) > 0 ? Number(c) - 1 : 0),
+                    FIREBASE_TIMEOUT_MS, 'timeout'
+                );
+                try { localStorage.setItem('p_' + id, req); } catch (e) {}
+                const found = allVideos.find(x => x.id === id);
+                saveToHistory(id, found ? found.name : id);
+                try { runTransaction(ref(db, 'videos/' + id + '/view_count'), c => (Number(c) || 0) + 1); } catch (e) {}
+                try { runTransaction(ref(db, `users/${currentUserId}/total_unlocked`), c => (Number(c) || 0) + 1); } catch (e) {}
+                try { renderCards(); } catch (e) {}
+                try {
+                    if (!document.getElementById('profileSec').classList.contains('hidden')) renderProfile();
+                } catch (e) {}
+                try {
+                    if (!document.getElementById('tutSec').classList.contains('hidden')) openVideoPage(id);
+                } catch (e) {}
+                showToast("ক্রেডিট দিয়ে আনলক হয়েছে!");
+            }
+        } else {
+            alert("ক্রেডিট নেই! বন্ধুদের ইনভাইট করুন।");
+        }
+    } catch (error) {
+        showToast(error === 'timeout' ? "সার্ভারে সংযোগ পেতে দেরি হচ্ছে, আবার চেষ্টা করুন।" : "সমস্যা হয়েছে!");
+    } finally {
+        processingVideos.delete(id);
+        hideOverlay();
+    }
+};
+
+const ADS_PER_STEP = 2;
+const STEP_LOAD_DELAY_MIN_S = 6;
+const STEP_LOAD_DELAY_MAX_S = 7;
+const UNLOCK_CONFIRM_SECONDS = 3;
+
+function delay(ms) { return new Promise(res => setTimeout(res, ms)); }
+
+function withTimeout(promise, ms, timeoutPayload) {
+    return new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(timeoutPayload), ms);
+        Promise.resolve(promise).then(
+            (v) => { clearTimeout(timer); resolve(v); },
+            (e) => { clearTimeout(timer); reject(e); }
+        );
+    });
+}
+
+const AD_TIMEOUT_MS = 45000;
+const FIREBASE_TIMEOUT_MS = 12000;
+const processingVideos = new Set();
+
+window.addEventListener('unhandledrejection', (ev) => {
+    try {
+        console.error('Unhandled rejection:', ev.reason);
+        hideOverlay();
+        document.querySelectorAll('.unlock-btn.counting').forEach(b => {
+            b.classList.remove('counting');
+            b.disabled = false;
+        });
+    } catch (e) {}
+});
+window.addEventListener('error', (ev) => {
+    try {
+        console.error('Global error:', ev.error || ev.message);
+        hideOverlay();
+    } catch (e) {}
+});
+
+async function showSingleAd() {
+    const controller = getAdController();
+    if (!controller) throw { description: "বিজ্ঞাপন কন্ট্রোলার তৈরি করা যায়নি!" };
+    await withTimeout(
+        controller.show(),
+        AD_TIMEOUT_MS,
+        { description: "বিজ্ঞাপন লোড হতে অনেক সময় লাগছে। ইন্টারনেট চেক করে আবার চেষ্টা করুন।" }
+    );
+}
+
+async function stepLoadCountdown() {
+    const totalSeconds = Math.random() < 0.5 ? STEP_LOAD_DELAY_MIN_S : STEP_LOAD_DELAY_MAX_S;
+    for (let s = totalSeconds; s > 0; s--) {
+        showOverlay(`পরবর্তী বিজ্ঞাপন ${s} সেকেন্ডে শুরু হবে...`);
+        await delay(1000);
+    }
+}
+
+async function unlockConfirmCountdown(btns) {
+    const total = UNLOCK_CONFIRM_SECONDS;
+    const list = Array.from(btns || []);
+    list.forEach(b => {
+        try {
+            b.classList.add('counting');
+            b.disabled = true;
+            b.style.setProperty('--cd-pct', '100%');
+        } catch (e) {}
+    });
+    for (let s = total; s > 0; s--) {
+        const pct = ((s - 1) / total) * 100;
+        list.forEach(b => {
+            if (!b || !b.isConnected) return;
+            try {
+                b.innerHTML = `<span class="cd-num">${s}</span><span class="cd-label">নিশ্চিত হচ্ছে...</span>`;
+                const num = b.querySelector('.cd-num');
+                if (num) {
+                    void num.offsetWidth;
+                    num.style.animation = 'none';
+                    void num.offsetWidth;
+                    num.style.animation = '';
+                }
+                requestAnimationFrame(() => {
+                    try { b.style.setProperty('--cd-pct', pct + '%'); } catch (e) {}
+                });
+            } catch (e) {}
+        });
+        await delay(1000);
+    }
+    list.forEach(b => {
+        if (!b || !b.isConnected) return;
+        try {
+            b.classList.remove('counting');
+            b.style.removeProperty('--cd-pct');
+            b.innerHTML = `<i class="fas fa-check-circle"></i> সম্পন্ন!`;
+        } catch (e) {}
+    });
+    await delay(300);
+}
+
+window.handleUnlock = async (id, link, req) => {
+    if (getProgress(id) >= req) { openExternal(link); return; }
+    if (processingVideos.has(id)) { showToast("অনুগ্রহ করে অপেক্ষা করুন, প্রসেস চলছে..."); return; }
+    if (getDaily() + ADS_PER_STEP > (settings.ads_limit || 20)) { showToast("আজকের লিমিট শেষ!"); return; }
+
+    if (typeof window.Adsgram === 'undefined') {
+        adsgramReady = await waitForAdsgramSdk(3000);
+    }
+
+    if (!adsgramReady || typeof window.Adsgram === 'undefined') {
+        showToast("বিজ্ঞাপন সিস্টেম লোড হয়নি! ইন্টারনেট কানেকশন চেক করুন বা পেজ রিফ্রেশ করুন।");
+        return;
+    }
+
+    if (!adsgramBlockId || adsgramBlockId === "YOUR_ADSGRAM_BLOCK_ID") {
+        showToast("বিজ্ঞাপন কনফিগার করা হয়নি! অ্যাডমিন প্যানেল থেকে Adsgram Block ID সেট করুন।");
+        console.error("Adsgram blockId is not configured.");
+        return;
+    }
+
+    processingVideos.add(id);
+    const btns = document.querySelectorAll(`.unlock-btn[data-vid="${id}"]`);
+    btns.forEach(b => b.disabled = true);
+
+    try {
+        for (let i = 1; i <= ADS_PER_STEP; i++) {
+            showOverlay(`বিজ্ঞাপন লোড হচ্ছে... (${i}/${ADS_PER_STEP})`);
+            await showSingleAd();
+            incDaily();
+
+            if (i < ADS_PER_STEP) {
+                await stepLoadCountdown();
+            }
+        }
+
+        hideOverlay();
+        await unlockConfirmCountdown(btns);
+
+        const newCount = getProgress(id) + 1;
+        try { localStorage.setItem('p_' + id, newCount); } catch (e) {}
+        if (newCount >= req) {
+            const found = allVideos.find(x => x.id === id);
+            saveToHistory(id, found ? found.name : id);
+            try { runTransaction(ref(db, 'videos/' + id + '/view_count'), c => (Number(c) || 0) + 1); } catch (e) {}
+            try { runTransaction(ref(db, `users/${currentUserId}/total_unlocked`), c => (Number(c) || 0) + 1); } catch (e) {}
+        }
+        try { renderCards(); } catch (e) {}
+        try {
+            if (!document.getElementById('profileSec').classList.contains('hidden')) renderProfile();
+        } catch (e) {}
+        try {
+            if (!document.getElementById('tutSec').classList.contains('hidden')) openVideoPage(id);
+        } catch (e) {}
+        showToast("সফল! ধাপ সম্পন্ন হয়েছে।");
+    } catch (result) {
+        hideOverlay();
+        const rawMsg = (result && (result.description || result.error || result.message)) || "";
+        if (rawMsg && !/skip|close|cancel|abort|incomplete|not.?complete|user.?closed|dismissed|refused/i.test(String(rawMsg))) {
+            showToast(String(rawMsg).slice(0, 80));
+        }
+        try { renderCards(); } catch (e) {}
+        try {
+            if (!document.getElementById('tutSec').classList.contains('hidden')) openVideoPage(id);
+        } catch (e) {}
+    } finally {
+        hideOverlay();
+        processingVideos.delete(id);
+        try {
+            btns.forEach(b => {
+                b.disabled = false;
+                b.classList.remove('counting');
+            });
+        } catch (e) {}
+    }
+};
+
+function saveToHistory(id, name) {
+    /* video history feature removed */
+}
+
+window.inviteFriend = () => {
+    const botLink = settings.bot_app_link || "";
+    const inviteLink = botLink.includes('?') ? `${botLink}&startapp=${currentUserId}` : `${botLink}?startapp=${currentUserId}`;
+    const text = "🔥 Shadow Hub — সব ভাইরাল ভিডিও ফ্রিতে দেখুন! প্রতিটি রেফারেলে ১টি ভিডিও ফ্রি আনলক!";
+    const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(text)}`;
+    tg.openTelegramLink(fullUrl);
+};
+
+window.copyReferLink = async () => {
+    const botLink = settings.bot_app_link || "";
+    const inviteLink = botLink.includes('?') ? `${botLink}&startapp=${currentUserId}` : `${botLink}?startapp=${currentUserId}`;
+    const btn = document.getElementById('copyRefBtn');
+    const label = document.getElementById('copyRefLabel');
+    try {
+        await navigator.clipboard.writeText(inviteLink);
+        showToast("লিংক কপি হয়েছে!");
+        if (btn) btn.classList.add('copied');
+        if (label) label.innerText = 'কপি হয়েছে!';
+        try { tg.HapticFeedback && tg.HapticFeedback.notificationOccurred('success'); } catch(e) {}
+        setTimeout(() => {
+            if (btn) btn.classList.remove('copied');
+            if (label) label.innerText = 'কপি করুন';
+        }, 2000);
+    } catch (err) {
+        showToast("কপি করতে সমস্যা হয়েছে!");
+    }
+};
+
+function updateReferLinkText() {
+    const el = document.getElementById('referLinkText');
+    if (!el) return;
+    const botLink = settings.bot_app_link || "";
+    if (!botLink) { el.innerText = "লিংক লোড হচ্ছে..."; return; }
+    const inviteLink = botLink.includes('?') ? `${botLink}&startapp=${currentUserId}` : `${botLink}?startapp=${currentUserId}`;
+    el.innerText = inviteLink;
+}
+
+window.renderProfile = async () => {
+    const uName = user?.first_name || "User";
+    const uPhoto = user?.photo_url;
+
+    const statGroup = document.querySelector('#profileSec .stat-group');
+    if (statGroup && !statGroup.dataset.loaded) {
+        statGroup.innerHTML = `<div class="skeleton-stat"></div><div class="skeleton-stat"></div>`;
+    }
+
+    const userRef = ref(db, `users/${currentUserId}`);
+    let userData = {};
+    try {
+        const snapshot = await withTimeout(get(userRef), FIREBASE_TIMEOUT_MS, 'timeout');
+        userData = snapshot.val() || {};
+    } catch (e) {
+        if (statGroup) statGroup.dataset.loaded = "";
+        return;
+    }
+    const credits = Number(userData.unlock_credits) || 0;
+    const totalRefers = Number(userData.total_refers) || 0;
+
+    if (statGroup) {
+        statGroup.innerHTML = `
+            <div class="stat-box"><div class="stat-value" id="statReferCount">${totalRefers}</div><div class="stat-label">মোট রেফার</div></div>
+            <div class="stat-box"><div class="stat-value" id="statRefer">${credits}</div><div class="stat-label">ফ্রি আনলক</div></div>`;
+        statGroup.dataset.loaded = "1";
+    }
+    const nameEl = document.getElementById('uName');
+    if (nameEl) nameEl.innerText = uName;
+    const badgeBox = document.getElementById('uBadgeBox');
+    if (badgeBox) badgeBox.innerHTML = '';
+    const idEl = document.getElementById('uId');
+    if (idEl) idEl.innerText = "ID: " + currentUserId;
+    updateReferLinkText();
+    const topBal = document.getElementById('topCreditBalance');
+    if (topBal) topBal.innerText = credits;
+
+    const picHolder = document.getElementById('profilePicHolder');
+    if (picHolder) {
+        picHolder.innerHTML = uPhoto
+            ? `<img src="${uPhoto}" class="profile-avatar" style="border:none;" draggable="false" alt="${uName}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-user-circle\\'></i>'">`
+            : `<i class="fas fa-user-circle"></i>`;
+    }
+};
+
+window.renderLinks = () => {
+    const d = document.getElementById('linkList');
+    if (!d) return;
+    if (!menuLinks.length) {
+        d.innerHTML = emptyStateHTML('fas fa-link', 'কোনো লিংক নেই', 'এখনো কোনো টাস্ক লিংক যোগ করা হয়নি।', '', '');
+        return;
+    }
+    d.innerHTML = '';
+    menuLinks.forEach(l => {
+        d.innerHTML += `<div class="link-card-modern fadeIn"><div class="link-info-text"><i class="fas fa-external-link-alt" style="color:var(--pink);"></i> ${escHtml(l.title || '')}</div><button type="button" class="modern-open-btn" onclick="openExternal('${jsStr(l.url || '')}')">Open <i class="fas fa-chevron-right"></i></button></div>`;
+    });
+};
+
+window.nav = (id, btn) => {
+    try {
+        ['homeSec', 'likedSec', 'tutSec', 'linkSec', 'profileSec'].forEach(s => {
+            const el = document.getElementById(s);
+            if (el) el.classList.add('hidden');
+        });
+        const target = document.getElementById(id);
+        if (!target) return;
+        target.classList.remove('hidden');
+        target.classList.remove('fadeIn');
+        void target.offsetWidth;
+        target.classList.add('fadeIn');
+        document.querySelectorAll('.nav-item').forEach(x => x.classList.remove('active'));
+        if (btn && btn.classList) btn.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (id === 'linkSec') { try { renderLinks(); } catch (e) {} }
+        if (id === 'profileSec') { try { renderProfile(); } catch (e) {} }
+        if (id === 'likedSec') { try { renderLiked(); } catch (e) {} }
+        if (id === 'homeSec') { try { renderCards(); } catch (e) {} }
+    } catch (e) {
+        console.error('nav error', e);
+    }
+};
+
+window.copyLink = async (id) => {
+    const botLink = settings.bot_app_link || "";
+    const shareLink = botLink.includes('?') ? `${botLink}&startapp=${id}` : `${botLink}?startapp=${id}`;
+    try {
+        await navigator.clipboard.writeText(shareLink);
+        showToast("লিংক কপি হয়েছে!");
+    } catch (err) {
+        showToast("কপি করতে সমস্যা হয়েছে!");
+    }
+};
+
+window.setFilter = (id, btn) => { currentFilter = id; renderFilters(); renderCards(); };
+window.toggleLike = (id) => {
+    let l = getLiked();
+    if (l.includes(id)) l = l.filter(x => x !== id);
+    else l.push(id);
+    localStorage.setItem('likes', JSON.stringify(l));
+    renderCards();
+    renderLiked();
+};
+
+function getLiked() {
+    try { return JSON.parse(localStorage.getItem('likes') || '[]'); }
+    catch (e) { return []; }
+}
+function getProgress(id) {
+    try { return parseInt(localStorage.getItem('p_' + id) || '0', 10) || 0; }
+    catch (e) { return 0; }
+}
+function getDaily() {
+    try {
+        const d = JSON.parse(localStorage.getItem('daily') || '{}');
+        return d.date === new Date().toDateString() ? (Number(d.count) || 0) : 0;
+    } catch (e) { return 0; }
+}
+function incDaily() {
+    try {
+        localStorage.setItem('daily', JSON.stringify({ date: new Date().toDateString(), count: getDaily() + 1 }));
+    } catch (e) {}
+}
+function showOverlay(m) {
+    try {
+        const el = document.getElementById('loadingOverlay');
+        const txt = document.getElementById('loadingText');
+        if (el) el.style.display = 'flex';
+        if (txt) txt.innerText = m || 'লোড হচ্ছে...';
+    } catch (e) {}
+}
+function hideOverlay() {
+    try {
+        const el = document.getElementById('loadingOverlay');
+        if (el) el.style.display = 'none';
+    } catch (e) {}
+}
+
+let toastTimer = null;
+function showToast(m) {
+    const t = document.getElementById('toast');
+    t.innerText = m;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+}
+function renderLiked() {
+    const d = document.getElementById('likedCards');
+    if (!d) return;
+    const l = getLiked();
+    const v = allVideos.filter(x => l.includes(x.id));
+    if (!v.length) {
+        d.innerHTML = emptyStateHTML(
+            'far fa-heart',
+            'এখনো কিছু পছন্দ নেই',
+            'ভিডিওতে হার্ট আইকনে ট্যাপ করে আপনার পছন্দের তালিকা বানান।',
+            'ভিডিও দেখুন',
+            "nav('homeSec', document.querySelector('.nav-item'))"
+        );
+        return;
+    }
+    d.innerHTML = '';
+    v.forEach(x => d.appendChild(createCard(x)));
+}
+
+let searchDebounceTimer = null;
+document.getElementById('searchInput').oninput = () => {
+    clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(renderCards, 200);
+};
+
+function emptyStateHTML(icon, title, desc, actionLabel, actionOnclick) {
+    const btn = actionLabel
+        ? `<button type="button" class="empty-action" onclick="${actionOnclick}">${actionLabel}</button>`
+        : '';
+    return `<div class="empty-state fadeIn">
+        <div class="empty-icon"><i class="${icon}"></i></div>
+        <h4>${title}</h4>
+        <p>${desc}</p>
+        ${btn}
+    </div>`;
+}
+
+(function setupPullToRefresh() {
+    const home = document.getElementById('homeSec');
+    if (!home) return;
+    const indicator = () => document.getElementById('ptrIndicator');
+    const arrow = () => document.getElementById('ptrArrow');
+    const spinner = () => document.getElementById('ptrSpinner');
+    const text = () => document.getElementById('ptrText');
+    let startY = 0, pulling = false, refreshing = false;
+    const THRESHOLD = 70;
+
+    function onStart(e) {
+        if (refreshing) return;
+        if (window.scrollY > 5) return;
+        if (home.classList.contains('hidden')) return;
+        const t = e.touches ? e.touches[0] : e;
+        startY = t.clientY;
+        pulling = true;
+    }
+    function onMove(e) {
+        if (!pulling || refreshing) return;
+        if (window.scrollY > 5) { pulling = false; resetPtr(); return; }
+        const t = e.touches ? e.touches[0] : e;
+        const dy = t.clientY - startY;
+        if (dy < 8) return;
+        if (e.cancelable) e.preventDefault();
+        const ind = indicator();
+        if (!ind) return;
+        ind.classList.add('show');
+        const progress = Math.min(dy, 120);
+        ind.style.height = Math.min(56, progress * 0.7) + 'px';
+        const ready = dy >= THRESHOLD;
+        if (arrow()) arrow().classList.toggle('ready', ready);
+        if (spinner()) spinner().style.display = 'none';
+        if (arrow()) arrow().style.display = 'block';
+        if (text()) text().innerText = ready ? 'ছেড়ে দিলে রিফ্রেশ হবে' : 'রিফ্রেশ করতে টেনে নামান';
+    }
+    async function onEnd(e) {
+        if (!pulling) return;
+        pulling = false;
+        const t = e.changedTouches ? e.changedTouches[0] : e;
+        const dy = t.clientY - startY;
+        if (dy >= THRESHOLD && !refreshing) {
+            await doRefresh();
+        } else {
+            resetPtr();
+        }
+    }
+    function resetPtr() {
+        const ind = indicator();
+        if (!ind) return;
+        ind.classList.remove('show');
+        ind.style.height = '';
+        if (arrow()) { arrow().classList.remove('ready'); arrow().style.display = 'block'; }
+        if (spinner()) spinner().style.display = 'none';
+        if (text()) text().innerText = 'রিফ্রেশ করতে টেনে নামান';
+    }
+    async function doRefresh() {
+        refreshing = true;
+        const ind = indicator();
+        if (ind) ind.classList.add('show');
+        if (arrow()) arrow().style.display = 'none';
+        if (spinner()) spinner().style.display = 'block';
+        if (text()) text().innerText = 'রিফ্রেশ হচ্ছে...';
+        try { tg.HapticFeedback && tg.HapticFeedback.impactOccurred('light'); } catch(e) {}
+        try {
+            const snap = await withTimeout(get(ref(db, 'videos')), FIREBASE_TIMEOUT_MS, 'timeout');
+            allVideos = [];
+            if (snap.exists()) {
+                Object.entries(snap.val()).forEach(([k, v]) => allVideos.push({ id: k, ...v }));
+                allVideos.reverse();
+            }
+            renderFilters();
+            renderCards();
+            renderLiked();
+            showToast('আপডেট হয়েছে!');
+        } catch (err) {
+            showToast(err === 'timeout' ? 'নেটওয়ার্ক স্লো, আবার চেষ্টা করুন' : 'রিফ্রেশ ব্যর্থ');
+            renderCards();
+        }
+        setTimeout(() => { refreshing = false; resetPtr(); }, 450);
+    }
+    document.addEventListener('touchstart', onStart, { passive: true });
+    document.addEventListener('touchmove', onMove, { passive: false });
+    document.addEventListener('touchend', onEnd, { passive: true });
+})();
+
+init();
+</script>
+</body>
+</html>
