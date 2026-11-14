@@ -531,6 +531,8 @@ body {
 .refer-link-box span {
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     color: var(--text-dim);
+    -webkit-user-select: text !important;
+    user-select: text !important;
 }
 .stat-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; margin-bottom: 4px; }
 .stat-box {
@@ -1087,7 +1089,7 @@ body {
 
     <div id="mainContent">
         <div class="header fadeIn">
-            <h1 class="title">Viral Video Bangladesh</h1>
+            <h1 class="title" id="siteHeaderTitle">Viral Video Bangladesh</h1>
             <div class="subtitle">Premium Viral Content</div>
         </div>
 
@@ -1196,7 +1198,7 @@ body {
                     <i class="fas fa-star"></i>
                 </div>
             </div>
-            <div class="welcome-brand">✦ VIRAL VIDEO BANGLADESH ✦</div>
+            <div class="welcome-brand" id="welcomeBrandText">✦ VIRAL VIDEO BANGLADESH ✦</div>
             <div class="welcome-greeting" id="welcomeGreeting">শুভ দুপুর! <span class="emoji-reset">☀️</span> বন্ধু <span class="emoji-reset">✨</span></div>
             <p class="welcome-desc" id="welcomeDesc">
                 আজকের নতুন ভাইরাল কনটেন্ট আপনার জন্য অপেক্ষা করছে। <strong>প্রতিদিন নতুন ভিডিও</strong> আনলক করুন, বন্ধুদের ইনভাইট করে <strong>ফ্রি ক্রেডিট</strong> পান — আর মজার দুনিয়ায় ডুব দিন!
@@ -1225,10 +1227,18 @@ body {
             </div>
         </div>
     </div>
+
+    <div id="bannedModal" class="modal-backdrop">
+        <div class="warning-modal">
+            <div class="warning-icon-ring"><i class="fas fa-ban"></i></div>
+            <h3>অ্যাকাউন্ট ব্যান করা হয়েছে!</h3>
+            <p>দুঃখিত, নিয়ম ভঙ্গের কারণে আপনার অ্যাকাউন্টটি সাময়িকভাবে বন্ধ করা হয়েছে।</p>
+        </div>
+    </div>
 </div>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getDatabase, ref, onValue, runTransaction, get, set } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+import { getDatabase, ref, onValue, runTransaction, get, set, update } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
 import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -1264,7 +1274,10 @@ function creditIconHtml(size) {
 
 let allVideos = [], filters = [], menuLinks = [];
 let settings = {
+    site_name: "Viral Video Bangladesh",
     ads_limit: 20,
+    unlock_validity_hours: 24,
+    force_relock_epoch: 0,
     bot_app_link: "",
     ads_per_step: 2,
     ad_provider_1: 'bengalads',
@@ -1296,6 +1309,12 @@ function openExternal(url) {
 }
 window.openExternal = openExternal;
 
+function getInviteLink() {
+    const rawBot = String(settings.bot_app_link || "").trim();
+    const botLink = rawBot || "https://t.me/viral_video_bangladesh_bot/app";
+    return botLink.includes('?') ? `${botLink}&startapp=${currentUserId}` : `${botLink}?startapp=${currentUserId}`;
+}
+
 function getTimeGreetingBn() {
     const h = new Date().getHours();
     if (h >= 5 && h < 12) return { text: 'শুভ সকাল!', emoji: '☀️' };
@@ -1317,6 +1336,11 @@ function showWelcomePopup() {
         greetEl.innerHTML = `${g.text} <span class="emoji-reset">${g.emoji}</span> ${escHtml(uFirst)} <span class="emoji-reset">✨</span>`;
     }
 
+    const brandEl = document.getElementById('welcomeBrandText');
+    if (brandEl && settings.site_name) {
+        brandEl.innerText = `✦ ${String(settings.site_name).toUpperCase()} ✦`;
+    }
+
     const customDesc = settings.popup_message || settings.popup_text || settings.notice_text || settings.notice;
     const descEl = document.getElementById('welcomeDesc');
     if (descEl && customDesc) {
@@ -1333,13 +1357,14 @@ window.closeWelcomePopup = () => {
 };
 
 window.joinWelcomeChannel = () => {
+    const tgMenuUrl = (menuLinks.find(x => String(x.url || '').includes('t.me/')) || menuLinks[0])?.url || "";
     const channelUrl = String(
         settings.channel_link ||
         settings.telegram_link ||
         settings.popup_link ||
         settings.join_link ||
         settings.channel_url ||
-        (menuLinks[0]?.url) ||
+        tgMenuUrl ||
         ""
     ).trim();
     window.closeWelcomePopup();
@@ -1349,7 +1374,7 @@ window.joinWelcomeChannel = () => {
         }
         openExternal(channelUrl);
     } else {
-        showToast("চ্যানেল লিংক পাওয়া যায়নি!");
+        showToast("চ্যানেল লিংক যুক্ত করা হয়নি!");
     }
 };
 
@@ -1623,13 +1648,17 @@ window.handleUnlock = async (id, link, req) => {
 
         hideOverlay();
         const newCount = getProgress(id) + 1;
-        try { localStorage.setItem('p_' + id, newCount); } catch (e) {}
+        try {
+            localStorage.setItem('p_' + id, newCount);
+            localStorage.setItem('p_time_' + id, String(Date.now()));
+        } catch (e) {}
 
         if (newCount >= req) {
             try { runTransaction(ref(db, 'videos/' + id + '/view_count'), c => (Number(c) || 0) + 1); } catch (e) {}
             try { runTransaction(ref(db, `users/${currentUserId}/total_unlocked`), c => (Number(c) || 0) + 1); } catch (e) {}
         }
         renderCards();
+        renderLiked();
         if (!document.getElementById('profileSec').classList.contains('hidden')) renderProfile();
         if (!document.getElementById('tutSec').classList.contains('hidden')) openVideoPage(id);
 
@@ -1657,7 +1686,9 @@ window.useCredit = async (id, link, req) => {
             if (confirm(`আপনার ${currentCredits}টি ক্রেডিট আছে। সরাসরি আনলক করবেন?`)) {
                 await runTransaction(ref(db, `users/${currentUserId}/unlock_credits`), (c) => (Number(c) || 0) > 0 ? Number(c) - 1 : 0);
                 localStorage.setItem('p_' + id, req);
+                localStorage.setItem('p_time_' + id, String(Date.now()));
                 renderCards();
+                renderLiked();
                 if (!document.getElementById('profileSec').classList.contains('hidden')) renderProfile();
                 if (!document.getElementById('tutSec').classList.contains('hidden')) openVideoPage(id);
                 showToast("ক্রেডিট দিয়ে আনলক হয়েছে!");
@@ -1706,6 +1737,7 @@ function createCard(v) {
             </div>
             <button class="heart-btn" onclick="event.stopPropagation(); toggleLike('${safeId}')"><i class="${liked ? 'fas' : 'far'} fa-heart"></i></button>
             <div class="view-count-badge"><i class="fas fa-eye"></i> ${formatNum(viewCount)}</div>
+            ${v.duration ? `<div class="duration-badge"><i class="fas fa-clock"></i> ${escHtml(v.duration)}</div>` : ''}
         </div>
         <div class="meta">
             <h3 onclick="openVideoPage('${safeId}')">${safeName}</h3>
@@ -1732,6 +1764,90 @@ function renderCards() {
     list.forEach(v => div.appendChild(createCard(v)));
 }
 
+function renderLiked() {
+    const div = document.getElementById('likedCards');
+    if (!div) return;
+    const likedIds = getLiked();
+    const list = allVideos.filter(v => likedIds.includes(v.id));
+    div.innerHTML = '';
+    if (!list.length) {
+        div.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-icon"><i class="far fa-heart"></i></div>
+                <h4>কোনো পছন্দের ভিডিও নেই</h4>
+                <p>হোম পেজ থেকে পছন্দের ভিডিওগুলোর ❤️ বাটনে চাপ দিন, সেগুলো এখানে সেভ থাকবে।</p>
+            </div>`;
+        return;
+    }
+    list.forEach(v => div.appendChild(createCard(v)));
+}
+
+function renderLinks() {
+    const div = document.getElementById('linkList');
+    if (!div) return;
+    if (!menuLinks.length) {
+        div.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-icon"><i class="fas fa-link"></i></div>
+                <h4>কোনো লিংক পাওয়া যায়নি</h4>
+                <p>অ্যাডমিন প্যানেল থেকে এখনো কোনো টাস্ক বা চ্যানেল লিংক যুক্ত করা হয়নি।</p>
+            </div>`;
+        return;
+    }
+    let html = '';
+    menuLinks.forEach(l => {
+        const safeUrl = jsStr(l.url || '');
+        const safeTitle = escHtml(l.title || 'Link');
+        html += `
+            <div class="link-card-modern">
+                <div class="link-info-text"><i class="fas fa-external-link-alt" style="color:var(--pink);"></i><span>${safeTitle}</span></div>
+                <button type="button" class="modern-open-btn" onclick="openTaskLink('${safeUrl}')">Open <i class="fas fa-arrow-right"></i></button>
+            </div>`;
+    });
+    div.innerHTML = html;
+}
+
+window.openTaskLink = (url) => {
+    if (!url) return;
+    if (url.includes('t.me/') && tg && typeof tg.openTelegramLink === 'function') {
+        try { tg.openTelegramLink(url); return; } catch (e) {}
+    }
+    openExternal(url);
+};
+
+function renderSuggestions(currentId) {
+    const others = allVideos.filter(x => x.id !== currentId);
+    const newEl = document.getElementById('suggestNew');
+    const popEl = document.getElementById('suggestPop');
+    const newBlock = document.getElementById('suggestNewBlock');
+    const popBlock = document.getElementById('suggestPopBlock');
+    if (!others.length) {
+        if (newBlock) newBlock.style.display = 'none';
+        if (popBlock) popBlock.style.display = 'none';
+        return;
+    }
+    const buildItem = (item, badgeCls, badgeTxt) => `
+        <div class="suggest-card" onclick="openVideoPage('${jsStr(item.id)}')">
+            <div class="suggest-thumb">
+                <img src="${escHtml(item.image_url || '')}" onerror="this.src='${fallbackImg}'">
+                <span class="suggest-badge ${badgeCls}">${badgeTxt}</span>
+                <span class="suggest-views"><i class="fas fa-eye"></i> ${formatNum(item.view_count || 0)}</span>
+                ${item.duration ? `<span class="suggest-duration">${escHtml(item.duration)}</span>` : ''}
+            </div>
+            <div class="suggest-info"><h5>${escHtml(item.name || '')}</h5></div>
+        </div>`;
+
+    if (newEl && newBlock) {
+        newBlock.style.display = 'block';
+        newEl.innerHTML = others.slice(0, 8).map(v => buildItem(v, 'new-b', 'NEW')).join('');
+    }
+    if (popEl && popBlock) {
+        popBlock.style.display = 'block';
+        const sorted = [...others].sort((a, b) => (Number(b.view_count) || 0) - (Number(a.view_count) || 0));
+        popEl.innerHTML = sorted.slice(0, 8).map(v => buildItem(v, 'pop-b', 'TOP')).join('');
+    }
+}
+
 window.openVideoPage = (id) => {
     const v = allVideos.find(x => x.id === id);
     if (!v) return;
@@ -1747,6 +1863,7 @@ window.openVideoPage = (id) => {
         <button class="unlock-btn ${isUnlocked ? 'done' : ''}" data-vid="${safeId}" onclick="handleUnlock('${safeId}', '${safeLink}', ${req})">
             ${isUnlocked ? '<i class="fas fa-check-circle"></i> Download' : `<i class="fas fa-lock"></i> Unlock (${count}/${req})`}
         </button>`;
+    renderSuggestions(v.id);
     nav('tutSec', null);
 };
 
@@ -1762,28 +1879,59 @@ function renderFilters() {
 }
 
 window.inviteFriend = () => {
-    const botLink = settings.bot_app_link || "https://t.me/viral_video_bangladesh_bot/app";
-    const inviteLink = botLink.includes('?') ? `${botLink}&startapp=${currentUserId}` : `${botLink}?startapp=${currentUserId}`;
+    const inviteLink = getInviteLink();
     tg.openTelegramLink(`https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent("🔥 Viral Video Bangladesh")}`);
 };
 
 window.copyReferLink = async () => {
-    const botLink = settings.bot_app_link || "";
-    const inviteLink = botLink.includes('?') ? `${botLink}&startapp=${currentUserId}` : `${botLink}?startapp=${currentUserId}`;
+    const inviteLink = getInviteLink();
+    let copied = false;
     try {
-        await navigator.clipboard.writeText(inviteLink);
-        showToast("লিংক কপি হয়েছে!");
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(inviteLink);
+            copied = true;
+        }
     } catch (err) {}
+
+    if (!copied) {
+        try {
+            const ta = document.createElement('textarea');
+            ta.value = inviteLink;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.top = '-9999px';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            ta.setSelectionRange(0, ta.value.length);
+            copied = document.execCommand('copy');
+            document.body.removeChild(ta);
+        } catch (err) {}
+    }
+
+    if (copied) {
+        const lbl = document.getElementById('copyRefLabel');
+        if (lbl) {
+            lbl.innerText = "কপি হয়েছে!";
+            setTimeout(() => { lbl.innerText = "কপি করুন"; }, 2000);
+        }
+        showToast("রেফার লিংক কপি হয়েছে!");
+    } else {
+        showToast("লিংক কপি করতে সমস্যা হয়েছে, লিংকের উপর ট্যাপ করে ধরে কপি করুন।");
+    }
 };
 
 window.renderProfile = async () => {
+    const linkEl = document.getElementById('referLinkText');
+    if (linkEl) linkEl.innerText = getInviteLink();
+    document.getElementById('uName').innerText = user?.first_name || "User";
+    document.getElementById('uId').innerText = "ID: " + currentUserId;
     try {
         const snapshot = await get(ref(db, `users/${currentUserId}`));
         const userData = snapshot.val() || {};
         document.getElementById('statReferCount').innerText = userData.total_refers || 0;
         document.getElementById('statRefer').innerText = userData.unlock_credits || 0;
-        document.getElementById('uName').innerText = user?.first_name || "User";
-        document.getElementById('uId').innerText = "ID: " + currentUserId;
         document.getElementById('topCreditBalance').innerText = userData.unlock_credits || 0;
     } catch(e) {}
 };
@@ -1793,19 +1941,52 @@ window.nav = (id, btn) => {
     document.getElementById(id)?.classList.remove('hidden');
     document.querySelectorAll('.nav-item').forEach(x => x.classList.remove('active'));
     if (btn) btn.classList.add('active');
+    if (id === 'likedSec') renderLiked();
+    if (id === 'profileSec') renderProfile();
+    if (id === 'linkSec') renderLinks();
 };
 
 window.setFilter = (id) => { currentFilter = id; renderFilters(); renderCards(); };
 window.toggleLike = (id) => {
     let l = getLiked();
-    if (l.includes(id)) l = l.filter(x => x !== id);
-    else l.push(id);
-    localStorage.setItem('likes', JSON.stringify(l));
+    let added = false;
+    if (l.includes(id)) {
+        l = l.filter(x => x !== id);
+    } else {
+        l.push(id);
+        added = true;
+    }
+    try { localStorage.setItem('likes', JSON.stringify(l)); } catch (e) {}
     renderCards();
+    renderLiked();
+    showToast(added ? "পছন্দের তালিকায় যোগ হয়েছে ❤️" : "পছন্দের তালিকা থেকে সরানো হয়েছে");
 };
 
 function getLiked() { try { return JSON.parse(localStorage.getItem('likes') || '[]'); } catch (e) { return []; } }
-function getProgress(id) { try { return parseInt(localStorage.getItem('p_' + id) || '0', 10) || 0; } catch (e) { return 0; } }
+function getProgress(id) {
+    try {
+        const val = parseInt(localStorage.getItem('p_' + id) || '0', 10) || 0;
+        if (val <= 0) return 0;
+        let ts = parseInt(localStorage.getItem('p_time_' + id) || '0', 10) || 0;
+        const epoch = Number(settings.force_relock_epoch) || 0;
+        if (epoch > 0 && ts < epoch) {
+            localStorage.removeItem('p_' + id);
+            localStorage.removeItem('p_time_' + id);
+            return 0;
+        }
+        if (!ts) {
+            ts = Date.now();
+            localStorage.setItem('p_time_' + id, String(ts));
+        }
+        const validityHours = Number(settings.unlock_validity_hours);
+        if (validityHours > 0 && (Date.now() - ts) > validityHours * 3600 * 1000) {
+            localStorage.removeItem('p_' + id);
+            localStorage.removeItem('p_time_' + id);
+            return 0;
+        }
+        return val;
+    } catch (e) { return 0; }
+}
 function getDaily() {
     try {
         const d = JSON.parse(localStorage.getItem('daily') || '{}');
@@ -1833,29 +2014,90 @@ function showToast(m) {
     setTimeout(() => t.classList.remove('show'), 3000);
 }
 
+async function syncUserAccount() {
+    try {
+        const uRef = ref(db, `users/${currentUserId}`);
+        const snap = await get(uRef);
+        const existing = snap.val();
+        const firstName = user?.first_name || existing?.first_name || "User";
+        if (!existing) {
+            const payload = {
+                first_name: firstName,
+                unlock_credits: 0,
+                total_refers: 0,
+                total_unlocked: 0
+            };
+            if (startParam && String(startParam) !== String(currentUserId)) {
+                payload.referredBy = String(startParam);
+                await set(uRef, payload);
+                try {
+                    await runTransaction(ref(db, `users/${startParam}/total_refers`), c => (Number(c) || 0) + 1);
+                    await runTransaction(ref(db, `users/${startParam}/unlock_credits`), c => (Number(c) || 0) + 1);
+                } catch (e) {}
+            } else {
+                await set(uRef, payload);
+            }
+        } else if (user?.first_name && existing.first_name !== user.first_name) {
+            await update(uRef, { first_name: user.first_name });
+        }
+    } catch (e) {}
+}
+
 async function init() {
     try { document.getElementById('topCreditLogo').innerHTML = `<img src="${CREDIT_LOGO}">`; } catch (e) {}
+    const linkEl = document.getElementById('referLinkText');
+    if (linkEl) linkEl.innerText = getInviteLink();
 
     try {
         const auth = getAuth(app);
         await signInAnonymously(auth);
     } catch (e) {}
 
+    syncUserAccount();
+
+    onValue(ref(db, `banned_users/${currentUserId}`), s => {
+        const banModal = document.getElementById('bannedModal');
+        if (banModal) {
+            if (s.val()) banModal.classList.add('show');
+            else banModal.classList.remove('show');
+        }
+    });
+
     onValue(ref(db, 'settings'), s => {
         if (s.val()) {
             settings = { ...settings, ...s.val() };
+            if (settings.site_name) {
+                const hTitle = document.getElementById('siteHeaderTitle');
+                if (hTitle) hTitle.innerText = settings.site_name;
+                document.title = settings.site_name;
+            }
+            const rEl = document.getElementById('referLinkText');
+            if (rEl) rEl.innerText = getInviteLink();
             preloadAllAds();
+            renderCards();
+            renderLiked();
         }
     });
 
     onValue(ref(db, `users/${currentUserId}`), s => {
+        const uData = s.val() || {};
         const bal = document.getElementById('topCreditBalance');
-        if (bal) bal.innerText = s.val()?.unlock_credits || 0;
+        if (bal) bal.innerText = uData.unlock_credits || 0;
+        if (!document.getElementById('profileSec').classList.contains('hidden')) {
+            document.getElementById('statReferCount').innerText = uData.total_refers || 0;
+            document.getElementById('statRefer').innerText = uData.unlock_credits || 0;
+        }
     });
 
     onValue(ref(db, 'filters'), s => {
         filters = s.val() ? Object.values(s.val()) : [];
         renderFilters();
+    });
+
+    onValue(ref(db, 'links'), s => {
+        menuLinks = [];
+        if (s.val()) Object.entries(s.val()).forEach(([k, v]) => menuLinks.push({ id: k, ...v }));
+        renderLinks();
     });
 
     onValue(ref(db, 'videos'), s => {
@@ -1864,6 +2106,7 @@ async function init() {
         allVideos.reverse();
         renderFilters();
         renderCards();
+        renderLiked();
     });
 
     setTimeout(() => {
