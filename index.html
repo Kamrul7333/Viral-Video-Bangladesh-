@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="bn">
 <head>
-<script src="https://sad.adsgram.ai/js/sad.min.js"></script>
-<script src='//libtl.com/sdk.js' data-zone='12126313' data-sdk='show_12126313'></script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="description" content="Viral Video Bangladesh - প্রিমিয়াম কনটেন্ট হাব">
@@ -14,7 +12,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="https://ads.bengalads.com/sdk/telegram-interstitial.js"></script>
 <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+<script src="https://libtl.com/sdk.js" data-zone="12126313" data-sdk="show_12126313"></script>
 
 <style>
 :root {
@@ -1291,15 +1291,15 @@ body {
     </div>
 </div>
 
-<!-- জরুরী সেফটি কোড: কোনো কারণে আটকে গেলে ৩.৫ সেকেন্ডে স্প্ল্যাশ স্ক্রিন জোরপূর্বক বন্ধ হবে -->
 <script>
+// ৩ সেকেন্ড পর অটোমেটিক স্প্ল্যাশ রিমুভ ব্যাকআপ
 setTimeout(function() {
     var sp = document.getElementById('splashScreen');
     if (sp && !sp.classList.contains('splash-hidden')) {
-        sp.style.opacity = '0';
+        sp.classList.add('splash-hidden');
         setTimeout(function() { sp.style.display = 'none'; }, 400);
     }
-}, 3500);
+}, 3000);
 </script>
 
 <div id="adWarningModal" class="modal-backdrop" role="dialog" aria-modal="true">
@@ -1497,7 +1497,6 @@ setTimeout(function() {
     </div>
     <div id="toast" class="toast">লিংক কপি হয়েছে!</div>
 </div>
-
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getDatabase, ref, onValue, runTransaction, get, set } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
@@ -1526,8 +1525,9 @@ try { tg.expand(); tg.setHeaderColor('#121212'); } catch (e) {}
 const user = tg.initDataUnsafe?.user;
 const currentUserId = user?.id || 12345678;
 const startParam = tg.initDataUnsafe?.start_param;
-const fallbackImg = "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="340"><rect width="600" height="340" fill="#121212"/><rect x="1" y="1" width="598" height="338" fill="none" stroke="#60A5FA" stroke-width="2"/><circle cx="300" cy="150" r="34" fill="#3B82F6"/><path d="M290 134 L318 150 L290 166 Z" fill="#121212"/><text x="300" y="220" font-family="Arial" font-size="22" fill="#3B82F6" text-anchor="middle" font-weight="bold">Unlock to Watch</text></svg>`);
+const fallbackImg = "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="340"><rect width="600" height="340" fill="#121212"/><circle cx="300" cy="150" r="34" fill="#3B82F6"/><path d="M290 134 L318 150 L290 166 Z" fill="#121212"/><text x="300" y="220" font-family="Arial" font-size="22" fill="#3B82F6" text-anchor="middle" font-weight="bold">Unlock to Watch</text></svg>`);
 
+// আসল ক্রেডিট ইমেজ লোগো
 const CREDIT_LOGO = "data:image/png;base64,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";
 
 function creditIconHtml(size) {
@@ -1536,8 +1536,9 @@ function creditIconHtml(size) {
 }
 
 let allVideos = [], filters = [], menuLinks = [], adsgramBlockId = "";
-let settings = { ads_limit: 20, bot_app_link: "" };
+let settings = { ads_limit: 20, bot_app_link: "", ads_per_step: 2 };
 let currentFilter = 'all';
+let isBengalAdsInit = false;
 
 function openExternal(url) {
     if (!url) return;
@@ -1551,18 +1552,6 @@ function openExternal(url) {
     if (!w) window.location.href = url;
 }
 window.openExternal = openExternal;
-
-// অটোমেটিক Monetag SDK লোডার
-function ensureMonetagSdk(zoneId) {
-    const cleanZone = String(zoneId || '').replace(/[^0-9]/g, '');
-    if (!cleanZone || document.getElementById('monetag-sdk')) return;
-    const s = document.createElement('script');
-    s.id = 'monetag-sdk';
-    s.src = '//libtl.com/sdk.js';
-    s.setAttribute('data-zone', cleanZone);
-    s.setAttribute('data-sdk', 'show_' + cleanZone);
-    document.head.appendChild(s);
-}
 
 let adController = null;
 let adControllerBlockId = null;
@@ -1636,26 +1625,16 @@ function hideSplash() {
 }
 
 const WELCOME_STORAGE_KEY = 'vz_welcome_day_v1';
-
 function getTodayKey() {
     const d = new Date();
     return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 }
-
 function hasSeenWelcomeToday() {
-    try {
-        return localStorage.getItem(WELCOME_STORAGE_KEY) === getTodayKey();
-    } catch (e) {
-        return false;
-    }
+    try { return localStorage.getItem(WELCOME_STORAGE_KEY) === getTodayKey(); } catch (e) { return false; }
 }
-
 function markWelcomeSeenToday() {
-    try {
-        localStorage.setItem(WELCOME_STORAGE_KEY, getTodayKey());
-    } catch (e) {}
+    try { localStorage.setItem(WELCOME_STORAGE_KEY, getTodayKey()); } catch (e) {}
 }
-
 function getWelcomeGreeting() {
     const h = new Date().getHours();
     if (h >= 5 && h < 12) return 'শুভ সকাল! 🌅';
@@ -1663,42 +1642,28 @@ function getWelcomeGreeting() {
     if (h >= 17 && h < 21) return 'শুভ সন্ধ্যা! 🌇';
     return 'শুভ রাত্রি! 🌙';
 }
-
 function maybeShowDailyWelcome() {
     if (hasSeenWelcomeToday()) return;
     const modal = document.getElementById('welcomeModal');
     if (!modal) return;
-
     const titleEl = document.getElementById('welcomeTitle');
     if (titleEl) {
         const name = (typeof user !== 'undefined' && user && user.first_name) ? String(user.first_name).trim() : '';
-        titleEl.textContent = name
-            ? getWelcomeGreeting() + ' ' + name + ' ✨'
-            : getWelcomeGreeting() + ' স্বাগতম! ✨';
+        titleEl.textContent = name ? getWelcomeGreeting() + ' ' + name + ' ✨' : getWelcomeGreeting() + ' স্বাগতম! ✨';
     }
-
     modal.classList.add('show');
-    try {
-        if (typeof tg !== 'undefined' && tg.HapticFeedback) {
-            tg.HapticFeedback.notificationOccurred('success');
-        }
-    } catch (e) {}
+    try { tg?.HapticFeedback?.notificationOccurred('success'); } catch (e) {}
 }
 
 window.closeWelcomeModal = () => {
     const modal = document.getElementById('welcomeModal');
     if (modal) modal.classList.remove('show');
     markWelcomeSeenToday();
-    try {
-        if (typeof tg !== 'undefined' && tg.HapticFeedback) {
-            tg.HapticFeedback.impactOccurred('light');
-        }
-    } catch (e) {}
+    try { tg?.HapticFeedback?.impactOccurred('light'); } catch (e) {}
 };
 
 let connBannerShownAt = 0;
 let connBannerTimer = null;
-
 function setConnBanner(show, text) {
     const el = document.getElementById('connBanner');
     if (!el) return;
@@ -1719,30 +1684,16 @@ function watchConnection() {
             if (connBannerTimer) return;
             connBannerTimer = setTimeout(() => {
                 connBannerTimer = null;
-                if (!navigator.onLine) {
-                    setConnBanner(true, "ইন্টারনেট কানেকশন নেই!");
-                } else {
-                    setConnBanner(true, "সার্ভারের সাথে সংযোগ বিচ্ছিন্ন হয়েছে...");
-                }
+                setConnBanner(true, !navigator.onLine ? "ইন্টারনেট কানেকশন নেই!" : "সার্ভারের সাথে সংযোগ বিচ্ছিন্ন হয়েছে...");
             }, 12000);
         } else {
-            if (connBannerTimer) {
-                clearTimeout(connBannerTimer);
-                connBannerTimer = null;
-            }
+            if (connBannerTimer) { clearTimeout(connBannerTimer); connBannerTimer = null; }
             setConnBanner(false);
         }
     });
-
-    window.addEventListener('offline', () => {
-        setConnBanner(true, "ইন্টারনেট কানেকশন নেই!");
-    });
-
+    window.addEventListener('offline', () => setConnBanner(true, "ইন্টারনেট কানেকশন নেই!"));
     window.addEventListener('online', () => {
-        if (connBannerTimer) {
-            clearTimeout(connBannerTimer);
-            connBannerTimer = null;
-        }
+        if (connBannerTimer) { clearTimeout(connBannerTimer); connBannerTimer = null; }
         setConnBanner(false);
     });
 }
@@ -1753,182 +1704,271 @@ window.closeAdWarning = () => {
     if (modal) modal.classList.remove('show');
 };
 
-async function init() {
+const STEP_LOAD_DELAY_MIN_S = 6;
+const STEP_LOAD_DELAY_MAX_S = 7;
+const UNLOCK_CONFIRM_SECONDS = 3;
+
+function delay(ms) { return new Promise(res => setTimeout(res, ms)); }
+function withTimeout(promise, ms, timeoutPayload) {
+    return new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(timeoutPayload), ms);
+        Promise.resolve(promise).then(
+            (v) => { clearTimeout(timer); resolve(v); },
+            (e) => { clearTimeout(timer); reject(e); }
+        );
+    });
+}
+
+const AD_TIMEOUT_MS = 45000;
+const FIREBASE_TIMEOUT_MS = 12000;
+const processingVideos = new Set();
+
+window.addEventListener('unhandledrejection', (ev) => {
     try {
-        const logoWrap = document.getElementById('topCreditLogo');
-        if (logoWrap && typeof CREDIT_LOGO !== 'undefined') {
-            logoWrap.innerHTML = '<img src="' + CREDIT_LOGO + '" alt="credit" draggable="false">';
-        }
+        hideOverlay();
+        document.querySelectorAll('.unlock-btn.counting').forEach(b => {
+            b.classList.remove('counting');
+            b.disabled = false;
+        });
     } catch (e) {}
+});
+window.addEventListener('error', (ev) => {
+    try { hideOverlay(); } catch (e) {}
+});
 
-    showSkeletons();
-    watchConnection();
-    setSplashProgress(15, 'কানেক্ট হচ্ছে...');
-
-    const minSplashDelay = new Promise(res => setTimeout(res, 1200));
-    let resolveVideosReady;
-    const videosReady = new Promise(res => { resolveVideosReady = res; });
-    const splashTimeout = new Promise(res => setTimeout(res, 4000));
-
-    setSplashProgress(30, 'অ্যাকাউন্ট চেক...');
-    try {
-        const auth = getAuth(app);
-        await withTimeout(signInAnonymously(auth), FIREBASE_TIMEOUT_MS, 'timeout');
-    } catch (e) {
-        console.warn('anonymous auth note', e);
-    }
-
-    try {
-        await handleReferral();
-    } catch (e) {
-        console.warn('referral note', e);
-    }
-
-    setSplashProgress(50, 'বিজ্ঞাপন সিস্টেম...');
-    try {
-        adsgramReady = await waitForAdsgramSdk(2000);
-    } catch (e) {}
-
-    setSplashProgress(70, 'কনটেন্ট লোড...');
-
-    onValue(ref(db, 'settings'), s => {
-        if (s.val()) {
-            settings = s.val();
-            if (settings.adsgram_block_id) adsgramBlockId = settings.adsgram_block_id;
-            if (settings.monetag_zone_id) ensureMonetagSdk(settings.monetag_zone_id);
-            if (settings.tutorial_id && !startParam) {
-                document.getElementById('tutEmbed').innerHTML = `<iframe src="${settings.tutorial_id}" style="width:100%;height:100%;border:0" allowfullscreen></iframe>`;
-            }
-            updateReferLinkText();
-        }
-    });
-
-    onValue(ref(db, `users/${currentUserId}`), (snapshot) => {
+function initBengalAdsSystem() {
+    if (window.BengalAds && !isBengalAdsInit) {
+        const appId = settings.bengal_app_id || "tma_ac81feeb35dc105083a21d63e213030b94269e9a";
+        const formatId = settings.bengal_format_id || "int_a6169f63b7a9493bf3c7f1a776ecaaae2b90e70d";
         try {
-            const data = snapshot.val() || {};
-            const credits = Number(data.unlock_credits) || 0;
-            const bal = document.getElementById('topCreditBalance');
-            if (bal) bal.innerText = credits;
-            if (!document.getElementById('profileSec').classList.contains('hidden')) {
-                requestAnimationFrame(() => { try { renderProfile(); } catch (e) {} });
-            }
-        } catch (e) {}
-    });
-
-    onValue(ref(db, 'ads_config'), s => {
-        if (s.val() && s.val().adsgram_block_id) adsgramBlockId = s.val().adsgram_block_id;
-    });
-
-    onValue(ref(db, 'links'), s => {
-        menuLinks = [];
-        if (s.val()) Object.values(s.val()).forEach(v => menuLinks.push(v));
-        renderLinks();
-    });
-    onValue(ref(db, 'filters'), s => {
-        filters = [];
-        if (s.val()) Object.values(s.val()).forEach(v => filters.push(v));
-        renderFilters();
-    });
-    onValue(ref(db, 'videos'), s => {
-        try {
-            allVideos = [];
-            const raw = s.val();
-            if (raw) {
-                Object.entries(raw).forEach(([k, v]) => {
-                    if (v && typeof v === 'object') allVideos.push({ id: k, ...v });
-                });
-            }
-            allVideos.reverse();
-            requestAnimationFrame(() => {
-                try {
-                    renderFilters();
-                    renderCards();
-                    renderLiked();
-                    if (!document.getElementById('profileSec').classList.contains('hidden')) {
-                        renderProfile();
-                    }
-                } catch (e) {}
+            window.Telegram?.WebApp?.ready();
+            window.BengalAds.init({
+                appId: appId,
+                formatId: formatId,
+                telegramInitData: window.Telegram?.WebApp?.initData || ""
             });
-            if (startParam && isNaN(startParam)) {
-                const v = allVideos.find(x => x.id === startParam);
-                if (v) setTimeout(() => { try { openVideoPage(v.id); } catch (e) {} }, 100);
-            }
-            setSplashProgress(100, 'প্রস্তুত!');
-            if (resolveVideosReady) { resolveVideosReady(); resolveVideosReady = null; }
-        } catch (e) {
-            if (resolveVideosReady) { resolveVideosReady(); resolveVideosReady = null; }
-        }
-    });
-
-    try {
-        await Promise.race([
-            Promise.all([videosReady, minSplashDelay]),
-            splashTimeout
-        ]);
-    } catch(e) {}
-    hideSplash();
+            isBengalAdsInit = true;
+        } catch(e) {}
+    }
 }
 
-async function handleReferral() {
-    const userRef = ref(db, `users/${currentUserId}`);
-    let snapshot;
-    try {
-        snapshot = await withTimeout(get(userRef), FIREBASE_TIMEOUT_MS, 'timeout');
-    } catch (e) {
-        return;
-    }
-
-    if (!snapshot.exists()) {
-        const newUserData = {
-            joined: true,
-            first_name: user?.first_name || "User",
-            unlock_credits: 0,
-            total_refers: 0,
-            total_unlocked: 0
-        };
-
-        try {
-            await set(userRef, newUserData);
-            if (startParam && !isNaN(startParam) && startParam !== currentUserId.toString()) {
-                const referrerRef = ref(db, `users/${startParam}`);
-                await runTransaction(referrerRef, (u) => {
-                    if (u) {
-                        u.unlock_credits = (Number(u.unlock_credits) || 0) + 1;
-                        u.total_refers = (Number(u.total_refers) || 0) + 1;
-                        u.joined = true;
-                    } else {
-                        return { unlock_credits: 1, total_refers: 1, joined: true };
-                    }
-                    return u;
-                });
-                await set(ref(db, `users/${currentUserId}/referredBy`), String(startParam));
+// একক বিজ্ঞাপন ইঞ্জিন
+async function runSpecificProvider(provider) {
+    if (provider === 'bengalads') {
+        initBengalAdsSystem();
+        if (window.BengalAds && typeof window.BengalAds.showInterstitial === 'function') {
+            try {
+                const res = await withTimeout(window.BengalAds.showInterstitial(), 20000, "timeout");
+                if (res && res.status !== 'closed') throw { description: "বিজ্ঞাপন শেষ পর্যন্ত দেখা হয়নি!" };
+            } catch(e) {
+                for (let s = 5; s > 0; s--) {
+                    showOverlay(`বিজ্ঞাপন যাচাই হচ্ছে... (${s}s)`);
+                    await delay(1000);
+                }
             }
+        } else {
+            for (let s = 5; s > 0; s--) {
+                showOverlay(`বিজ্ঞাপন লোড হচ্ছে... (${s}s)`);
+                await delay(1000);
+            }
+        }
+    } else if (provider === 'monetag') {
+        const zone = String(settings.monetag_zone_id || '12126313').replace(/[^0-9]/g, '');
+        const fnName = 'show_' + zone;
+        if (typeof window[fnName] === 'function') {
+            try {
+                await withTimeout(window[fnName](), 15000, "timeout");
+            } catch(e) {
+                for (let s = 5; s > 0; s--) {
+                    showOverlay(`বিজ্ঞাপন যাচাই হচ্ছে... (${s}s)`);
+                    await delay(1000);
+                }
+            }
+        } else {
+            for (let s = 5; s > 0; s--) {
+                showOverlay(`বিজ্ঞাপন লোড হচ্ছে... (${s}s)`);
+                await delay(1000);
+            }
+        }
+    } else if (provider === 'direct_link') {
+        const url = settings.direct_link_url;
+        if (url) openExternal(url);
+        for (let s = 7; s > 0; s--) {
+            showOverlay(`বিজ্ঞাপন দেখা হচ্ছে... (${s}s)`);
+            await delay(1000);
+        }
+    } else { // Adsgram
+        const bId = settings.adsgram_block_id;
+        const controller = getAdController();
+        if (controller && bId) {
+            try {
+                await withTimeout(controller.show(), AD_TIMEOUT_MS, "timeout");
+            } catch(e) {
+                for (let s = 5; s > 0; s--) {
+                    showOverlay(`বিজ্ঞাপন যাচাই হচ্ছে... (${s}s)`);
+                    await delay(1000);
+                }
+            }
+        } else {
+            for (let s = 5; s > 0; s--) {
+                showOverlay(`বিজ্ঞাপন লোড হচ্ছে... (${s}s)`);
+                await delay(1000);
+            }
+        }
+    }
+}
+
+// ১ম, ২য়, ৩য় বা ৪র্থ বিজ্ঞাপন চেনার স্মার্ট কন্ট্রোলার
+async function showSingleAd(adIndex) {
+    let p = 'bengalads';
+    if (adIndex === 1) p = settings.ad_provider_1 || 'bengalads';
+    else if (adIndex === 2) p = settings.ad_provider_2 || 'monetag';
+    else if (adIndex === 3) p = settings.ad_provider_3 || 'adsgram';
+    else if (adIndex === 4) p = settings.ad_provider_4 || 'direct_link';
+    await runSpecificProvider(p);
+}
+
+async function stepLoadCountdown() {
+    const totalSeconds = Math.random() < 0.5 ? STEP_LOAD_DELAY_MIN_S : STEP_LOAD_DELAY_MAX_S;
+    for (let s = totalSeconds; s > 0; s--) {
+        showOverlay(`পরবর্তী বিজ্ঞাপন ${s} সেকেন্ডে শুরু হবে...`);
+        await delay(1000);
+    }
+}
+
+async function unlockConfirmCountdown(btns) {
+    const total = UNLOCK_CONFIRM_SECONDS;
+    const list = Array.from(btns || []);
+    list.forEach(b => {
+        try {
+            b.classList.add('counting');
+            b.disabled = true;
+            b.style.setProperty('--cd-pct', '100%');
+        } catch (e) {}
+    });
+    for (let s = total; s > 0; s--) {
+        const pct = ((s - 1) / total) * 100;
+        list.forEach(b => {
+            if (!b || !b.isConnected) return;
+            try {
+                b.innerHTML = `<span class="cd-num">${s}</span><span class="cd-label">নিশ্চিত হচ্ছে...</span>`;
+                requestAnimationFrame(() => {
+                    try { b.style.setProperty('--cd-pct', pct + '%'); } catch (e) {}
+                });
+            } catch (e) {}
+        });
+        await delay(1000);
+    }
+    list.forEach(b => {
+        if (!b || !b.isConnected) return;
+        try {
+            b.classList.remove('counting');
+            b.style.removeProperty('--cd-pct');
+            b.innerHTML = `<i class="fas fa-check-circle"></i> সম্পন্ন!`;
+        } catch (e) {}
+    });
+    await delay(300);
+}
+window.handleUnlock = async (id, link, req) => {
+    if (getProgress(id) >= req) { openExternal(link); return; }
+    if (processingVideos.has(id)) { showToast("অনুগ্রহ করে অপেক্ষা করুন, প্রসেস চলছে..."); return; }
+
+    const adsCount = parseInt(settings.ads_per_step, 10) || 2;
+    if (getDaily() + adsCount > (settings.ads_limit || 20)) { showToast("আজকের লিমিট শেষ!"); return; }
+
+    processingVideos.add(id);
+    const btns = document.querySelectorAll(`.unlock-btn[data-vid="${id}"]`);
+    btns.forEach(b => b.disabled = true);
+
+    try {
+        for (let i = 1; i <= adsCount; i++) {
+            showOverlay(`বিজ্ঞাপন লোড হচ্ছে... (${i}/${adsCount})`);
+            await showSingleAd(i);
+            incDaily();
+
+            if (i < adsCount) {
+                await stepLoadCountdown();
+            }
+        }
+
+        hideOverlay();
+        await unlockConfirmCountdown(btns);
+
+        const newCount = getProgress(id) + 1;
+        try { localStorage.setItem('p_' + id, newCount); } catch (e) {}
+        if (newCount >= req) {
+            const found = allVideos.find(x => x.id === id);
+            saveToHistory(id, found ? found.name : id);
+            try { runTransaction(ref(db, 'videos/' + id + '/view_count'), c => (Number(c) || 0) + 1); } catch (e) {}
+            try { runTransaction(ref(db, `users/${currentUserId}/total_unlocked`), c => (Number(c) || 0) + 1); } catch (e) {}
+        }
+        try { renderCards(); } catch (e) {}
+        try {
+            if (!document.getElementById('profileSec').classList.contains('hidden')) renderProfile();
+        } catch (e) {}
+        try {
+            if (!document.getElementById('tutSec').classList.contains('hidden')) openVideoPage(id);
+        } catch (e) {}
+        showToast("সফল! ধাপ সম্পন্ন হয়েছে।");
+    } catch (result) {
+        hideOverlay();
+        const rawMsg = (result && (result.description || result.error || result.message)) || "";
+        if (rawMsg && !/skip|close|cancel|abort|incomplete|not.?complete|user.?closed|dismissed|refused/i.test(String(rawMsg))) {
+            showToast(String(rawMsg).slice(0, 80));
+        }
+    } finally {
+        hideOverlay();
+        processingVideos.delete(id);
+        try {
+            btns.forEach(b => {
+                b.disabled = false;
+                b.classList.remove('counting');
+            });
         } catch (e) {}
     }
-}
+};
 
-function showSkeletons() {
-    const div = document.getElementById('cards');
-    if (!div) return;
-    div.innerHTML = '';
-    for (let i = 0; i < 3; i++) {
-        const sk = document.createElement('div');
-        sk.className = 'skeleton-card';
-        div.appendChild(sk);
+function saveToHistory(id, name) {}
+
+window.useCredit = async (id, link, req) => {
+    if (getProgress(id) >= req) { openExternal(link); return; }
+    if (processingVideos.has(id)) { showToast("অনুগ্রহ করে অপেক্ষা করুন, প্রসেস চলছে..."); return; }
+    processingVideos.add(id);
+    try {
+        const userRef = ref(db, `users/${currentUserId}`);
+        const snapshot = await withTimeout(get(userRef), FIREBASE_TIMEOUT_MS, 'timeout');
+        const userData = snapshot.val() || {};
+        const currentCredits = Number(userData.unlock_credits) || 0;
+        if (currentCredits > 0) {
+            if (confirm(`আপনার ${currentCredits}টি ক্রেডিট আছে। সরাসরি আনলক করবেন?`)) {
+                await withTimeout(
+                    runTransaction(ref(db, `users/${currentUserId}/unlock_credits`), (c) => (Number(c) || 0) > 0 ? Number(c) - 1 : 0),
+                    FIREBASE_TIMEOUT_MS, 'timeout'
+                );
+                try { localStorage.setItem('p_' + id, req); } catch (e) {}
+                const found = allVideos.find(x => x.id === id);
+                saveToHistory(id, found ? found.name : id);
+                try { runTransaction(ref(db, 'videos/' + id + '/view_count'), c => (Number(c) || 0) + 1); } catch (e) {}
+                try { runTransaction(ref(db, `users/${currentUserId}/total_unlocked`), c => (Number(c) || 0) + 1); } catch (e) {}
+                try { renderCards(); } catch (e) {}
+                try {
+                    if (!document.getElementById('profileSec').classList.contains('hidden')) renderProfile();
+                } catch (e) {}
+                try {
+                    if (!document.getElementById('tutSec').classList.contains('hidden')) openVideoPage(id);
+                } catch (e) {}
+                showToast("ক্রেডিট দিয়ে আনলক হয়েছে!");
+            }
+        } else {
+            alert("ক্রেডিট নেই! বন্ধুদের ইনভাইট করুন।");
+        }
+    } catch (error) {
+        showToast(error === 'timeout' ? "সার্ভারে সংযোগ পেতে দেরি হচ্ছে, আবার চেষ্টা করুন।" : "সমস্যা হয়েছে!");
+    } finally {
+        processingVideos.delete(id);
+        hideOverlay();
     }
-}
-
-function renderFilters() {
-    const div = document.getElementById('filterContainer');
-    if (!div) return;
-    const total = allVideos.length;
-    let html = `<button class="filter-btn ${currentFilter === 'all' ? 'active' : ''}" onclick="setFilter('all', this)">সবগুলো<span class="filter-count">${total}</span></button>`;
-    filters.forEach(f => {
-        const count = allVideos.filter(v => v.category === f.id).length;
-        html += `<button class="filter-btn ${currentFilter === f.id ? 'active' : ''}" onclick="setFilter('${jsStr(f.id)}', this)">${escHtml(f.name || '')}<span class="filter-count">${count}</span></button>`;
-    });
-    div.innerHTML = html;
-}
+};
 
 function formatNum(n) {
     n = Number(n) || 0;
@@ -1980,13 +2020,11 @@ function formatDurationBn(raw) {
 function getPostedAt(v) {
     return Number(v.created_at || v.timestamp || v.createdAt) || 0;
 }
-
 function isVideoNew(v) {
     const createdAt = getPostedAt(v);
     if (!createdAt) return false;
     return (Date.now() - createdAt) <= (24 * 60 * 60 * 1000);
 }
-
 function timeAgo(ts) {
     ts = Number(ts) || 0;
     if (!ts) return '';
@@ -2003,15 +2041,6 @@ function timeAgo(ts) {
     const year = Math.floor(month / 12);
     return `${year} বছর আগে`;
 }
-
-function refreshTimeLabels() {
-    document.querySelectorAll('.post-time[data-ts]').forEach(el => {
-        const ts = el.getAttribute('data-ts');
-        if (!ts) return;
-        el.innerHTML = `<i class="far fa-clock"></i> ${timeAgo(ts)}`;
-    });
-}
-setInterval(refreshTimeLabels, 60000);
 
 function createCard(v) {
     const liked = getLiked().includes(v.id);
@@ -2051,7 +2080,7 @@ function createCard(v) {
                 <button class="unlock-btn ${isUnlocked ? 'done' : ''}" data-vid="${safeId}" onclick="handleUnlock('${safeId}', '${safeLink}', ${req})">
                     ${isUnlocked ? '<i class="fas fa-check-circle"></i> Download' : `<i class="fas fa-lock"></i> Unlock (${count}/${req})`}
                 </button>
-                ${!isUnlocked ? `<div class="credit-action-group"><button class="action-btn credit-action-btn" onclick="useCredit('${safeId}', '${safeLink}', ${req})" title="Use Credit">${typeof creditIconHtml==='function'?creditIconHtml(28):'<i class="fas fa-star"></i>'}</button><span class="credit-action-label">Use Credit</span></div>` : ''}
+                ${!isUnlocked ? `<div class="credit-action-group"><button class="action-btn credit-action-btn" onclick="useCredit('${safeId}', '${safeLink}', ${req})" title="Use Credit">${creditIconHtml(28)}</button><span class="credit-action-label">Use Credit</span></div>` : ''}
                 <button class="action-btn" onclick="copyLink('${safeId}')" title="Share"><i class="fas fa-share-alt"></i></button>
             </div>
         </div>`;
@@ -2074,7 +2103,7 @@ function renderCards() {
             return name.includes(q) && (currentFilter === 'all' || v.category === currentFilter);
         });
         if (allVideos.length === 0 && list.length === 0) {
-            div.innerHTML = emptyStateHTML('fas fa-video-slash', 'কোনো ভিডিও নেই', 'এখনো কোনো ভিডিও যোগ করা হয়নি। পরে আবার দেখুন।', '', '');
+            div.innerHTML = emptyStateHTML('fas fa-video-slash', 'কোনো ভিডিও নেই', 'এখনো কোনো ভিডিও যোগ করা হয়নি। পরে আবার দেখুন।');
             return;
         }
         if (!list.length) {
@@ -2088,18 +2117,9 @@ function renderCards() {
         }
         div.innerHTML = '';
         div.appendChild(frag);
-        if (list.length > maxShow) {
-            const more = document.createElement('p');
-            more.style.cssText = 'text-align:center;padding:16px;color:var(--text-mute);font-family:var(--font-bn);font-size:13px;';
-            more.textContent = `আরো ${list.length - maxShow}টি ভিডিও — সার্চ/ফিল্টার ব্যবহার করুন`;
-            div.appendChild(more);
-        }
-    } catch (e) {
     } finally {
         _renderCardsBusy = false;
-        if (_renderCardsQueued) {
-            requestAnimationFrame(() => renderCards());
-        }
+        if (_renderCardsQueued) requestAnimationFrame(() => renderCards());
     }
 }
 
@@ -2126,10 +2146,7 @@ function fillSuggestRow(containerId, blockId, list, badgeClass, badgeLabel) {
     const container = document.getElementById(containerId);
     const block = document.getElementById(blockId);
     if (!container || !block) return;
-    if (!list.length) {
-        block.style.display = 'none';
-        return;
-    }
+    if (!list.length) { block.style.display = 'none'; return; }
     block.style.display = 'block';
     container.innerHTML = '';
     list.forEach(v => container.appendChild(buildSuggestCard(v, badgeClass, badgeLabel)));
@@ -2138,44 +2155,23 @@ function fillSuggestRow(containerId, blockId, list, badgeClass, badgeLabel) {
 function renderPopularSuggestions(excludeId) {
     const section = document.getElementById('suggestSection');
     if (!section) return;
-
     const others = allVideos.filter(v => v.id !== excludeId);
-    if (others.length === 0) {
-        section.style.display = 'none';
-        return;
-    }
+    if (others.length === 0) { section.style.display = 'none'; return; }
     section.style.display = 'block';
 
-    const newOnes = others
-        .filter(v => isVideoNew(v))
-        .sort((a, b) => getPostedAt(b) - getPostedAt(a))
-        .slice(0, 8);
-    const newList = newOnes.length ? newOnes : others.slice(0, 6);
+    const newOnes = others.filter(v => isVideoNew(v)).slice(0, 8);
+    const mostViewed = [...others].sort((a, b) => (Number(b.view_count) || 0) - (Number(a.view_count) || 0)).slice(0, 8);
+    const trending = others.filter(v => (Number(v.view_count) || 0) >= 500).slice(0, 8);
+    const more = others.slice(0, 8);
 
-    const mostViewed = [...others]
-        .sort((a, b) => (Number(b.view_count) || 0) - (Number(a.view_count) || 0))
-        .slice(0, 8);
-
-    const trending = others
-        .filter(v => (Number(v.view_count) || 0) >= 500)
-        .sort((a, b) => (Number(b.view_count) || 0) - (Number(a.view_count) || 0))
-        .slice(0, 8);
-
-    const shown = new Set([
-        ...newList.slice(0, 4).map(v => v.id),
-        ...mostViewed.slice(0, 4).map(v => v.id)
-    ]);
-    const more = others.filter(v => !shown.has(v.id)).slice(0, 8);
-
-    fillSuggestRow('suggestNew', 'suggestNewBlock', newList, 'new-b', 'New');
+    fillSuggestRow('suggestNew', 'suggestNewBlock', newOnes, 'new-b', 'New');
     fillSuggestRow('suggestPop', 'suggestPopBlock', mostViewed, 'pop-b', 'Top');
     fillSuggestRow('suggestTrend', 'suggestTrendBlock', trending, 'trend-b', 'Hot');
     fillSuggestRow('suggestMore', 'suggestMoreBlock', more, '', '');
 }
 
 function buildUnlockStepsHTML(count, req, isUnlocked) {
-    const adsPer = (typeof ADS_PER_STEP !== 'undefined') ? ADS_PER_STEP : 2;
-
+    const adsCount = parseInt(settings.ads_per_step, 10) || 2;
     let nodes = '';
     for (let s = 1; s <= req; s++) {
         let state = '';
@@ -2184,7 +2180,7 @@ function buildUnlockStepsHTML(count, req, isUnlocked) {
         const dot = state === 'done' ? '<i class="fas fa-check"></i>' : String(s);
         nodes += `<div class="unlock-h-step ${state}">
             <div class="unlock-h-dot">${dot}</div>
-            <div class="unlock-h-label">ধাপ ${s}<br>${adsPer}টি অ্যাড</div>
+            <div class="unlock-h-label">ধাপ ${s}<br>${adsCount}টি অ্যাড</div>
         </div>`;
     }
     const dlState = isUnlocked ? 'done' : '';
@@ -2193,28 +2189,12 @@ function buildUnlockStepsHTML(count, req, isUnlocked) {
         <div class="unlock-h-label">ডাউনলোড</div>
     </div>`;
 
-    const tip = isUnlocked
-        ? 'সব ধাপ সম্পন্ন! উপরে সবুজ Download বাটনে চাপুন — ভিডিও পেতে।'
-        : `প্রতি ধাপে ${adsPer}টি বিজ্ঞাপন শেষ পর্যন্ত দেখুন। স্কিপ করলে আনলক হবে না। ⭐ ক্রেডিট দিয়েও আনলক করা যায়।`;
-
-    const completeBanner = isUnlocked
-        ? `<div class="unlock-complete-banner">
-            <div class="ucb-icon"><i class="fas fa-unlock-alt"></i></div>
-            <div class="ucb-text">
-                <strong>🎉 আনলক সম্পন্ন!</strong>
-                <span>ভিডিও ডাউনলোড করতে উপরে Download চাপুন</span>
-            </div>
-        </div>`
-        : '';
-
     return `<div class="unlock-guide${isUnlocked ? ' complete' : ''}">
-        ${completeBanner}
         <div class="unlock-guide-head">
             <h5><i class="fas ${isUnlocked ? 'fa-check-circle' : 'fa-list-ol'}"></i> ${isUnlocked ? 'আনলক স্ট্যাটাস' : 'আনলক গাইড'}</h5>
             <span class="unlock-guide-pct">${isUnlocked ? '✓ সম্পন্ন' : count + '/' + req}</span>
         </div>
         <div class="unlock-h-steps">${nodes}</div>
-        <div class="unlock-guide-tip"><i class="fas ${isUnlocked ? 'fa-check' : 'fa-lightbulb'}"></i><span>${tip}</span></div>
     </div>`;
 }
 
@@ -2245,289 +2225,38 @@ window.openVideoPage = (id) => {
             <button class="unlock-btn ${isUnlocked ? 'done' : ''}" data-vid="${safeId}" style="flex:1;" onclick="handleUnlock('${safeId}', '${safeLink}', ${req})">
                 ${isUnlocked ? '<i class="fas fa-check-circle"></i> Download' : `<i class="fas fa-lock"></i> Unlock (${count}/${req})`}
             </button>
-            ${!isUnlocked ? `<div class="credit-action-group"><button class="action-btn credit-action-btn" style="min-width:46px;" onclick="useCredit('${safeId}', '${safeLink}', ${req})" title="Use Credit">${typeof creditIconHtml==='function'?creditIconHtml(28):'<i class="fas fa-star"></i>'}</button><span class="credit-action-label">Use Credit</span></div>` : ''}
+            ${!isUnlocked ? `<div class="credit-action-group"><button class="action-btn credit-action-btn" style="min-width:46px;" onclick="useCredit('${safeId}', '${safeLink}', ${req})" title="Use Credit">${creditIconHtml(28)}</button><span class="credit-action-label">Use Credit</span></div>` : ''}
         </div>
     `;
     renderPopularSuggestions(id);
     nav('tutSec', null);
 };
 
-window.useCredit = async (id, link, req) => {
-    if (getProgress(id) >= req) { openExternal(link); return; }
-    if (processingVideos.has(id)) { showToast("অনুগ্রহ করে অপেক্ষা করুন, প্রসেস চলছে..."); return; }
-    processingVideos.add(id);
-    try {
-        const userRef = ref(db, `users/${currentUserId}`);
-        const snapshot = await withTimeout(get(userRef), FIREBASE_TIMEOUT_MS, 'timeout');
-        const userData = snapshot.val() || {};
-        const currentCredits = Number(userData.unlock_credits) || 0;
-        if (currentCredits > 0) {
-            if (confirm(`আপনার ${currentCredits}টি ক্রেডিট আছে। সরাসরি আনলক করবেন?`)) {
-                await withTimeout(
-                    runTransaction(ref(db, `users/${currentUserId}/unlock_credits`), (c) => (Number(c) || 0) > 0 ? Number(c) - 1 : 0),
-                    FIREBASE_TIMEOUT_MS, 'timeout'
-                );
-                try { localStorage.setItem('p_' + id, req); } catch (e) {}
-                const found = allVideos.find(x => x.id === id);
-                saveToHistory(id, found ? found.name : id);
-                try { runTransaction(ref(db, 'videos/' + id + '/view_count'), c => (Number(c) || 0) + 1); } catch (e) {}
-                try { runTransaction(ref(db, `users/${currentUserId}/total_unlocked`), c => (Number(c) || 0) + 1); } catch (e) {}
-                try { renderCards(); } catch (e) {}
-                try {
-                    if (!document.getElementById('profileSec').classList.contains('hidden')) renderProfile();
-                } catch (e) {}
-                try {
-                    if (!document.getElementById('tutSec').classList.contains('hidden')) openVideoPage(id);
-                } catch (e) {}
-                showToast("ক্রেডিট দিয়ে আনলক হয়েছে!");
-            }
-        } else {
-            alert("ক্রেডিট নেই! বন্ধুদের ইনভাইট করুন।");
-        }
-    } catch (error) {
-        showToast(error === 'timeout' ? "সার্ভারে সংযোগ পেতে দেরি হচ্ছে, আবার চেষ্টা করুন।" : "সমস্যা হয়েছে!");
-    } finally {
-        processingVideos.delete(id);
-        hideOverlay();
-    }
-};
-
-const ADS_PER_STEP = 2;
-const STEP_LOAD_DELAY_MIN_S = 6;
-const STEP_LOAD_DELAY_MAX_S = 7;
-const UNLOCK_CONFIRM_SECONDS = 3;
-
-function delay(ms) { return new Promise(res => setTimeout(res, ms)); }
-
-function withTimeout(promise, ms, timeoutPayload) {
-    return new Promise((resolve, reject) => {
-        const timer = setTimeout(() => reject(timeoutPayload), ms);
-        Promise.resolve(promise).then(
-            (v) => { clearTimeout(timer); resolve(v); },
-            (e) => { clearTimeout(timer); reject(e); }
-        );
+function renderFilters() {
+    const div = document.getElementById('filterContainer');
+    if (!div) return;
+    const total = allVideos.length;
+    let html = `<button class="filter-btn ${currentFilter === 'all' ? 'active' : ''}" onclick="setFilter('all', this)">সবগুলো<span class="filter-count">${total}</span></button>`;
+    filters.forEach(f => {
+        const count = allVideos.filter(v => v.category === f.id).length;
+        html += `<button class="filter-btn ${currentFilter === f.id ? 'active' : ''}" onclick="setFilter('${jsStr(f.id)}', this)">${escHtml(f.name || '')}<span class="filter-count">${count}</span></button>`;
     });
-}
-
-const AD_TIMEOUT_MS = 45000;
-const FIREBASE_TIMEOUT_MS = 12000;
-const processingVideos = new Set();
-
-window.addEventListener('unhandledrejection', (ev) => {
-    try {
-        hideOverlay();
-        document.querySelectorAll('.unlock-btn.counting').forEach(b => {
-            b.classList.remove('counting');
-            b.disabled = false;
-        });
-    } catch (e) {}
-});
-window.addEventListener('error', (ev) => {
-    try {
-        hideOverlay();
-    } catch (e) {}
-});
-
-// অল-ইন-ওয়ান অ্যাড কন্ট্রোলার (স্মার্ট ব্যাকআপ ও নেটওয়ার্ক এরর মুক্ত)
-async function showSingleAd() {
-    const provider = settings.ad_provider || 'monetag';
-
-    // ১. Monetag চালু থাকলে
-    if (provider === 'monetag') {
-        const zone = String(settings.monetag_zone_id || '12126313').replace(/[^0-9]/g, '');
-        if (typeof ensureMonetagSdk === 'function') ensureMonetagSdk(zone);
-        const fnName = 'show_' + zone;
-
-        let retries = 0;
-        while (typeof window[fnName] !== 'function' && retries < 10) {
-            await delay(300);
-            retries++;
-        }
-
-        // যদি Monetag ফাংশন পাওয়া যায়, বিজ্ঞাপন দেখানোর চেষ্টা করবে
-        if (typeof window[fnName] === 'function') {
-            try {
-                await withTimeout(window[fnName](), 15000, "timeout");
-            } catch (err) {
-                console.warn("Monetag Ad failed/blocked, fallback timer activated:", err);
-                // নেটওয়ার্ক এরর বা অ্যাডব্লকারের কারণে ফেইল হলে ইউজারকে না আটকে ৫ সেকেন্ডে স্টেপ সম্পন্ন করবে
-                for (let s = 5; s > 0; s--) {
-                    showOverlay(`বিজ্ঞাপন যাচাই হচ্ছে... অপেক্ষা করুন (${s}s)`);
-                    await delay(1000);
-                }
-            }
-        } else {
-            // যদি নেটের কারণে স্ক্রিপ্ট লোডই না হয়, সরাসরি কাউন্টডাউন চলবে
-            for (let s = 5; s > 0; s--) {
-                showOverlay(`বিজ্ঞাপন লোড হচ্ছে... অপেক্ষা করুন (${s}s)`);
-                await delay(1000);
-            }
-        }
-    }
-    // ২. Direct Link চালু থাকলে
-    else if (provider === 'direct_link') {
-        const url = settings.direct_link_url;
-        if (!url) throw { description: "অ্যাডমিন প্যানেলে ডিরেক্ট লিংক বসানো নেই!" };
-        openExternal(url);
-        for (let s = 7; s > 0; s--) {
-            showOverlay(`বিজ্ঞাপন দেখা হচ্ছে... অপেক্ষা করুন (${s}s)`);
-            await delay(1000);
-        }
-    }
-    // ৩. Adsgram চালু থাকলে
-    else {
-        const bId = settings.adsgram_block_id;
-        if (!bId || bId.includes('show_')) throw { description: "অ্যাডমিন প্যানেলে সঠিক Adsgram Block ID দিন!" };
-        const controller = getAdController();
-        if (!controller) throw { description: "বিজ্ঞাপন কন্ট্রোলার তৈরি করা যায়নি!" };
-        try {
-            await withTimeout(controller.show(), AD_TIMEOUT_MS, { description: "বিজ্ঞাপন লোড হতে অনেক সময় লাগছে।" });
-        } catch (err) {
-            // Adsgram ফেইল করলেও ৫ সেকেন্ডে বাইপাস করবে
-            for (let s = 5; s > 0; s--) {
-                showOverlay(`বিজ্ঞাপন যাচাই হচ্ছে... (${s}s)`);
-                await delay(1000);
-            }
-        }
-    }
-}
-
-async function stepLoadCountdown() {
-    const totalSeconds = Math.random() < 0.5 ? STEP_LOAD_DELAY_MIN_S : STEP_LOAD_DELAY_MAX_S;
-    for (let s = totalSeconds; s > 0; s--) {
-        showOverlay(`পরবর্তী বিজ্ঞাপন ${s} সেকেন্ডে শুরু হবে...`);
-        await delay(1000);
-    }
-}
-async function unlockConfirmCountdown(btns) {
-    const total = UNLOCK_CONFIRM_SECONDS;
-    const list = Array.from(btns || []);
-    list.forEach(b => {
-        try {
-            b.classList.add('counting');
-            b.disabled = true;
-            b.style.setProperty('--cd-pct', '100%');
-        } catch (e) {}
-    });
-    for (let s = total; s > 0; s--) {
-        const pct = ((s - 1) / total) * 100;
-        list.forEach(b => {
-            if (!b || !b.isConnected) return;
-            try {
-                b.innerHTML = `<span class="cd-num">${s}</span><span class="cd-label">নিশ্চিত হচ্ছে...</span>`;
-                const num = b.querySelector('.cd-num');
-                if (num) {
-                    void num.offsetWidth;
-                    num.style.animation = 'none';
-                    void num.offsetWidth;
-                    num.style.animation = '';
-                }
-                requestAnimationFrame(() => {
-                    try { b.style.setProperty('--cd-pct', pct + '%'); } catch (e) {}
-                });
-            } catch (e) {}
-        });
-        await delay(1000);
-    }
-    list.forEach(b => {
-        if (!b || !b.isConnected) return;
-        try {
-            b.classList.remove('counting');
-            b.style.removeProperty('--cd-pct');
-            b.innerHTML = `<i class="fas fa-check-circle"></i> সম্পন্ন!`;
-        } catch (e) {}
-    });
-    await delay(300);
-}
-
-window.handleUnlock = async (id, link, req) => {
-    if (getProgress(id) >= req) { openExternal(link); return; }
-    if (processingVideos.has(id)) { showToast("অনুগ্রহ করে অপেক্ষা করুন, প্রসেস চলছে..."); return; }
-    if (getDaily() + ADS_PER_STEP > (settings.ads_limit || 20)) { showToast("আজকের লিমিট শেষ!"); return; }
-
-    processingVideos.add(id);
-    const btns = document.querySelectorAll(`.unlock-btn[data-vid="${id}"]`);
-    btns.forEach(b => b.disabled = true);
-
-    try {
-        for (let i = 1; i <= ADS_PER_STEP; i++) {
-            showOverlay(`বিজ্ঞাপন লোড হচ্ছে... (${i}/${ADS_PER_STEP})`);
-            await showSingleAd();
-            incDaily();
-
-            if (i < ADS_PER_STEP) {
-                await stepLoadCountdown();
-            }
-        }
-
-        hideOverlay();
-        await unlockConfirmCountdown(btns);
-
-        const newCount = getProgress(id) + 1;
-        try { localStorage.setItem('p_' + id, newCount); } catch (e) {}
-        if (newCount >= req) {
-            const found = allVideos.find(x => x.id === id);
-            saveToHistory(id, found ? found.name : id);
-            try { runTransaction(ref(db, 'videos/' + id + '/view_count'), c => (Number(c) || 0) + 1); } catch (e) {}
-            try { runTransaction(ref(db, `users/${currentUserId}/total_unlocked`), c => (Number(c) || 0) + 1); } catch (e) {}
-        }
-        try { renderCards(); } catch (e) {}
-        try {
-            if (!document.getElementById('profileSec').classList.contains('hidden')) renderProfile();
-        } catch (e) {}
-        try {
-            if (!document.getElementById('tutSec').classList.contains('hidden')) openVideoPage(id);
-        } catch (e) {}
-        showToast("সফল! ধাপ সম্পন্ন হয়েছে।");
-    } catch (result) {
-        hideOverlay();
-        const rawMsg = (result && (result.description || result.error || result.message)) || "";
-        if (rawMsg && !/skip|close|cancel|abort|incomplete|not.?complete|user.?closed|dismissed|refused/i.test(String(rawMsg))) {
-            showToast(String(rawMsg).slice(0, 80));
-        }
-        try { renderCards(); } catch (e) {}
-        try {
-            if (!document.getElementById('tutSec').classList.contains('hidden')) openVideoPage(id);
-        } catch (e) {}
-    } finally {
-        hideOverlay();
-        processingVideos.delete(id);
-        try {
-            btns.forEach(b => {
-                b.disabled = false;
-                b.classList.remove('counting');
-            });
-        } catch (e) {}
-    }
-};
-
-function saveToHistory(id, name) {
-    /* video history feature removed */
+    div.innerHTML = html;
 }
 
 window.inviteFriend = () => {
-    const botLink = settings.bot_app_link || "";
+    const botLink = settings.bot_app_link || "https://t.me/viral_video_bangladesh_bot/app";
     const inviteLink = botLink.includes('?') ? `${botLink}&startapp=${currentUserId}` : `${botLink}?startapp=${currentUserId}`;
     const text = "🔥 Viral Video Bangladesh — সব ভাইরাল ভিডিও ফ্রিতে দেখুন! প্রতিটি রেফারেলে ১টি ভিডিও ফ্রি আনলক!";
-    const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(text)}`;
-    tg.openTelegramLink(fullUrl);
+    tg.openTelegramLink(`https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(text)}`);
 };
 
 window.copyReferLink = async () => {
-    const botLink = settings.bot_app_link || "";
+    const botLink = settings.bot_app_link || "https://t.me/viral_video_bangladesh_bot/app";
     const inviteLink = botLink.includes('?') ? `${botLink}&startapp=${currentUserId}` : `${botLink}?startapp=${currentUserId}`;
-    const btn = document.getElementById('copyRefBtn');
-    const label = document.getElementById('copyRefLabel');
     try {
         await navigator.clipboard.writeText(inviteLink);
         showToast("লিংক কপি হয়েছে!");
-        if (btn) btn.classList.add('copied');
-        if (label) label.innerText = 'কপি হয়েছে!';
-        try { tg.HapticFeedback && tg.HapticFeedback.notificationOccurred('success'); } catch(e) {}
-        setTimeout(() => {
-            if (btn) btn.classList.remove('copied');
-            if (label) label.innerText = 'কপি করুন';
-        }, 2000);
     } catch (err) {
         showToast("কপি করতে সমস্যা হয়েছে!");
     }
@@ -2545,34 +2274,22 @@ function updateReferLinkText() {
 window.renderProfile = async () => {
     const uName = user?.first_name || "User";
     const uPhoto = user?.photo_url;
-
-    const statGroup = document.querySelector('#profileSec .stat-group');
-    if (statGroup && !statGroup.dataset.loaded) {
-        statGroup.innerHTML = `<div class="skeleton-stat"></div><div class="skeleton-stat"></div>`;
-    }
-
     const userRef = ref(db, `users/${currentUserId}`);
     let userData = {};
     try {
         const snapshot = await withTimeout(get(userRef), FIREBASE_TIMEOUT_MS, 'timeout');
         userData = snapshot.val() || {};
-    } catch (e) {
-        if (statGroup) statGroup.dataset.loaded = "";
-        return;
-    }
+    } catch (e) { return; }
     const credits = Number(userData.unlock_credits) || 0;
     const totalRefers = Number(userData.total_refers) || 0;
 
-    if (statGroup) {
-        statGroup.innerHTML = `
-            <div class="stat-box"><div class="stat-value" id="statReferCount">${totalRefers}</div><div class="stat-label">মোট রেফার</div></div>
-            <div class="stat-box"><div class="stat-value" id="statRefer">${credits}</div><div class="stat-label">ফ্রি আনলক</div></div>`;
-        statGroup.dataset.loaded = "1";
-    }
+    const statCountEl = document.getElementById('statReferCount');
+    const statCreditEl = document.getElementById('statRefer');
+    if (statCountEl) statCountEl.innerText = totalRefers;
+    if (statCreditEl) statCreditEl.innerText = credits;
+
     const nameEl = document.getElementById('uName');
     if (nameEl) nameEl.innerText = uName;
-    const badgeBox = document.getElementById('uBadgeBox');
-    if (badgeBox) badgeBox.innerHTML = '';
     const idEl = document.getElementById('uId');
     if (idEl) idEl.innerText = "ID: " + currentUserId;
     updateReferLinkText();
@@ -2582,7 +2299,7 @@ window.renderProfile = async () => {
     const picHolder = document.getElementById('profilePicHolder');
     if (picHolder) {
         picHolder.innerHTML = uPhoto
-            ? `<img src="${uPhoto}" class="profile-avatar" style="border:none;" draggable="false" alt="${uName}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-user-circle\\'></i>'">`
+            ? `<img src="${uPhoto}" class="profile-avatar" style="border:none;" draggable="false" alt="${uName}">`
             : `<i class="fas fa-user-circle"></i>`;
     }
 };
@@ -2591,7 +2308,7 @@ window.renderLinks = () => {
     const d = document.getElementById('linkList');
     if (!d) return;
     if (!menuLinks.length) {
-        d.innerHTML = emptyStateHTML('fas fa-link', 'কোনো লিংক নেই', 'এখনো কোনো টাস্ক লিংক যোগ করা হয়নি।', '', '');
+        d.innerHTML = emptyStateHTML('fas fa-link', 'কোনো লিংক নেই', 'এখনো কোনো টাস্ক লিংক যোগ করা হয়নি।');
         return;
     }
     d.innerHTML = '';
@@ -2609,21 +2326,18 @@ window.nav = (id, btn) => {
         const target = document.getElementById(id);
         if (!target) return;
         target.classList.remove('hidden');
-        target.classList.remove('fadeIn');
-        void target.offsetWidth;
-        target.classList.add('fadeIn');
         document.querySelectorAll('.nav-item').forEach(x => x.classList.remove('active'));
         if (btn && btn.classList) btn.classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (id === 'linkSec') { try { renderLinks(); } catch (e) {} }
-        if (id === 'profileSec') { try { renderProfile(); } catch (e) {} }
-        if (id === 'likedSec') { try { renderLiked(); } catch (e) {} }
-        if (id === 'homeSec') { try { renderCards(); } catch (e) {} }
+        if (id === 'linkSec') renderLinks();
+        if (id === 'profileSec') renderProfile();
+        if (id === 'likedSec') renderLiked();
+        if (id === 'homeSec') renderCards();
     } catch (e) {}
 };
 
 window.copyLink = async (id) => {
-    const botLink = settings.bot_app_link || "";
+    const botLink = settings.bot_app_link || "https://t.me/viral_video_bangladesh_bot/app";
     const shareLink = botLink.includes('?') ? `${botLink}&startapp=${id}` : `${botLink}?startapp=${id}`;
     try {
         await navigator.clipboard.writeText(shareLink);
@@ -2686,131 +2400,169 @@ function showToast(m) {
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
 }
+
 function renderLiked() {
     const d = document.getElementById('likedCards');
     if (!d) return;
     const l = getLiked();
     const v = allVideos.filter(x => l.includes(x.id));
     if (!v.length) {
-        d.innerHTML = emptyStateHTML(
-            'far fa-heart',
-            'এখনো কিছু পছন্দ নেই',
-            'ভিডিওতে হার্ট আইকনে ট্যাপ করে আপনার পছন্দের তালিকা বানান।',
-            'ভিডিও দেখুন',
-            "nav('homeSec', document.querySelector('.nav-item'))"
-        );
+        d.innerHTML = emptyStateHTML('far fa-heart', 'এখনো কিছু পছন্দ নেই', 'ভিডিওতে হার্ট আইকনে ট্যাপ করে আপনার পছন্দের তালিকা বানান।');
         return;
     }
     d.innerHTML = '';
     v.forEach(x => d.appendChild(createCard(x)));
 }
 
-let searchDebounceTimer = null;
-const searchInp = document.getElementById('searchInput');
-if (searchInp) {
-    searchInp.oninput = () => {
-        clearTimeout(searchDebounceTimer);
-        searchDebounceTimer = setTimeout(renderCards, 200);
-    };
-}
-
-function emptyStateHTML(icon, title, desc, actionLabel, actionOnclick) {
-    const btn = actionLabel
-        ? `<button type="button" class="empty-action" onclick="${actionOnclick}">${actionLabel}</button>`
-        : '';
+function emptyStateHTML(icon, title, desc) {
     return `<div class="empty-state fadeIn">
         <div class="empty-icon"><i class="${icon}"></i></div>
         <h4>${title}</h4>
         <p>${desc}</p>
-        ${btn}
     </div>`;
 }
 
-(function setupPullToRefresh() {
-    const home = document.getElementById('homeSec');
-    if (!home) return;
-    const indicator = () => document.getElementById('ptrIndicator');
-    const arrow = () => document.getElementById('ptrArrow');
-    const spinner = () => document.getElementById('ptrSpinner');
-    const text = () => document.getElementById('ptrText');
-    let startY = 0, pulling = false, refreshing = false;
-    const THRESHOLD = 70;
+function showSkeletons() {
+    const div = document.getElementById('cards');
+    if (!div) return;
+    div.innerHTML = '';
+    for (let i = 0; i < 3; i++) {
+        const sk = document.createElement('div');
+        sk.className = 'skeleton-card';
+        div.appendChild(sk);
+    }
+}
 
-    function onStart(e) {
-        if (refreshing) return;
-        if (window.scrollY > 5) return;
-        if (home.classList.contains('hidden')) return;
-        const t = e.touches ? e.touches[0] : e;
-        startY = t.clientY;
-        pulling = true;
-    }
-    function onMove(e) {
-        if (!pulling || refreshing) return;
-        if (window.scrollY > 5) { pulling = false; resetPtr(); return; }
-        const t = e.touches ? e.touches[0] : e;
-        const dy = t.clientY - startY;
-        if (dy < 8) return;
-        if (e.cancelable) e.preventDefault();
-        const ind = indicator();
-        if (!ind) return;
-        ind.classList.add('show');
-        const progress = Math.min(dy, 120);
-        ind.style.height = Math.min(56, progress * 0.7) + 'px';
-        const ready = dy >= THRESHOLD;
-        if (arrow()) arrow().classList.toggle('ready', ready);
-        if (spinner()) spinner().style.display = 'none';
-        if (arrow()) arrow().style.display = 'block';
-        if (text()) text().innerText = ready ? 'ছেড়ে দিলে রিফ্রেশ হবে' : 'রিফ্রেশ করতে টেনে নামান';
-    }
-    async function onEnd(e) {
-        if (!pulling) return;
-        pulling = false;
-        const t = e.changedTouches ? e.changedTouches[0] : e;
-        const dy = t.clientY - startY;
-        if (dy >= THRESHOLD && !refreshing) {
-            await doRefresh();
-        } else {
-            resetPtr();
-        }
-    }
-    function resetPtr() {
-        const ind = indicator();
-        if (!ind) return;
-        ind.classList.remove('show');
-        ind.style.height = '';
-        if (arrow()) { arrow().classList.remove('ready'); arrow().style.display = 'block'; }
-        if (spinner()) spinner().style.display = 'none';
-        if (text()) text().innerText = 'রিফ্রেশ করতে টেনে নামান';
-    }
-    async function doRefresh() {
-        refreshing = true;
-        const ind = indicator();
-        if (ind) ind.classList.add('show');
-        if (arrow()) arrow().style.display = 'none';
-        if (spinner()) spinner().style.display = 'block';
-        if (text()) text().innerText = 'রিফ্রেশ হচ্ছে...';
-        try { tg.HapticFeedback && tg.HapticFeedback.impactOccurred('light'); } catch(e) {}
+async function handleReferral() {
+    const userRef = ref(db, `users/${currentUserId}`);
+    let snapshot;
+    try {
+        snapshot = await withTimeout(get(userRef), FIREBASE_TIMEOUT_MS, 'timeout');
+    } catch (e) { return; }
+
+    if (!snapshot.exists()) {
+        const newUserData = {
+            joined: true,
+            first_name: user?.first_name || "User",
+            unlock_credits: 0,
+            total_refers: 0,
+            total_unlocked: 0
+        };
+
         try {
-            const snap = await withTimeout(get(ref(db, 'videos')), FIREBASE_TIMEOUT_MS, 'timeout');
-            allVideos = [];
-            if (snap.exists()) {
-                Object.entries(snap.val()).forEach(([k, v]) => allVideos.push({ id: k, ...v }));
-                allVideos.reverse();
+            await set(userRef, newUserData);
+            if (startParam && !isNaN(startParam) && startParam !== currentUserId.toString()) {
+                const referrerRef = ref(db, `users/${startParam}`);
+                await runTransaction(referrerRef, (u) => {
+                    if (u) {
+                        u.unlock_credits = (Number(u.unlock_credits) || 0) + 1;
+                        u.total_refers = (Number(u.total_refers) || 0) + 1;
+                        u.joined = true;
+                    } else {
+                        return { unlock_credits: 1, total_refers: 1, joined: true };
+                    }
+                    return u;
+                });
+                await set(ref(db, `users/${currentUserId}/referredBy`), String(startParam));
             }
-            renderFilters();
-            renderCards();
-            renderLiked();
-            showToast('আপডেট হয়েছে!');
-        } catch (err) {
-            showToast(err === 'timeout' ? 'নেটওয়ার্ক স্লো, আবার চেষ্টা করুন' : 'রিফ্রেশ ব্যর্থ');
-            renderCards();
-        }
-        setTimeout(() => { refreshing = false; resetPtr(); }, 450);
+        } catch (e) {}
     }
-    document.addEventListener('touchstart', onStart, { passive: true });
-    document.addEventListener('touchmove', onMove, { passive: false });
-    document.addEventListener('touchend', onEnd, { passive: true });
-})();
+}
+
+async function init() {
+    try {
+        const logoWrap = document.getElementById('topCreditLogo');
+        if (logoWrap) logoWrap.innerHTML = `<img src="${CREDIT_LOGO}" alt="credit" draggable="false">`;
+    } catch (e) {}
+
+    showSkeletons();
+    watchConnection();
+    setSplashProgress(15, 'কানেক্ট হচ্ছে...');
+
+    const minSplashDelay = new Promise(res => setTimeout(res, 1200));
+    let resolveVideosReady;
+    const videosReady = new Promise(res => { resolveVideosReady = res; });
+    const splashTimeout = new Promise(res => setTimeout(res, 4000));
+
+    setSplashProgress(30, 'অ্যাকাউন্ট চেক...');
+    try {
+        const auth = getAuth(app);
+        await withTimeout(signInAnonymously(auth), FIREBASE_TIMEOUT_MS, 'timeout');
+    } catch (e) {}
+
+    await handleReferral();
+    setSplashProgress(60, 'কনটেন্ট লোড...');
+
+    onValue(ref(db, 'settings'), s => {
+        if (s.val()) {
+            settings = { ...settings, ...s.val() };
+            if (settings.adsgram_block_id) adsgramBlockId = settings.adsgram_block_id;
+            initBengalAdsSystem();
+            if (settings.tutorial_id && !startParam) {
+                document.getElementById('tutEmbed').innerHTML = `<iframe src="${settings.tutorial_id}" style="width:100%;height:100%;border:0" allowfullscreen></iframe>`;
+            }
+            updateReferLinkText();
+        }
+    });
+
+    onValue(ref(db, `users/${currentUserId}`), (snapshot) => {
+        try {
+            const data = snapshot.val() || {};
+            const credits = Number(data.unlock_credits) || 0;
+            const bal = document.getElementById('topCreditBalance');
+            if (bal) bal.innerText = credits;
+            if (!document.getElementById('profileSec').classList.contains('hidden')) {
+                requestAnimationFrame(() => { try { renderProfile(); } catch (e) {} });
+            }
+        } catch (e) {}
+    });
+
+    onValue(ref(db, 'links'), s => {
+        menuLinks = [];
+        if (s.val()) Object.values(s.val()).forEach(v => menuLinks.push(v));
+        renderLinks();
+    });
+    onValue(ref(db, 'filters'), s => {
+        filters = [];
+        if (s.val()) Object.values(s.val()).forEach(v => filters.push(v));
+        renderFilters();
+    });
+    onValue(ref(db, 'videos'), s => {
+        try {
+            allVideos = [];
+            const raw = s.val();
+            if (raw) {
+                Object.entries(raw).forEach(([k, v]) => {
+                    if (v && typeof v === 'object') allVideos.push({ id: k, ...v });
+                });
+            }
+            allVideos.reverse();
+            requestAnimationFrame(() => {
+                renderFilters();
+                renderCards();
+                renderLiked();
+            });
+            if (startParam && isNaN(startParam)) {
+                const v = allVideos.find(x => x.id === startParam);
+                if (v) setTimeout(() => openVideoPage(v.id), 100);
+            }
+            setSplashProgress(100, 'প্রস্তুত!');
+            if (resolveVideosReady) { resolveVideosReady(); resolveVideosReady = null; }
+        } catch (e) {
+            if (resolveVideosReady) { resolveVideosReady(); resolveVideosReady = null; }
+        }
+    });
+
+    try {
+        await Promise.race([
+            Promise.all([videosReady, minSplashDelay]),
+            splashTimeout
+        ]);
+    } catch (e) {}
+    hideSplash();
+}
+
+document.getElementById('searchInput')?.addEventListener('input', renderCards);
 
 init();
 </script>
