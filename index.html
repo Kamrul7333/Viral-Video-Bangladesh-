@@ -626,10 +626,11 @@ body {
 
 .modal-backdrop {
     position: fixed; inset: 0; z-index: 1200;
-    background: rgba(4, 3, 8, 0.78);
-    backdrop-filter: blur(10px);
+    background: rgba(4, 5, 10, 0.84);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     display: none; align-items: center; justify-content: center;
-    padding: 20px;
+    padding: 18px;
     opacity: 0; transition: opacity 0.28s ease;
 }
 .modal-backdrop.show { display: flex; opacity: 1; }
@@ -678,6 +679,103 @@ body {
     border: 1px solid rgba(255,255,255,0.12);
     color: var(--text-dim);
 }
+
+/* ওয়েলকাম স্টার্টআপ পপ-আপ (স্ক্রিনশট স্টাইল) */
+.welcome-modal {
+    width: 100%; max-width: 365px;
+    max-height: 90dvh; overflow-y: auto;
+    background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.22) 0%, rgba(16, 20, 34, 0.98) 46%, rgba(11, 13, 20, 0.99) 100%);
+    border: 1px solid rgba(96, 165, 250, 0.28);
+    border-radius: 26px;
+    padding: 28px 20px 22px;
+    box-shadow: 0 26px 64px rgba(0, 0, 0, 0.8), 0 0 44px rgba(59, 130, 246, 0.16);
+    text-align: center;
+    transform: scale(0.92) translateY(14px);
+    transition: transform 0.34s cubic-bezier(0.22,1,0.36,1);
+    scrollbar-width: none;
+}
+.welcome-modal::-webkit-scrollbar { display: none; }
+.modal-backdrop.show .welcome-modal { transform: scale(1) translateY(0); }
+
+.welcome-star-ring {
+    width: 80px; height: 80px; margin: 0 auto 16px;
+    border-radius: 50%; padding: 3px;
+    background: linear-gradient(135deg, #93C5FD 0%, #3B82F6 50%, #60A5FA 100%);
+    box-shadow: 0 0 28px rgba(59, 130, 246, 0.45);
+}
+.welcome-star-core {
+    width: 100%; height: 100%; border-radius: 50%;
+    background: #101524;
+    display: flex; align-items: center; justify-content: center;
+}
+.welcome-star-core i {
+    font-size: 32px;
+    background: linear-gradient(135deg, #93C5FD, #3B82F6);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.welcome-brand {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: #cbd5e1;
+    margin-bottom: 10px;
+}
+.welcome-greeting {
+    font-family: var(--font-bn); font-size: 22px; font-weight: 800;
+    line-height: 1.38; margin-bottom: 12px;
+    background: linear-gradient(135deg, #93C5FD 0%, #60A5FA 50%, #3B82F6 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.welcome-greeting .emoji-reset {
+    -webkit-text-fill-color: initial;
+    background: none;
+}
+.welcome-desc {
+    font-family: var(--font-bn); font-size: 13px; line-height: 1.65;
+    color: #cbd5e1; margin-bottom: 18px;
+}
+.welcome-desc strong { color: #ffffff; font-weight: 800; }
+
+.welcome-features {
+    display: flex; flex-direction: column; gap: 9px;
+    margin-bottom: 18px;
+}
+.welcome-feat-item {
+    display: flex; align-items: center; gap: 12px; text-align: left;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(96, 165, 250, 0.22);
+    border-radius: 14px; padding: 10px 13px;
+}
+.welcome-feat-icon {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, #93C5FD, #3B82F6);
+    display: flex; align-items: center; justify-content: center;
+    color: #0B1120; font-size: 14px;
+    box-shadow: 0 3px 10px rgba(59, 130, 246, 0.35);
+}
+.welcome-feat-text {
+    font-family: var(--font-bn); font-size: 12.5px; font-weight: 600;
+    color: #f1f5f9; line-height: 1.35;
+}
+.welcome-actions { display: flex; flex-direction: column; gap: 10px; }
+.welcome-btn-start {
+    width: 100%; padding: 14px 16px; border-radius: 14px; border: none;
+    background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #2563EB 100%);
+    color: #ffffff; font-weight: 800; font-size: 14.5px;
+    font-family: var(--font-bn); cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 8px 22px rgba(59, 130, 246, 0.42);
+    transition: transform 0.15s;
+}
+.welcome-btn-start:active { transform: scale(0.98); }
+.welcome-btn-tg {
+    width: 100%; padding: 13px 16px; border-radius: 14px; border: none;
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    color: #ffffff; font-weight: 800; font-size: 13.5px;
+    font-family: var(--font-bn); cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 6px 18px rgba(14, 165, 233, 0.35);
+    transition: transform 0.15s;
+}
+.welcome-btn-tg:active { transform: scale(0.98); }
 
 .tut-embed-box {
     width: 100%; aspect-ratio: 16/9;
@@ -1090,8 +1188,44 @@ body {
         </div>
     </div>
     <div id="toast" class="toast">মেসেজ</div>
-</div>
 
+    <div id="welcomeModal" class="modal-backdrop" onclick="if(event.target === this) closeWelcomePopup()">
+        <div class="welcome-modal">
+            <div class="welcome-star-ring">
+                <div class="welcome-star-core">
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="welcome-brand">✦ VIRAL VIDEO BANGLADESH ✦</div>
+            <div class="welcome-greeting" id="welcomeGreeting">শুভ দুপুর! <span class="emoji-reset">☀️</span> বন্ধু <span class="emoji-reset">✨</span></div>
+            <p class="welcome-desc" id="welcomeDesc">
+                আজকের নতুন ভাইরাল কনটেন্ট আপনার জন্য অপেক্ষা করছে। <strong>প্রতিদিন নতুন ভিডিও</strong> আনলক করুন, বন্ধুদের ইনভাইট করে <strong>ফ্রি ক্রেডিট</strong> পান — আর মজার দুনিয়ায় ডুব দিন!
+            </p>
+            <div class="welcome-features">
+                <div class="welcome-feat-item">
+                    <div class="welcome-feat-icon"><i class="fas fa-fire"></i></div>
+                    <div class="welcome-feat-text">ট্রেন্ডিং ও নতুন ভিডিও এক জায়গায়</div>
+                </div>
+                <div class="welcome-feat-item">
+                    <div class="welcome-feat-icon"><i class="fas fa-gift"></i></div>
+                    <div class="welcome-feat-text">প্রতি রেফারেলে ১টি ফ্রি আনলক ক্রেডিট</div>
+                </div>
+                <div class="welcome-feat-item">
+                    <div class="welcome-feat-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="welcome-feat-text">দ্রুত আনলক · সহজ শেয়ার · প্রিমিয়াম এক্সপেরিয়েন্স</div>
+                </div>
+            </div>
+            <div class="welcome-actions">
+                <button type="button" class="welcome-btn-start" onclick="closeWelcomePopup()">
+                    <i class="fas fa-heart"></i> শুরু করি, চলো!
+                </button>
+                <button type="button" class="welcome-btn-tg" id="welcomeTgBtn" onclick="joinWelcomeChannel()">
+                    <i class="fab fa-telegram-plane"></i> আমাদের চ্যানেলে জয়েন করুন
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getDatabase, ref, onValue, runTransaction, get, set } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
@@ -1110,11 +1244,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const tg = (window.Telegram && window.Telegram.WebApp) ? window.Telegram.WebApp : {
-    expand(){}, setHeaderColor(){}, initDataUnsafe:{},
+    ready(){}, expand(){}, setHeaderColor(){}, initDataUnsafe:{},
     openLink(u){ window.open(u,'_blank'); },
     openTelegramLink(u){ window.open(u,'_blank'); }
 };
-try { tg.expand(); tg.setHeaderColor('#121212'); } catch (e) {}
+try { tg.ready(); tg.expand(); tg.setHeaderColor('#121212'); } catch (e) {}
 
 const user = tg.initDataUnsafe?.user;
 const currentUserId = user?.id || 12345678;
@@ -1140,11 +1274,15 @@ let settings = {
     adsgram_block_id: "int-1234",
     monetag_zone_id: "12126313",
     bengal_app_id: "tma_ac81feeb35dc105083a21d63e213030b94269e9a",
-    bengal_format_id: "int_a6169f63b7a9493bf3c7f1a776ecaaae2b90e70d"
+    bengal_format_id: "int_a6169f63b7a9493bf3c7f1a776ecaaae2b90e70d",
+    direct_link_url: ""
 };
 let currentFilter = 'all';
 let isBengalAdsInit = false;
+let lastBengalKey = "";
 let adController = null;
+let lastAdsgramBlockId = "";
+let hasShownWelcome = false;
 
 function openExternal(url) {
     if (!url) return;
@@ -1158,6 +1296,63 @@ function openExternal(url) {
 }
 window.openExternal = openExternal;
 
+function getTimeGreetingBn() {
+    const h = new Date().getHours();
+    if (h >= 5 && h < 12) return { text: 'শুভ সকাল!', emoji: '☀️' };
+    if (h >= 12 && h < 17) return { text: 'শুভ দুপুর!', emoji: '☀️' };
+    if (h >= 17 && h < 20) return { text: 'শুভ সন্ধ্যা!', emoji: '🌆' };
+    return { text: 'শুভ রাত্রি!', emoji: '🌙' };
+}
+
+function showWelcomePopup() {
+    if (hasShownWelcome) return;
+    if (settings.popup_enabled === false || settings.show_popup === false) return;
+    const modal = document.getElementById('welcomeModal');
+    if (!modal) return;
+
+    const g = getTimeGreetingBn();
+    const uFirst = (user?.first_name || 'বন্ধু').trim();
+    const greetEl = document.getElementById('welcomeGreeting');
+    if (greetEl) {
+        greetEl.innerHTML = `${g.text} <span class="emoji-reset">${g.emoji}</span> ${escHtml(uFirst)} <span class="emoji-reset">✨</span>`;
+    }
+
+    const customDesc = settings.popup_message || settings.popup_text || settings.notice_text || settings.notice;
+    const descEl = document.getElementById('welcomeDesc');
+    if (descEl && customDesc) {
+        descEl.innerText = customDesc;
+    }
+
+    hasShownWelcome = true;
+    modal.classList.add('show');
+}
+
+window.closeWelcomePopup = () => {
+    const modal = document.getElementById('welcomeModal');
+    if (modal) modal.classList.remove('show');
+};
+
+window.joinWelcomeChannel = () => {
+    const channelUrl = String(
+        settings.channel_link ||
+        settings.telegram_link ||
+        settings.popup_link ||
+        settings.join_link ||
+        settings.channel_url ||
+        (menuLinks[0]?.url) ||
+        ""
+    ).trim();
+    window.closeWelcomePopup();
+    if (channelUrl) {
+        if (channelUrl.includes('t.me/') && tg && typeof tg.openTelegramLink === 'function') {
+            try { tg.openTelegramLink(channelUrl); return; } catch(e) {}
+        }
+        openExternal(channelUrl);
+    } else {
+        showToast("চ্যানেল লিংক পাওয়া যায়নি!");
+    }
+};
+
 const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
 function withTimeout(promise, ms, errObj) {
@@ -1170,96 +1365,224 @@ function withTimeout(promise, ms, errObj) {
     });
 }
 
-function initBengalAdsSystem() {
-    if (window.BengalAds && !isBengalAdsInit) {
-        const appId = settings.bengal_app_id || "tma_ac81feeb35dc105083a21d63e213030b94269e9a";
-        const formatId = settings.bengal_format_id || "int_a6169f63b7a9493bf3c7f1a776ecaaae2b90e70d";
-        try {
-            window.Telegram?.WebApp?.ready();
-            window.BengalAds.init({
-                appId: appId,
-                formatId: formatId,
-                telegramInitData: window.Telegram?.WebApp?.initData || ""
-            });
-            isBengalAdsInit = true;
-        } catch(e) {}
+function getMonetagZone() {
+    const z = String(settings.monetag_zone_id || '12126313').replace(/[^0-9]/g, '');
+    return z || '12126313';
+}
+
+function normalizeProvider(p) {
+    const val = String(p || '').trim().toLowerCase().replace(/[\s-]+/g, '_');
+    if (val.includes('bengal')) return 'bengalads';
+    if (val.includes('monetag') || val.includes('libtl')) return 'monetag';
+    if (val.includes('adsgram')) return 'adsgram';
+    if (val.includes('direct')) return 'direct_link';
+    return val || 'bengalads';
+}
+
+async function initBengalAdsSystem(force = false) {
+    if (!window.BengalAds) return false;
+    const appId = String(settings.bengal_app_id || "tma_ac81feeb35dc105083a21d63e213030b94269e9a").trim();
+    const formatId = String(settings.bengal_format_id || "int_a6169f63b7a9493bf3c7f1a776ecaaae2b90e70d").trim();
+    const key = `${appId}::${formatId}`;
+    if (isBengalAdsInit && lastBengalKey === key && !force) return true;
+    try {
+        try { window.Telegram?.WebApp?.ready(); } catch(e) {}
+        const initRes = window.BengalAds.init({
+            appId: appId,
+            formatId: formatId,
+            telegramInitData: window.Telegram?.WebApp?.initData || ""
+        });
+        if (initRes && typeof initRes.then === 'function') {
+            await withTimeout(initRes, 5000, "bengal_init_timeout");
+        }
+        isBengalAdsInit = true;
+        lastBengalKey = key;
+        return true;
+    } catch(e) {
+        console.warn("BengalAds init error:", e);
+        return false;
     }
 }
 
-// Monetag SDK লোড হওয়া পর্যন্ত অপেক্ষা
-async function waitMonetagReady(zone, maxWait = 5000) {
+async function ensureBengalAdsReady(maxWait = 5000) {
+    if (!window.BengalAds) {
+        const existing = Array.from(document.querySelectorAll('script')).find(
+            sc => sc.src && sc.src.includes('ads.bengalads.com')
+        );
+        if (!existing || existing.dataset.error === '1') {
+            if (existing) existing.remove();
+            const s = document.createElement('script');
+            s.src = 'https://ads.bengalads.com/sdk/telegram-interstitial.js';
+            s.async = true;
+            s.onerror = () => { s.dataset.error = '1'; };
+            document.head.appendChild(s);
+        }
+        const start = Date.now();
+        while (Date.now() - start < maxWait) {
+            if (window.BengalAds) break;
+            await delay(150);
+        }
+    }
+    if (!window.BengalAds) return false;
+    return await initBengalAdsSystem();
+}
+
+// Monetag SDK ডাইনামিক লোড ও রেডি হওয়া পর্যন্ত অপেক্ষা
+async function waitMonetagReady(zone, maxWait = 6000) {
     const fnName = 'show_' + zone;
+    if (typeof window[fnName] === 'function') return true;
+
+    const existing = Array.from(document.querySelectorAll('script')).find(
+        sc => sc.src && sc.src.includes('libtl.com/sdk.js') && sc.getAttribute('data-zone') === String(zone)
+    );
+    if (!existing || existing.dataset.error === '1') {
+        if (existing) existing.remove();
+        const s = document.createElement('script');
+        s.src = 'https://libtl.com/sdk.js';
+        s.async = true;
+        s.setAttribute('data-zone', String(zone));
+        s.setAttribute('data-sdk', fnName);
+        s.onerror = () => { s.dataset.error = '1'; };
+        document.head.appendChild(s);
+    }
+
     const start = Date.now();
     while (Date.now() - start < maxWait) {
         if (typeof window[fnName] === 'function') return true;
-        await delay(200);
+        await delay(150);
     }
     return typeof window[fnName] === 'function';
 }
 
-// Adsgram Controller
+// Adsgram Controller (Firebase আপডেট হলে অটো রিসেট হবে)
 function getAdsgramController() {
     if (typeof window.Adsgram === 'undefined') return null;
-    const bId = settings.adsgram_block_id || "int-1234";
-    if (!adController) {
+    const bId = String(settings.adsgram_block_id || "int-1234").trim();
+    if (!bId) return null;
+    if (!adController || lastAdsgramBlockId !== bId) {
         try {
             adController = window.Adsgram.init({ blockId: bId });
-        } catch(e) {}
+            lastAdsgramBlockId = bId;
+        } catch(e) {
+            console.warn("Adsgram init error:", e);
+            adController = null;
+        }
     }
     return adController;
 }
 
-// বিজ্ঞাপন প্লে করার ফাংশন
-async function runSpecificProvider(provider) {
-    console.log("Showing Ad Provider:", provider);
-    if (provider === 'bengalads') {
-        initBengalAdsSystem();
-        if (window.BengalAds && typeof window.BengalAds.showInterstitial === 'function') {
+async function ensureAdsgramReady(maxWait = 5000) {
+    if (typeof window.Adsgram === 'undefined') {
+        const existing = Array.from(document.querySelectorAll('script')).find(
+            sc => sc.src && sc.src.includes('sad.adsgram.ai')
+        );
+        if (!existing || existing.dataset.error === '1') {
+            if (existing) existing.remove();
+            const s = document.createElement('script');
+            s.src = 'https://sad.adsgram.ai/js/sad.min.js';
+            s.async = true;
+            s.onerror = () => { s.dataset.error = '1'; };
+            document.head.appendChild(s);
+        }
+        const start = Date.now();
+        while (Date.now() - start < maxWait) {
+            if (typeof window.Adsgram !== 'undefined') break;
+            await delay(150);
+        }
+    }
+    return getAdsgramController();
+}
+
+function preloadAllAds() {
+    initBengalAdsSystem();
+    waitMonetagReady(getMonetagZone(), 6000);
+    getAdsgramController();
+}
+
+// নির্দিষ্ট একটি প্রোভাইডার দিয়ে বিজ্ঞাপন দেখানোর চেষ্টা
+async function tryShowProvider(provider) {
+    const p = normalizeProvider(provider);
+    console.log("Trying Ad Provider:", p);
+
+    if (p === 'bengalads') {
+        const ready = await ensureBengalAdsReady(5000);
+        if (ready && window.BengalAds && typeof window.BengalAds.showInterstitial === 'function') {
+            hideOverlay();
             try {
-                const res = await withTimeout(window.BengalAds.showInterstitial(), 25000, "timeout");
-                if (res && res.status === 'closed') return;
-            } catch(e) {}
+                const res = await withTimeout(window.BengalAds.showInterstitial(), 30000, "timeout");
+                if (res && (res.status === 'error' || res.status === 'failed' || res.error)) {
+                    throw new Error(res.message || res.status || "BengalAds error");
+                }
+                return true;
+            } catch(e) {
+                console.warn("BengalAds show error:", e);
+            }
         }
-        // Fallback
-        for (let s = 5; s > 0; s--) {
-            showOverlay(`বিজ্ঞাপন লোড হচ্ছে... (${s}s)`);
-            await delay(1000);
-        }
-    } else if (provider === 'monetag') {
-        const zone = String(settings.monetag_zone_id || '12126313').replace(/[^0-9]/g, '');
+        return false;
+    }
+
+    if (p === 'monetag') {
+        const zone = getMonetagZone();
         const fnName = 'show_' + zone;
-        const isReady = await waitMonetagReady(zone, 3000);
+        const isReady = await waitMonetagReady(zone, 6000);
         if (isReady && typeof window[fnName] === 'function') {
+            hideOverlay();
             try {
-                await withTimeout(window[fnName](), 20000, "timeout");
-                return;
-            } catch(e) {}
+                await withTimeout(window[fnName](), 30000, "timeout");
+                return true;
+            } catch(e) {
+                console.warn("Monetag show error:", e);
+            }
         }
-        // Fallback
-        for (let s = 5; s > 0; s--) {
-            showOverlay(`বিজ্ঞাপন লোড হচ্ছে... (${s}s)`);
-            await delay(1000);
-        }
-    } else if (provider === 'direct_link') {
-        const url = settings.direct_link_url || "https://google.com";
+        return false;
+    }
+
+    if (p === 'direct_link') {
+        const url = String(settings.direct_link_url || settings.direct_link || "https://google.com").trim();
+        hideOverlay();
         openExternal(url);
         for (let s = 6; s > 0; s--) {
             showOverlay(`বিজ্ঞাপন দেখা হচ্ছে... (${s}s)`);
             await delay(1000);
         }
-    } else { // Adsgram
-        const controller = getAdsgramController();
-        if (controller) {
+        return true;
+    }
+
+    if (p === 'adsgram') {
+        const controller = await ensureAdsgramReady(5000);
+        if (controller && typeof controller.show === 'function') {
+            hideOverlay();
             try {
-                await withTimeout(controller.show(), 30000, "timeout");
-                return;
-            } catch(e) {}
+                await withTimeout(controller.show(), 35000, "timeout");
+                return true;
+            } catch(e) {
+                console.warn("Adsgram show error:", e);
+            }
         }
-        // Fallback
-        for (let s = 5; s > 0; s--) {
-            showOverlay(`বিজ্ঞাপন লোড হচ্ছে... (${s}s)`);
-            await delay(1000);
+        return false;
+    }
+
+    return false;
+}
+
+// বিজ্ঞাপন প্লে করার মূল ফাংশন (ব্যাকআপ ও ফলব্যাক সহ)
+async function runSpecificProvider(provider) {
+    const primary = normalizeProvider(provider);
+    const shown = await tryShowProvider(primary);
+    if (shown) return;
+
+    if (primary !== 'direct_link') {
+        const backups = ['bengalads', 'monetag', 'adsgram'].filter(x => x !== primary);
+        for (const bp of backups) {
+            showOverlay('বিকল্প বিজ্ঞাপন লোড হচ্ছে...');
+            const ok = await tryShowProvider(bp);
+            if (ok) return;
         }
+    }
+
+    for (let s = 5; s > 0; s--) {
+        showOverlay(`বিজ্ঞাপন লোড হচ্ছে... (${s}s)`);
+        await delay(1000);
     }
 }
 
@@ -1521,7 +1844,7 @@ async function init() {
     onValue(ref(db, 'settings'), s => {
         if (s.val()) {
             settings = { ...settings, ...s.val() };
-            initBengalAdsSystem();
+            preloadAllAds();
         }
     });
 
@@ -1546,9 +1869,11 @@ async function init() {
     setTimeout(() => {
         const sp = document.getElementById('splashScreen');
         if (sp) { sp.classList.add('splash-hidden'); setTimeout(() => sp.style.display = 'none', 400); }
+        setTimeout(showWelcomePopup, 300);
     }, 1500);
 }
 
+window.addEventListener('load', preloadAllAds);
 document.getElementById('searchInput')?.addEventListener('input', renderCards);
 init();
 </script>
